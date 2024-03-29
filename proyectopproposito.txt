@@ -1,0 +1,22 @@
+1.1
+El software va a estar destinado a ense;ar los elementos dentro de la tabla periodica, los grupos a los que pertenecen
+y su orden relativo, con un nivel de secundario.
+
+1.2
+convenciones de documento
+fuente : Computer modem normal 10pts
+fuente para imagenes: Computer modem normal 10pts negrita
+fuente para titulo: consolas, 20pts
+fuente para subtitulo: consolas, 12pts
+
+1.3
+lectores: usuarios, desarrolladores, testers
+???????????
+
+1.4
+el objetivo es poder ense;ar la tabla periodica de intuitiva, que de facilidad de uso al usuario, permita ver claramente los elementos y aprender de su uso,
+ense;ando y evaluando de manera modularizada. El software va a poder constar de personalizacion, que va a ir apuntado a los distintos colegios.
+
+1.5
+datos de la tabla periodica proporcionados por la IUPAC
+
