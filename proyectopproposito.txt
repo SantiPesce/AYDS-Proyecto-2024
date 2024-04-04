@@ -20,3 +20,102 @@ ense;ando y evaluando de manera modularizada. El software va a poder constar de 
 1.5
 datos de la tabla periodica proporcionados por la IUPAC
 
+2.1
+ Este producto provee informacion de froma intuitiva y didactica sobre la tabla periodica, sus elementos, composicion y orden
+
+2.2
+
+*crear usuario
+*crear curso 
+*modificar usuario
+*Iniciar aprendizaje (tomar una clase, tomar un examen)
+
+2.3
+    *Usuario
+    *administrador
+
+2.4
+    Pagina Web, Ruby ?????
+ 
+2.5
+   Algunos reglamentos, como el Reglamento General de Protección de Datos (RGPD), exige a las organizaciones que sigan los pasos necesarios para garantizar la seguridad de los datos personales, lo que comprende el uso de contraseñas complejas.
+   *Debe tener por lo menos 12 caracteres
+   *Se permiten cinco intentos antes de imponer un bloqueo temporal de 10 minutos
+   *Se deben incluir letras mayúsculas y minúsculas (a-z y A-Z)
+   *Se debe incluir un número (del 0 al 9)
+   *Se debe incluir un carácter especial (!, @, #,%, etc.)
+   *No puede incluir la palabra "Zendesk"
+   *No puede parecerse a una dirección de correo electrónico
+   *Debe verificarse en una lista de contraseñas vulneradas conocidas para garantizar que no sea una de ellas
+
+    El protocolo utilizado por MySQL para la comunicación entre clientes y servidor es el Protocolo de Transmisión de MySQL (MySQL Transport Protocol), también conocido como el Protocolo de Comunicación de MySQL. 
+
+2.6
+    Manual, FAQ, tutorial(plantilla a disposición dentro del programa para indicar la forma de uso). 
+
+2.7
+    Se utilizará Ruby como lenguaje de desarrollo, uno de los componentes de terceros es Mysql.(Ruby on rails???) *** LIBRERIA PARA INTERFAZ***
+
+
+///////////*//////////////*////////*////////*////////*//
+
+
+
+3.1 Interfaz del usuario, estandár en relacion a tipografia, un esquema/boceto de la interfaz
+
+La interfaz está compuesta por:
+
+    *Pantalla principal
+    *login/crear usuario
+    *curso
+    *Evaluacion
+    *Exploración
+
+3.2 
+    Mouse, teclado y protocolos estandar
+
+3.3
+    OS: Windows / Linux
+    Base de datos: MySQL
+    Herramientas: VisualStudio, Intellij, Netbeans
+    Bibliotecas: de la base de datos.
+
+3.4
+   
+    TBD
+
+4
+    
+    ////////Caracteristica 1////////
+
+    4.1.1 Pantalla de bienvenida :  es lo primero con lo que se encuentra el usuario, debe ser facil de usar
+
+    4.1.2 Todos los usuarios se encuentran con esta pantalla ni bien iniciado el programa.
+
+    4.1.3 Es la interfaz a través de la que los siguientes requerimientos funcionales conviven: (crear usuario, login, iniciar curso, avance, compartir)
+    
+
+    ////////Caracteristica 2////////
+    
+    4.1.1 crear usuario: se ingresan los datos personales del usuario (Nombre, apellido,DNI, institucion a la que pertenece, ocupación, Nombre de usuario, avatar y clave)
+
+    4.1.2 se llega a través de la pantalla principal, esta funcionalidad deberia ser aplicada solo una vez. 
+
+    4.1.3 
+
+    ////////Caracteristica 3////////
+
+
+LISTA DE FUNCIONALIDADES A DESCRIBIR....
+
+
+5 REQUERIMIENTOS NO FUNCIONALES 
+
+5.1 Requerimientos de desempeño 
+
+    Deberia resguardar el avance del aprendizaje (modular,ultimo examen, desempeño) del usuario de forma persistente. 
+    Que cuente con algun nivel de accesibilidad
+
+
+5.2
+
