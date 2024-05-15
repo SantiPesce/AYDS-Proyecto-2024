@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>Bienvenido</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: white;
+      margin-top: 150px;
+      padding: 0;
+    }
+    .container {
+       max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255,255,255, 0.8) ;
+            display: inline-block;  
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    h1, h2 {
+      color: #333;
+    }
+    h2 {
+      margin-top: 20px;
+    }
+    .button {
+      display: none;
+      opacity: 0;
+      transform: scale(1);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #48a770;
+    }
+    .button.visible {
+      display: inline-block;
+      opacity: 1;
+      transform: scale(1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Elementally</h1>
+    <h2>Comencemos el camino de los elementos...</h2>
+
+    <script>
+      // Función para mostrar los botones después de 3 segundos y ocultar el h2
+      window.onload = function() {
+        setTimeout(function() {
+          var buttons = document.querySelectorAll('.button');
+          var h2 = document.querySelector('h2');
+          buttons.forEach(function(button) {
+            button.classList.add('visible');
+          });
+          h2.style.opacity = 0;
+        }, 3000); // 3000 milisegundos = 3 segundos
+      };
+    </script>
+
+    <a class="button" href="/login">Logearse</a>
+    <a class="button" href="/register">Registrarse</a>
+    <a class="button" href="/guest">Entrar como Invitado</a>
+  </div>
+</body>
+</html>

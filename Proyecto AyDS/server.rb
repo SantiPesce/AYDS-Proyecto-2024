@@ -10,16 +10,21 @@ class App < Sinatra::Application
     super()
   end
 
-  get '/login' do
-    erb :login
-  end
-
-  get'/register' do
-    erb :register
+  get '/' do
+    erb :'welcome'
   end
 
   get '/users' do
     @users = User.all
     erb :'users/index'
   end
+
+  get '/login' do
+    erb :'login'
+  end
+
+  get '/register' do
+    erb :'register'
+  end
+
 end
