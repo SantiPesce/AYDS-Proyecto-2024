@@ -45,7 +45,8 @@ class App < Sinatra::Application
       session[:user_id] = user.id
       redirect '/menu' #redirijo al inicio
     else
-      redirect '/login' # Sino tiro a una pagina fallida o login nuevamente
+      @error = "Incorrect user or password"
+      erb :login # Sino tiro a una pagina fallida o login nuevamente
     end
   end
 
