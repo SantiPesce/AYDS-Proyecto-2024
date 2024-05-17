@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menú con Usuario y Barra de Progreso - Adaptativo</title>
+<style>
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.menu li {
+    display: inline-block;
+    margin-right: 2%; /* Espacio entre cada elemento li */
+    text-align: center; /* Alinear el texto al centro dentro de los elementos li */
+    width: 23%; /* Cada elemento li ocupará el 23% del ancho del contenedor */
+}
+
+.menu li:last-child {
+    margin-right: 0; /* Eliminar el margen derecho del último elemento li */
+}
+
+.menu li a {
+    display: block; /* Convertir el enlace en un bloque para que ocupe todo el espacio disponible */
+    text-decoration: none;
+    color: #fff;
+    background-color: gray; /* Color de fondo verde */
+    transition: background-color 0.3s ease; /* Efecto de transición suave */
+    border-radius: 5px; /* Botones más redondeados */
+    overflow: hidden; /* Evitar que la imagen se desborde del botón */
+}
+
+.menu li a img {
+    width: 100%; /* La imagen ocupará todo el ancho del botón */
+    height: auto; /* La altura se ajustará automáticamente para mantener la proporción */
+    transition: transform 0.3s ease; /* Efecto de transición suave al pasar el ratón */
+}
+
+.menu li a:hover img {
+    transform: scale(1.1); /* Escalar la imagen al pasar el ratón para dar un efecto de aumento */
+}
+
+
+.menu li a:hover {
+    background-color: #45a049; /* Color de fondo verde más oscuro al pasar el ratón */
+}
+
+/* Estilos del encabezado */
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px; /* Mayor espacio en el encabezado */
+    text-align: right;
+}
+
+/* Estilos de la barra de progreso */
+.progress {
+    height: 20px;
+    background-color: #f0f0f0;
+    border-radius: 0px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: seagreen;
+    width: <%= @user.progress %>%; /* Puedes cambiar este valor para ajustar el progreso */
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Encabezado con nombre de usuario -->
+    <div class="header">
+        <strong><%= @user.username %></strong>
+    </div>
+
+    <!-- Barra de progreso -->
+    <div class="progress">
+        <div class="progress-bar"></div>
+    </div>
+
+    <!-- Menú -->
+    <ul class="menu">
+    <li><a href="#"><img src="images/1.png" alt="Botón 1"></a></li>
+    <li><a href="#"><img src="images/2.png" alt="Botón 2"></a></li>
+    <li><a href="#"><img src="images/3.png" alt="Botón 3"></a></li>
+    <li><a href="#"><img src="images/4.png" alt="Botón 4"></a></li>
+</ul>
+
+</div>
+
+</body>
+
+</html>

@@ -9,5 +9,10 @@
             <li><%= user.email %></li>
         <% end %>
     </ul>
+    <ul>
+        <% @elements.each do |element| %>
+            <li><%= element.name %></li>
+        <% end %>
+    </ul>
 </body>
 </html>

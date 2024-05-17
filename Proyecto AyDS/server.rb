@@ -28,7 +28,7 @@ class App < Sinatra::Application
 
   get '/elements' do
     @elements = Element.all
-    erb :'elements/index'
+    erb :'users/index'
   end
 
   get '/login' do
@@ -83,6 +83,5 @@ class App < Sinatra::Application
     @user = User.find(session[:user_id])
     erb :'menu'
   end
-  
 
 end

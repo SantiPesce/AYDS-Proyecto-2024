@@ -16,6 +16,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_14_030326) do
     t.string "username"
     t.string "email"
     t.string "password"
+    t.integer "progress"
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil
   end

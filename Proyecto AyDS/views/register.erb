@@ -8,7 +8,7 @@
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      background-color: grey;
+      background-color: white;
       margin: 0;
       padding: 0;
     }
@@ -23,6 +23,7 @@
       padding: 20px;
       border-radius: 16px;
       width: 400px; /* Ajuste de ancho */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
     .title_container h2 {
       color: #333;
@@ -105,7 +106,7 @@
       </div>
       <div class="row clearfix">
         <div class="">
-          <form>
+          <form action="/register" method="post">
             <div class="input_field"> <span><i class="fas fa-envelope"></i></span>
               <input type="email" name="email" placeholder="Email" required />
             </div>
@@ -117,15 +118,10 @@
             </div>
             <div class="row clearfix">
               <div class="col_half">
-                <div class="input_field"> <span><i class="fas fa-user"></i></span>
-                  <input type="text" name="first_name" placeholder="Primer nombre" />
-                </div>
+              <div class="input_field"> <span><i class="fas fa-user"></i></span>
+                <input type="text" name="username" placeholder="Nombre de usuario" />
               </div>
-              <div class="col_half">
-                <div class="input_field"> <span><i class="fas fa-user"></i></span>
-                  <input type="text" name="last_name" placeholder="Segundo nombre" required />
-                </div>
-              </div>
+            </div>
             </div>
             <div class="input_field radio_option">
               <input type="radio" name="gender" id="male">
@@ -144,10 +140,6 @@
             <div class="input_field checkbox_option">
               <input type="checkbox" id="terms">
               <label for="terms">Acepto los términos y condiciones</label>
-            </div>
-            <div class="input_field checkbox_option">
-              <input type="checkbox" id="receive_info">
-              <label for="receive_info">Quiero recibir información</label>
             </div>
             <input class="button" type="submit" value="Registrarse" />
           </form>
