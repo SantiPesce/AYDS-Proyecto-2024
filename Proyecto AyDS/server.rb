@@ -8,6 +8,7 @@ set :database_file, './config/database.yml'
 enable :sessions
 
 require './models/user'
+require './models/element'
 
 class App < Sinatra::Application
   
@@ -28,7 +29,7 @@ class App < Sinatra::Application
 
   get '/elements' do
     @elements = Element.all
-    erb :'element/index'
+    erb :'elements/index'
   end
 
   get '/login' do
