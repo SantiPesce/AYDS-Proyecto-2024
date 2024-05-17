@@ -26,6 +26,11 @@ class App < Sinatra::Application
     erb :'users/index'
   end
 
+  get '/elements' do
+    @elements = Element.all
+    erb :'elements/index'
+  end
+
   get '/login' do
     erb :'login' 
   end
