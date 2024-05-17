@@ -33,6 +33,7 @@ class App < Sinatra::Application
   end
 
   get '/login' do
+    @error = session.delete(:error)
     erb :'login' 
   end
 
@@ -45,12 +46,13 @@ class App < Sinatra::Application
       session[:user_id] = user.id
       redirect '/menu' #redirijo al inicio
     else
-      @error = "Incorrect user or password"
+      @error = "Contraseña o usuario incorrecto"
       erb :login # Sino tiro a una pagina fallida o login nuevamente
     end
   end
 
   get '/register' do
+    @error = session.delete(:error)
     erb :'register'
   end
 
@@ -63,10 +65,12 @@ class App < Sinatra::Application
     password = params[:password]
   
     if User.exists?(email: email)
+      session[:error] = "El email ya esta registrado"
       redirect '/register' # Redirigijo si el correo electrónico ya existe
     end
 
     if User.exists?(username: username)
+      session[:error] = "El nombre de usuario ya esta registrado"
       redirect '/register' # Redirijo si el nombre de usuario ya existe
     end
   
@@ -74,9 +78,11 @@ class App < Sinatra::Application
     user = User.new(names: names, username: username, email: email, password: password, progress: 0)
   
     if user.save
-      redirect '/login' # redirecciono para que el usuario se logee
+      @success = "Te registraste correctamente, inicia sesion"
+      erb :login # Sino tiro a una pagina fallida o login nuevamente
     else
-      redirect '/inicio_fail' # trato el error de registro de alguna manera
+      session[:error] = "Ocurrio un error al registrarte, intentalo de nuevo"
+      redirect '/register' # trato el error de registro de alguna manera
     end
   end
   
