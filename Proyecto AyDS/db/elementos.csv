@@ -1,119 +1,119 @@
-,,,,,,,,,,,,,
-symbol,H,name,Hydrogen,atomicMass,1.007,number,1,group,1,period,1,clasification,Nonmetal
-symbol,He,name,Helium,atomicMass,4.002,number,2,group,18,period,1,clasification,Noble Gas
-symbol,Li,name,Lithium,atomicMass,6.941,number,3,group,1,period,2,clasification,Alkali Metal
-symbol,Be,name,Beryllium,atomicMass,9.012,number,4,group,2,period,2,clasification,Alkaline Earth Metal
-symbol,B,name,Boron,atomicMass,10.811,number,5,group,13,period,2,clasification,Metalloid
-symbol,C,name,Carbon,atomicMass,12.011,number,6,group,14,period,2,clasification,Nonmetal
-symbol,N,name,Nitrogen,atomicMass,14.007,number,7,group,15,period,2,clasification,Nonmetal
-symbol,O,name,Oxygen,atomicMass,15.999,number,8,group,16,period,2,clasification,Nonmetal
-symbol,F,name,Fluorine,atomicMass,18.998,number,9,group,17,period,2,clasification,Halogen
-symbol,Ne,name,Neon,atomicMass,20.18,number,10,group,18,period,2,clasification,Noble Gas
-symbol,Na,name,Sodium,atomicMass,22.99,number,11,group,1,period,3,clasification,Alkali Metal
-symbol,Mg,name,Magnesium,atomicMass,24.305,number,12,group,2,period,3,clasification,Alkaline Earth Metal
-symbol,Al,name,Aluminum,atomicMass,26.982,number,13,group,13,period,3,clasification,Metal
-symbol,Si,name,Silicon,atomicMass,28.086,number,14,group,14,period,3,clasification,Metalloid
-symbol,P,name,Phosphorus,atomicMass,30.974,number,15,group,15,period,3,clasification,Nonmetal
-symbol,S,name,Sulfur,atomicMass,32.065,number,16,group,16,period,3,clasification,Nonmetal
-symbol,Cl,name,Chlorine,atomicMass,35.453,number,17,group,17,period,3,clasification,Halogen
-symbol,Ar,name,Argon,atomicMass,39.948,number,18,group,18,period,3,clasification,Noble Gas
-symbol,K,name,Potassium,atomicMass,39.098,number,19,group,1,period,4,clasification,Alkali Metal
-symbol,Ca,name,Calcium,atomicMass,40.078,number,20,group,2,period,4,clasification,Alkaline Earth Metal
-symbol,Sc,name,Scandium,atomicMass,44.956,number,21,group,3,period,4,clasification,Transition Metal
-symbol,Ti,name,Titanium,atomicMass,47.867,number,22,group,4,period,4,clasification,Transition Metal
-symbol,V,name,Vanadium,atomicMass,50.942,number,23,group,5,period,4,clasification,Transition Metal
-symbol,Cr,name,Chromium,atomicMass,51.996,number,24,group,6,period,4,clasification,Transition Metal
-symbol,Mn,name,Manganese,atomicMass,54.938,number,25,group,7,period,4,clasification,Transition Metal
-symbol,Fe,name,Iron,atomicMass,55.845,number,26,group,8,period,4,clasification,Transition Metal
-symbol,Co,name,Cobalt,atomicMass,58.933,number,27,group,9,period,4,clasification,Transition Metal
-symbol,Ni,name,Nickel,atomicMass,58.693,number,28,group,10,period,4,clasification,Transition Metal
-symbol,Cu,name,Copper,atomicMass,63.546,number,29,group,11,period,4,clasification,Transition Metal
-symbol,Zn,name,Zinc,atomicMass,65.38,number,30,group,12,period,4,clasification,Transition Metal
-symbol,Ga,name,Gallium,atomicMass,69.723,number,31,group,13,period,4,clasification,Metal
-symbol,Ge,name,Germanium,atomicMass,72.64,number,32,group,14,period,4,clasification,Metalloid
-symbol,As,name,Arsenic,atomicMass,74.922,number,33,group,15,period,4,clasification,Metalloid
-symbol,Se,name,Selenium,atomicMass,78.96,number,34,group,16,period,4,clasification,Nonmetal
-symbol,Br,name,Bromine,atomicMass,79.904,number,35,group,17,period,4,clasification,Halogen
-symbol,Kr,name,Krypton,atomicMass,83.798,number,36,group,18,period,4,clasification,Noble Gas
-symbol,Rb,name,Rubidium,atomicMass,85.468,number,37,group,1,period,5,clasification,Alkali Metal
-symbol,Sr,name,Strontium,atomicMass,87.62,number,38,group,2,period,5,clasification,Alkaline Earth Metal
-symbol,Y,name,Yttrium,atomicMass,88.906,number,39,group,3,period,5,clasification,Transition Metal
-symbol,Zr,name,Zirconium,atomicMass,91.224,number,40,group,4,period,5,clasification,Transition Metal
-symbol,Nb,name,Niobium,atomicMass,92.906,number,41,group,5,period,5,clasification,Transition Metal
-symbol,Mo,name,Molybdenum,atomicMass,95.96,number,42,group,6,period,5,clasification,Transition Metal
-symbol,Tc,name,Technetium,atomicMass,98,number,43,group,7,period,5,clasification,Transition Metal
-symbol,Ru,name,Ruthenium,atomicMass,101.07,number,44,group,8,period,5,clasification,Transition Metal
-symbol,Rh,name,Rhodium,atomicMass,102.906,number,45,group,9,period,5,clasification,Transition Metal
-symbol,Pd,name,Palladium,atomicMass,106.42,number,46,group,10,period,5,clasification,Transition Metal
-symbol,Ag,name,Silver,atomicMass,107.868,number,47,group,11,period,5,clasification,Transition Metal
-symbol,Cd,name,Cadmium,atomicMass,112.411,number,48,group,12,period,5,clasification,Transition Metal
-symbol,In,name,Indium,atomicMass,114.818,number,49,group,13,period,5,clasification,Metal
-symbol,Sn,name,Tin,atomicMass,118.71,number,50,group,14,period,5,clasification,Metal
-symbol,Sb,name,Antimony,atomicMass,121.76,number,51,group,15,period,5,clasification,Metalloid
-symbol,Te,name,Tellurium,atomicMass,127.6,number,52,group,16,period,5,clasification,Metalloid
-symbol,I,name,Iodine,atomicMass,126.904,number,53,group,17,period,5,clasification,Halogen
-symbol,Xe,name,Xenon,atomicMass,131.293,number,54,group,18,period,5,clasification,Noble Gas
-symbol,Cs,name,Cesium,atomicMass,132.905,number,55,group,1,period,6,clasification,Alkali Metal
-symbol,Ba,name,Barium,atomicMass,137.327,number,56,group,2,period,6,clasification,Alkaline Earth Metal
-symbol,La,name,Lanthanum,atomicMass,138.905,number,57,group,3,period,6,clasification,Lanthanide
-symbol,Ce,name,Cerium,atomicMass,140.116,number,58,group,,period,6,clasification,Lanthanide
-symbol,Pr,name,Praseodymium,atomicMass,140.908,number,59,group,,period,6,clasification,Lanthanide
-symbol,Nd,name,Neodymium,atomicMass,144.242,number,60,group,,period,6,clasification,Lanthanide
-symbol,Pm,name,Promethium,atomicMass,145,number,61,group,,period,6,clasification,Lanthanide
-symbol,Sm,name,Samarium,atomicMass,150.36,number,62,group,,period,6,clasification,Lanthanide
-symbol,Eu,name,Europium,atomicMass,151.964,number,63,group,,period,6,clasification,Lanthanide
-symbol,Gd,name,Gadolinium,atomicMass,157.25,number,64,group,,period,6,clasification,Lanthanide
-symbol,Tb,name,Terbium,atomicMass,158.925,number,65,group,,period,6,clasification,Lanthanide
-symbol,Dy,name,Dysprosium,atomicMass,162.5,number,66,group,,period,6,clasification,Lanthanide
-symbol,Ho,name,Holmium,atomicMass,164.93,number,67,group,,period,6,clasification,Lanthanide
-symbol,Er,name,Erbium,atomicMass,167.259,number,68,group,,period,6,clasification,Lanthanide
-symbol,Tm,name,Thulium,atomicMass,168.934,number,69,group,,period,6,clasification,Lanthanide
-symbol,Yb,name,Ytterbium,atomicMass,173.054,number,70,group,,period,6,clasification,Lanthanide
-symbol,Lu,name,Lutetium,atomicMass,174.967,number,71,group,,period,6,clasification,Lanthanide
-symbol,Hf,name,Hafnium,atomicMass,178.49,number,72,group,4,period,6,clasification,Transition Metal
-symbol,Ta,name,Tantalum,atomicMass,180.948,number,73,group,5,period,6,clasification,Transition Metal
-symbol,W,name,Wolfram,atomicMass,183.84,number,74,group,6,period,6,clasification,Transition Metal
-symbol,Re,name,Rhenium,atomicMass,186.207,number,75,group,7,period,6,clasification,Transition Metal
-symbol,Os,name,Osmium,atomicMass,190.23,number,76,group,8,period,6,clasification,Transition Metal
-symbol,Ir,name,Iridium,atomicMass,192.217,number,77,group,9,period,6,clasification,Transition Metal
-symbol,Pt,name,Platinum,atomicMass,195.084,number,78,group,10,period,6,clasification,Transition Metal
-symbol,Au,name,Gold,atomicMass,196.967,number,79,group,11,period,6,clasification,Transition Metal
-symbol,Hg,name,Mercury,atomicMass,200.59,number,80,group,12,period,6,clasification,Transition Metal
-symbol,Tl,name,Thallium,atomicMass,204.383,number,81,group,13,period,6,clasification,Metal
-symbol,Pb,name,Lead,atomicMass,207.2,number,82,group,14,period,6,clasification,Metal
-symbol,Bi,name,Bismuth,atomicMass,208.98,number,83,group,15,period,6,clasification,Metal
-symbol,Po,name,Polonium,atomicMass,210,number,84,group,16,period,6,clasification,Metalloid
-symbol,At,name,Astatine,atomicMass,210,number,85,group,17,period,6,clasification,Noble Gas
-symbol,Rn,name,Radon,atomicMass,222,number,86,group,18,period,6,clasification,Alkali Metal
-symbol,Fr,name,Francium,atomicMass,223,number,87,group,1,period,7,clasification,Alkaline Earth Metal
-symbol,Ra,name,Radium,atomicMass,226,number,88,group,2,period,7,clasification,Actinide
-symbol,Ac,name,Actinium,atomicMass,227,number,89,group,3,period,7,clasification,Actinide
-symbol,Th,name,Thorium,atomicMass,232.038,number,90,group,,period,7,clasification,Actinide
-symbol,Pa,name,Protactinium,atomicMass,231.036,number,91,group,,period,7,clasification,Actinide
-symbol,U,name,Uranium,atomicMass,238.029,number,92,group,,period,7,clasification,Actinide
-symbol,Np,name,Neptunium,atomicMass,237,number,93,group,,period,7,clasification,Actinide
-symbol,Pu,name,Plutonium,atomicMass,244,number,94,group,,period,7,clasification,Actinide
-symbol,Am,name,Americium,atomicMass,243,number,95,group,,period,7,clasification,Actinide
-symbol,Cm,name,Curium,atomicMass,247,number,96,group,,period,7,clasification,Actinide
-symbol,Bk,name,Berkelium,atomicMass,247,number,97,group,,period,7,clasification,Actinide
-symbol,Cf,name,Californium,atomicMass,251,number,98,group,,period,7,clasification,Actinide
-symbol,Es,name,Einsteinium,atomicMass,252,number,99,group,,period,7,clasification,Actinide
-symbol,Fm,name,Fermium,atomicMass,257,number,100,group,,period,7,clasification,Actinide
-symbol,Md,name,Mendelevium,atomicMass,258,number,101,group,,period,7,clasification,Actinide
-symbol,No,name,Nobelium,atomicMass,259,number,102,group,,period,7,clasification,Actinide
-symbol,Lr,name,Lawrencium,atomicMass,262,number,103,group,,period,7,clasification,Actinide
-symbol,Rf,name,Rutherfordium,atomicMass,261,number,104,group,4,period,7,clasification,Transactinide
-symbol,Db,name,Dubnium,atomicMass,262,number,105,group,5,period,7,clasification,Transactinide
-symbol,Sg,name,Seaborgium,atomicMass,266,number,106,group,6,period,7,clasification,Transactinide
-symbol,Bh,name,Bohrium,atomicMass,264,number,107,group,7,period,7,clasification,Transactinide
-symbol,Hs,name,Hassium,atomicMass,267,number,108,group,8,period,7,clasification,Transactinide
-symbol,Mt,name,Meitnerium,atomicMass,268,number,109,group,9,period,7,clasification,Transactinide
-symbol,Ds,name,Darmstadtium,atomicMass,271,number,110,group,10,period,7,clasification,Transactinide
-symbol,Rg,name,Roentgenium,atomicMass,272,number,111,group,11,period,7,clasification,Transactinide
-symbol,Cn,name,Copernicium,atomicMass,285,number,112,group,12,period,7,clasification,Transactinide
-symbol,Nh,name,Nihonium,atomicMass,284,number,113,group,13,period,7,clasification,
-symbol,Fl,name,Flerovium,atomicMass,289,number,114,group,14,period,7,clasification,Transactinide
-symbol,Mc,name,Moscovium,atomicMass,288,number,115,group,15,period,7,clasification,
-symbol,Lv,name,Livermorium,atomicMass,292,number,116,group,16,period,7,clasification,Transactinide
-symbol,Ts,name,Tennessine,atomicMass,295,number,117,group,17,period,7,clasification,
-symbol,Og,name,Oganesson,atomicMass,294,number,118,group,18,period,7,clasification,Noble Gas
+Symbol,Name,AtomicMass,Number,Group,Period,Classification
+H,Hydrogen,1007,1,1,1,Nonmetal
+He,Helium,4002,2,18,1,Noble Gas
+Li,Lithium,6941,3,1,2,Alkali Metal
+Be,Beryllium,9012,4,2,2,Alkaline Earth Metal
+B,Boron,10811,5,13,2,Metalloid
+C,Carbon,12011,6,14,2,Nonmetal
+N,Nitrogen,14007,7,15,2,Nonmetal
+O,Oxygen,15999,8,16,2,Nonmetal
+F,Fluorine,18998,9,17,2,Halogen
+Ne,Neon,20.18,10,18,2,Noble Gas
+Na,Sodium,22.99,11,1,3,Alkali Metal
+Mg,Magnesium,24305,12,2,3,Alkaline Earth Metal
+Al,Aluminum,26982,13,13,3,Metal
+Si,Silicon,28086,14,14,3,Metalloid
+P,Phosphorus,30974,15,15,3,Nonmetal
+S,Sulfur,32065,16,16,3,Nonmetal
+Cl,Chlorine,35453,17,17,3,Halogen
+Ar,Argon,39948,18,18,3,Noble Gas
+K,Potassium,39098,19,1,4,Alkali Metal
+Ca,Calcium,40078,20,2,4,Alkaline Earth Metal
+Sc,Scandium,44956,21,3,4,Transition Metal
+Ti,Titanium,47867,22,4,4,Transition Metal
+V,Vanadium,50942,23,5,4,Transition Metal
+Cr,Chromium,51996,24,6,4,Transition Metal
+Mn,Manganese,54938,25,7,4,Transition Metal
+Fe,Iron,55845,26,8,4,Transition Metal
+Co,Cobalt,58933,27,9,4,Transition Metal
+Ni,Nickel,58693,28,10,4,Transition Metal
+Cu,Copper,63546,29,11,4,Transition Metal
+Zn,Zinc,65.38,30,12,4,Transition Metal
+Ga,Gallium,69723,31,13,4,Metal
+Ge,Germanium,72.64,32,14,4,Metalloid
+As,Arsenic,74922,33,15,4,Metalloid
+Se,Selenium,78.96,34,16,4,Nonmetal
+Br,Bromine,79904,35,17,4,Halogen
+Kr,Krypton,83798,36,18,4,Noble Gas
+Rb,Rubidium,85468,37,1,5,Alkali Metal
+Sr,Strontium,87.62,38,2,5,Alkaline Earth Metal
+Y,Yttrium,88906,39,3,5,Transition Metal
+Zr,Zirconium,91224,40,4,5,Transition Metal
+Nb,Niobium,92906,41,5,5,Transition Metal
+Mo,Molybdenum,95.96,42,6,5,Transition Metal
+Tc,Technetium,98,43,7,5,Transition Metal
+Ru,Ruthenium,101.07,44,8,5,Transition Metal
+Rh,Rhodium,102906,45,9,5,Transition Metal
+Pd,Palladium,106.42,46,10,5,Transition Metal
+Ag,Silver,107868,47,11,5,Transition Metal
+Cd,Cadmium,112411,48,12,5,Transition Metal
+In,Indium,114818,49,13,5,Metal
+Sn,Tin,118.71,50,14,5,Metal
+Sb,Antimony,121.76,51,15,5,Metalloid
+Te,Tellurium,127.6,52,16,5,Metalloid
+I,Iodine,126904,53,17,5,Halogen
+Xe,Xenon,131293,54,18,5,Noble Gas
+Cs,Cesium,132905,55,1,6,Alkali Metal
+Ba,Barium,137327,56,2,6,Alkaline Earth Metal
+La,Lanthanum,138905,57,3,6,Lanthanide
+Ce,Cerium,140116,58,,6,Lanthanide
+Pr,Praseodymium,140908,59,,6,Lanthanide
+Nd,Neodymium,144242,60,,6,Lanthanide
+Pm,Promethium,145,61,,6,Lanthanide
+Sm,Samarium,150.36,62,,6,Lanthanide
+Eu,Europium,151964,63,,6,Lanthanide
+Gd,Gadolinium,157.25,64,,6,Lanthanide
+Tb,Terbium,158925,65,,6,Lanthanide
+Dy,Dysprosium,162.5,66,,6,Lanthanide
+Ho,Holmium,164.93,67,,6,Lanthanide
+Er,Erbium,167259,68,,6,Lanthanide
+Tm,Thulium,168934,69,,6,Lanthanide
+Yb,Ytterbium,173054,70,,6,Lanthanide
+Lu,Lutetium,174967,71,,6,Lanthanide
+Hf,Hafnium,178.49,72,4,6,Transition Metal
+Ta,Tantalum,180948,73,5,6,Transition Metal
+W,Wolfram,183.84,74,6,6,Transition Metal
+Re,Rhenium,186207,75,7,6,Transition Metal
+Os,Osmium,190.23,76,8,6,Transition Metal
+Ir,Iridium,192217,77,9,6,Transition Metal
+Pt,Platinum,195084,78,10,6,Transition Metal
+Au,Gold,196967,79,11,6,Transition Metal
+Hg,Mercury,200.59,80,12,6,Transition Metal
+Tl,Thallium,204383,81,13,6,Metal
+Pb,Lead,207.2,82,14,6,Metal
+Bi,Bismuth,208.98,83,15,6,Metal
+Po,Polonium,210,84,16,6,Metalloid
+At,Astatine,210,85,17,6,Noble Gas
+Rn,Radon,222,86,18,6,Alkali Metal
+Fr,Francium,223,87,1,7,Alkaline Earth Metal
+Ra,Radium,226,88,2,7,Actinide
+Ac,Actinium,227,89,3,7,Actinide
+Th,Thorium,232038,90,,7,Actinide
+Pa,Protactinium,231036,91,,7,Actinide
+U,Uranium,238029,92,,7,Actinide
+Np,Neptunium,237,93,,7,Actinide
+Pu,Plutonium,244,94,,7,Actinide
+Am,Americium,243,95,,7,Actinide
+Cm,Curium,247,96,,7,Actinide
+Bk,Berkelium,247,97,,7,Actinide
+Cf,Californium,251,98,,7,Actinide
+Es,Einsteinium,252,99,,7,Actinide
+Fm,Fermium,257,100,,7,Actinide
+Md,Mendelevium,258,101,,7,Actinide
+No,Nobelium,259,102,,7,Actinide
+Lr,Lawrencium,262,103,,7,Actinide
+Rf,Rutherfordium,261,104,4,7,Transactinide
+Db,Dubnium,262,105,5,7,Transactinide
+Sg,Seaborgium,266,106,6,7,Transactinide
+Bh,Bohrium,264,107,7,7,Transactinide
+Hs,Hassium,267,108,8,7,Transactinide
+Mt,Meitnerium,268,109,9,7,Transactinide
+Ds ,Darmstadtium ,271,110,10,7,Transactinide
+Rg ,Roentgenium ,272,111,11,7,Transactinide
+Cn ,Copernicium ,285,112,12,7,Transactinide
+Nh,Nihonium,284,113,13,7,
+Fl,Flerovium,289,114,14,7,Transactinide
+Mc,Moscovium,288,115,15,7,
+Lv,Livermorium,292,116,16,7,Transactinide
+Ts,Tennessine,295,117,17,7,
+Og,Oganesson,294,118,18,7,Noble Gas
