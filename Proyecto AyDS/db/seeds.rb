@@ -1,7 +1,8 @@
+require './models/learning'
 users = [
-    { names: 'Jon Doe', username: 'jondoe', email: 'jon@doe.com', password: 'abc',progress: 20},
-    { names: 'Jane Doe', username: 'janedoe', email: 'jane@doe.com', password: 'abc',progress: 20},
-    { names: 'Baby Doe', username: 'babydoe', email: 'baby@doe.com', password: 'abc', progress: 20},
+    { names: 'Jon Doe', username: 'jondoe', email: 'jon@doe.com', password: 'abc',progress: 20,actualLearning: 1},
+    { names: 'Jane Doe', username: 'janedoe', email: 'jane@doe.com', password: 'abc',progress: 20,actualLearning: 1},
+    { names: 'Baby Doe', username: 'babydoe', email: 'baby@doe.com', password: 'abc', progress: 20,actualLearning: 1},
   ]
   
   users.each do |u|
@@ -527,7 +528,7 @@ elements = [
     "Name": "Cerium",
     "AtomicMass": "140116",
     "Number": "58",
-    "Group": null,
+    "Group": 50,
     "Period": "6",
     "Classification": "Lanthanide"
   },
@@ -536,7 +537,7 @@ elements = [
     "Name": "Praseodymium",
     "AtomicMass": "140908",
     "Number": "59",
-    "Group": null,
+    "Group": 50,
     "Period": "6",
     "Classification": "Lanthanide"
   },
@@ -545,7 +546,7 @@ elements = [
     "Name": "Neodymium",
     "AtomicMass": "144242",
     "Number": "60",
-    "Group": null,
+    "Group": 50,
     "Period": "6",
     "Classification": "Lanthanide"
   },
@@ -554,7 +555,7 @@ elements = [
     "Name": "Promethium",
     "AtomicMass": "145",
     "Number": "61",
-    "Group": null,
+    "Group": 50,
     "Period": "6",
     "Classification": "Lanthanide"
   },
@@ -563,7 +564,7 @@ elements = [
     "Name": "Samarium",
     "AtomicMass": "150.36",
     "Number": "62",
-    "Group": null,
+    "Group": 50,
     "Period": "6",
     "Classification": "Lanthanide"
   },
@@ -572,7 +573,7 @@ elements = [
     "Name": "Europium",
     "AtomicMass": "151964",
     "Number": "63",
-    "Group": null,
+    "Group": 50,
     "Period": "6",
     "Classification": "Lanthanide"
   },
@@ -581,7 +582,7 @@ elements = [
     "Name": "Gadolinium",
     "AtomicMass": "157.25",
     "Number": "64",
-    "Group": null,
+    "Group": 50,
     "Period": "6",
     "Classification": "Lanthanide"
   },
@@ -590,7 +591,7 @@ elements = [
     "Name": "Terbium",
     "AtomicMass": "158925",
     "Number": "65",
-    "Group": null,
+    "Group": 50,
     "Period": "6",
     "Classification": "Lanthanide"
   },
@@ -599,7 +600,7 @@ elements = [
     "Name": "Dysprosium",
     "AtomicMass": "162.5",
     "Number": "66",
-    "Group": null,
+    "Group": 50,
     "Period": "6",
     "Classification": "Lanthanide"
   },
@@ -608,7 +609,7 @@ elements = [
     "Name": "Holmium",
     "AtomicMass": "164.93",
     "Number": "67",
-    "Group": null,
+    "Group": 50,
     "Period": "6",
     "Classification": "Lanthanide"
   },
@@ -617,7 +618,7 @@ elements = [
     "Name": "Erbium",
     "AtomicMass": "167259",
     "Number": "68",
-    "Group": null,
+    "Group": 50,
     "Period": "6",
     "Classification": "Lanthanide"
   },
@@ -626,7 +627,7 @@ elements = [
     "Name": "Thulium",
     "AtomicMass": "168934",
     "Number": "69",
-    "Group": null,
+    "Group": 50,
     "Period": "6",
     "Classification": "Lanthanide"
   },
@@ -635,7 +636,7 @@ elements = [
     "Name": "Ytterbium",
     "AtomicMass": "173054",
     "Number": "70",
-    "Group": null,
+    "Group": 50,
     "Period": "6",
     "Classification": "Lanthanide"
   },
@@ -644,7 +645,7 @@ elements = [
     "Name": "Lutetium",
     "AtomicMass": "174967",
     "Number": "71",
-    "Group": null,
+    "Group": 50,
     "Period": "6",
     "Classification": "Lanthanide"
   },
@@ -815,7 +816,7 @@ elements = [
     "Name": "Thorium",
     "AtomicMass": "232038",
     "Number": "90",
-    "Group": null,
+    "Group": 50,
     "Period": "7",
     "Classification": "Actinide"
   },
@@ -824,7 +825,7 @@ elements = [
     "Name": "Protactinium",
     "AtomicMass": "231036",
     "Number": "91",
-    "Group": null,
+    "Group": 50,
     "Period": "7",
     "Classification": "Actinide"
   },
@@ -833,7 +834,7 @@ elements = [
     "Name": "Uranium",
     "AtomicMass": "238029",
     "Number": "92",
-    "Group": null,
+    "Group": 50,
     "Period": "7",
     "Classification": "Actinide"
   },
@@ -842,7 +843,7 @@ elements = [
     "Name": "Neptunium",
     "AtomicMass": "237",
     "Number": "93",
-    "Group": null,
+    "Group": 50,
     "Period": "7",
     "Classification": "Actinide"
   },
@@ -851,7 +852,7 @@ elements = [
     "Name": "Plutonium",
     "AtomicMass": "244",
     "Number": "94",
-    "Group": null,
+    "Group": 50,
     "Period": "7",
     "Classification": "Actinide"
   },
@@ -860,7 +861,7 @@ elements = [
     "Name": "Americium",
     "AtomicMass": "243",
     "Number": "95",
-    "Group": null,
+    "Group": 50,
     "Period": "7",
     "Classification": "Actinide"
   },
@@ -869,7 +870,7 @@ elements = [
     "Name": "Curium",
     "AtomicMass": "247",
     "Number": "96",
-    "Group": null,
+    "Group": 50,
     "Period": "7",
     "Classification": "Actinide"
   },
@@ -878,7 +879,7 @@ elements = [
     "Name": "Berkelium",
     "AtomicMass": "247",
     "Number": "97",
-    "Group": null,
+    "Group": 50,
     "Period": "7",
     "Classification": "Actinide"
   },
@@ -887,7 +888,7 @@ elements = [
     "Name": "Californium",
     "AtomicMass": "251",
     "Number": "98",
-    "Group": null,
+    "Group": 50,
     "Period": "7",
     "Classification": "Actinide"
   },
@@ -896,7 +897,7 @@ elements = [
     "Name": "Einsteinium",
     "AtomicMass": "252",
     "Number": "99",
-    "Group": null,
+    "Group": 50,
     "Period": "7",
     "Classification": "Actinide"
   },
@@ -905,7 +906,7 @@ elements = [
     "Name": "Fermium",
     "AtomicMass": "257",
     "Number": "100",
-    "Group": null,
+    "Group": 50,
     "Period": "7",
     "Classification": "Actinide"
   },
@@ -914,7 +915,7 @@ elements = [
     "Name": "Mendelevium",
     "AtomicMass": "258",
     "Number": "101",
-    "Group": null,
+    "Group": 50,
     "Period": "7",
     "Classification": "Actinide"
   },
@@ -923,7 +924,7 @@ elements = [
     "Name": "Nobelium",
     "AtomicMass": "259",
     "Number": "102",
-    "Group": null,
+    "Group": 50,
     "Period": "7",
     "Classification": "Actinide"
   },
@@ -932,7 +933,7 @@ elements = [
     "Name": "Lawrencium",
     "AtomicMass": "262",
     "Number": "103",
-    "Group": null,
+    "Group": 50,
     "Period": "7",
     "Classification": "Actinide"
   },
@@ -1024,7 +1025,7 @@ elements = [
     "Number": "113",
     "Group": "13",
     "Period": "7",
-    "Classification": null
+    "Classification": 50
   },
   {
     "Symbol": "Fl",
@@ -1042,7 +1043,7 @@ elements = [
     "Number": "115",
     "Group": "15",
     "Period": "7",
-    "Classification": null
+    "Classification": 50
   },
   {
     "Symbol": "Lv",
@@ -1060,7 +1061,7 @@ elements = [
     "Number": "117",
     "Group": "17",
     "Period": "7",
-    "Classification": null
+    "Classification": 50
   },
   {
     "Symbol": "Og",
@@ -1077,3 +1078,23 @@ elements.each do |k|
   Element.create(k)
 end
 
+
+learnings = [
+  { number: 1, lesson:"La tabla periódica de los elementos es una disposición de los elementos químicos en forma de tabla, ordenados por su número atómico (número de protones),por su configuración de electrones y sus propiedades químicas. Este ordenamiento muestra tendencias periódicas como elementos con comportamiento similar en la misma columna.", level: 1},
+  { number: 2, lesson:"Las filas de la tabla se denominan períodos y las columnas grupos. La tabla también se divide en cuatro bloques con algunas propiedades químicas similares. Debido a que las posiciones están ordenadas, se puede utilizar la tabla para obtener relaciones entre las propiedades de los elementos, o pronosticar propiedades de elementos nuevos todavía no descubiertos o sintetizados.", level: 1},
+  { number: 3, lesson:"La tabla periódica actual es un sistema donde se clasifican los elementos conocidos hasta la fecha. Se colocan De izquierda a derecha y de arriba abajo en orden creciente de sus números atómicos. Los elementos están ordenados en siete hileras horizontales llamadas periodos, y en 18 columnas verticales llamadas grupos o familias. Hacia abajo y a la izquierda aumenta el radio atómico y el radio iónico. Hacia arriba y a la derecha aumenta la energía de ionización, la afinidad electrónica y la electronegatividad.", level: 1},
+  { number: 4, lesson:"Grupos. columnas verticales de la tabla se las conoce como grupos o familias. Hay 18 grupos en la tabla periódica estándar. En virtud de un convenio internacional de denominación, los grupos están numerados de 1 a 18 desde la columna más a la izquierda,los metales alcalinos, hasta la columna más a la derecha los ,gases nobles.", level: 1},
+  { number: 5, lesson:"Los elementos de un mismo grupo tienden a mostrar patrones en el radio atómico, energía de ionización y electronegatividad. De arriba abajo en un grupo, aumentan los radios atómicos de los elementos. Puesto que hay niveles de energía más llenos, los electrones de valencia se encuentran más alejados del núcleo. Desde la parte superior, cada elemento sucesivo tiene una energía de ionización más baja, ya que es más fácil quitar un electrón en los átomos que están menos fuertemente unidos.", level: 1},
+  { number: 6, lesson:"Hay excepciones a estas tendencias, como por ejemplo lo que ocurre en el grupo 11, donde la electronegatividad aumenta más abajo en el grupo.64​ Además, en algunas partes de la tabla periódica como los bloques d y f, las similitudes horizontales pueden ser tan o más pronunciadas que las verticales.", level: 1},
+  { number: 7, lesson: "Las filas horizontales de la tabla periódica son llamadas períodos.​ El número de niveles energéticos de un átomo determina el periodo al que pertenece. Cada nivel está dividido en distintos subniveles, que conforme aumenta su número atómico se van llenando en este orden:", level: 1},
+  { number: 8, lesson: "Los elementos en el mismo período muestran tendencias similares en radio atómico, energía de ionización, afinidad electrónica y electronegatividad. En un período el radio atómico normalmente decrece si nos desplazamos hacia la derecha debido a que cada elemento sucesivo añadió protones y electrones, lo que provoca que este último sea arrastrado más cerca del núcleo.69​ Esta disminución del radio atómico también causa que la energía de ionización y la electronegatividad aumenten de izquierda a derecha en un período, debido a la atracción que ejerce el núcleo sobre los electrones.", level: 1},
+  { number: 9, lesson: "Bloques. La tabla periódica se puede también dividir en bloques de acuerdo a la secuencia en la que se llenan las capas de electrones de los elementos. Cada bloque se denomina según el orbital en el que en teoría reside el último electrón: s, p, d y f.", level: 1},
+  { number: 10, lesson: "El bloque s comprende los dos primeros grupos (metales alcalinos y alcalinotérreos), así como el hidrógeno y el helio. El bloque p comprende los últimos seis grupos —que son grupos del 13 al 18 y contiene, entre otros elementos, todos los metaloides. El bloque d comprende los grupos 3 a 12 —o 3B a 2B en la numeración americana de grupo— y contiene todos los metales de transición .El bloque f, a menudo colocado por debajo del resto de la tabla periódica, no tiene números de grupo y se compone de lantánidos y actínidos.", level: 1},
+  { number: 11, lesson: "Metales, metaloides y no metales. De acuerdo con las propiedades físicas y químicas que comparten, los elementos se pueden clasificar en tres grandes categorías: metales, metaloides y no metales. Los metales son sólidos generalmente brillantes, altamente conductores que forman aleaciones de unos con otros y compuestos iónicos similares a sales con compuestos no metálicos —siempre que no sean los gases nobles—. La mayoría de los no metales son gases incoloros o de colores", level: 1},
+  { number: 12, lesson:"Metales y no metales pueden clasificarse en sub_categorías que muestran una gradación desde lo metálico a las propiedades no metálicas, de izquierda a derecha, en las filas: metales alcalinos —altamente reactivos—, metales alcalinotérreos —menos reactivos—, lantánidos y actínidos, metales de transición y metales post-transición.", level: 1},
+  { number: 13, lesson:"Los no metales se subdividen simplemente en no metales poliatómicos —que, por estar más cercanos a los metaloides, muestran cierto carácter metálico incipiente—, no metales diatómicos —que son esencialmente no metálicos— y los gases nobles, que son monoatómicos no metálicos y casi completamente inertes.", level: 1},
+]
+
+learnings.each do |h|
+  Learning.create(h)
+end

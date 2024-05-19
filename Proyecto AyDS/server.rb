@@ -9,6 +9,7 @@ enable :sessions
 
 require './models/user'
 require './models/element'
+require './models/learning'
 
 class App < Sinatra::Application
   
@@ -86,10 +87,35 @@ class App < Sinatra::Application
     end
   end
   
-
+  
   get '/menu' do
     @user = User.find(session[:user_id])
     erb :'menu'
   end
+
+  get '/learnpage' do
+    @user = User.find(session[:user_id])
+    @learnings = Learning.all
+    erb :'learnpage'
+  end
+
+  post '/learnpage' do
+    @user = User.find(session[:user_id])
+    @learnings = Learning.all
+    erb :'learnpage'
+  end
+
+  post '/actualizar_leccion' do
+    nueva_leccion = params[:nueva_leccion]
+    user = User.find(session[:user_id])
+    user.update(actualLearning: nueva_leccion)
+    redirect '/learnpage'
+  end
+
+  get '/table' do
+    @elements = Element.all
+    erb:'table'
+  end
+  
 
 end

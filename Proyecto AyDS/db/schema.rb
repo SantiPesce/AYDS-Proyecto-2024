@@ -10,15 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_17_024846) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_17_202003) do
   create_table "elements", force: :cascade do |t|
-    t.string "symbol"
-    t.string "name"
-    t.integer "atomicMass"
+    t.string "Symbol"
+    t.string "Name"
+    t.integer "AtomicMass"
+    t.integer "Number"
+    t.string "Group"
+    t.string "Period"
+    t.string "Classification"
+  end
+
+  create_table "learnings", force: :cascade do |t|
     t.integer "number"
-    t.string "group"
-    t.string "period"
-    t.string "clasification"
+    t.string "lesson"
+    t.integer "level"
   end
 
   create_table "users", force: :cascade do |t|
@@ -26,6 +32,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_17_024846) do
     t.string "username"
     t.string "email"
     t.string "password"
+    t.integer "progress"
+    t.integer "actualLearning"
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil
   end

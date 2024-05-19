@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Texto en el Centro</title>
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  #texto {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px; /* Espacio entre el texto y los botones */
+  }
+  #botones {
+    display: flex;
+    justify-content: space-between;
+    width: 80%; /* Ancho de los botones */
+  }
+  .boton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div id="texto">
+    <h1><%= @user.actualLearning %></h1>
+  <% if Learning.exists?(number: @user.actualLearning) %>
+    <% learning = Learning.find_by(number: @user.actualLearning) %>
+    <%= learning.lesson %>
+  <% else %>
+    El aprendizaje correspondiente no se encontró.
+  <% end %>
+</div>
+<div id="botones">
+  <form action="/actualizar_leccion" method="post">
+    <% nueva_leccion = @user.actualLearning - 1 %>
+    <% nueva_leccion = 1 if nueva_leccion < 1 %>
+    <% nueva_leccion = Learning.maximum(:number) if nueva_leccion > Learning.maximum(:number) %>
+     <!-- Asegurar que el valor no sea menor que 0 ni mayor que el máximo número de elementos -->
+    <input type="hidden" name="nueva_leccion" value="<%= nueva_leccion %>">
+    <button class="boton">Atrás</button>
+  </form>
+  <form action="/actualizar_leccion" method="post">
+    <% nueva_leccion = @user.actualLearning + 1 %>
+    <% nueva_leccion = 1 if nueva_leccion < 1 %>
+    <% nueva_leccion = Learning.maximum(:number) if nueva_leccion > Learning.maximum(:number) %>
+     <!-- Asegurar que el valor no sea menor que 0 ni mayor que el máximo número de elementos -->
+    <input type="hidden" name="nueva_leccion" value="<%= nueva_leccion %>">
+    <button class="boton">Adelante</button>
+  </form>
+</div>
+</body>
+</html>

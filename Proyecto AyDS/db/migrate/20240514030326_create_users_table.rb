@@ -6,6 +6,7 @@ class CreateUsersTable < ActiveRecord::Migration[5.0]
       t.string :email
       t.string :password
       t.integer :progress
+      t.integer :actualLearning
 
       t.datetime :created_at
       t.datetime :updated_at
