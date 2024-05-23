@@ -14,10 +14,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_17_202003) do
   create_table "elements", force: :cascade do |t|
     t.string "Symbol"
     t.string "Name"
-    t.integer "AtomicMass"
+    t.float "AtomicMass"
     t.integer "Number"
-    t.string "Group"
-    t.string "Period"
+    t.integer "Group_"
+    t.integer "Period"
     t.string "Classification"
   end
 

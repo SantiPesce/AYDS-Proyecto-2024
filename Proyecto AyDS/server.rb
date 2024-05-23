@@ -117,5 +117,35 @@ class App < Sinatra::Application
     erb:'table'
   end
   
+  get '/searchpage' do
+    @searchbarfilter = params[:searchbarfilter]
+    @searchbar = params[:searchbar]
+    @results = []
 
+    if @searchbarfilter == "Symbol"
+      @results = Element.where("Symbol LIKE ?", "%#{@searchbar}%")
+    elsif @searchbarfilter == "Name"
+      @results = Element.where("Name LIKE ?", "%#{@searchbar}%")
+    elsif @searchbarfilter == "AtomicMass"
+      search_atomic_mass = @searchbar.to_f
+      variacion = 0.03
+      @results = Element.where("AtomicMass BETWEEN ? AND ?", search_atomic_mass - variacion, search_atomic_mass + variacion)
+    elsif @searchbarfilter == "Number"
+      search_number = @searchbar.to_i
+      @results = Element.where("Number = ?", search_number)
+    elsif @searchbarfilter == "Group"
+      search_group = @searchbar.to_i
+      @results = Element.where("Group_ = ?", search_group)
+    elsif @searchbarfilter == "Period"
+      search_period = @searchbar.to_i
+      @results = Element.where("Period = ?", search_period)
+    elsif @searchbarfilter == "Classification"
+      @results = Element.where("Classification LIKE ?", "%#{@searchbar}%")
+    end
+    erb :'searchpage'
+  end
+
+  post '/searchpage' do
+    erb :'searchpage'
+  end
 end

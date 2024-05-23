@@ -3,10 +3,10 @@ class CreateElementsTable < ActiveRecord::Migration[5.0]
       create_table :elements do |t|
         t.string :Symbol
         t.string :Name
-        t.integer :AtomicMass
+        t.float :AtomicMass
         t.integer :Number
-        t.string :Group
-        t.string :Period
+        t.integer :Group_
+        t.integer :Period
         t.string :Classification
       end
     end

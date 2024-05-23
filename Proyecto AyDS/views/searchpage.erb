@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Busqueda - Elementally</title>
+        <style>
+            body {
+                background-image: url('/imagenes/a.jpeg') ; /* Cambia 'fondo_quimica.jpg' por la ruta de tu imagen de fondo */
+                background-size: cover;
+                font-family: Arial, sans-serif;
+                margin-top: 10px;
+            }
+
+            .searchpage-container {
+                max-width: 98%;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: rgba(255,255,255, 0.8) ;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            }
+
+            input[type="text"] {
+                width: 200px;
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            input[type="submit"] {
+                width: 200px;
+                margin: 0 20px;
+                padding: 10px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+
+            .cell {
+                max-width: 300px;
+                margin: 10px;
+                padding: 20px;
+                background-color: rgba(255,255,255, 0.8) ;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="searchpage-container">
+            <h2>Busqueda de Elementos</h2>
+            <form action="/searchpage" method="get">
+                <label for="searchbarfilter">Busacr por:</label>
+                <select name="searchbarfilter" id="searchbarfilter">
+                    <option value="Symbol">Simbolo</option>
+                    <option value="Name">Nombre</option>
+                    <option value="AtomicMass">Masa Atomica</option>
+                    <option value="Number">Numero</option>
+                    <option value="Group">Grupo</option>
+                    <option value="Period">Periodo</option>
+                    <option value="Classification">Clasificacion</option>
+                </select>
+                <input type="text" name="searchbar" placeholder="Hierro / 55.845" value="<%= @searchbar %>" />
+                <input class="button" type="submit" value="Buscar" />
+            </form>
+            <a href="/menu">« Volver</a>
+        </div>
+
+        <div class="displayelements">
+            <% if @results.any? %>
+                <h3>Resultados de la búsqueda:</h3>
+                <ul>
+                <% @results.each do |element| %>
+                    <div class="cell">
+                        <div class="element"  class="type-4 cat-3">
+                            <div class="symbol">Simbolo: <%= element.Symbol %></div>
+                            <div class="name">Nombre: <%= element.Name %></div>
+                            <div class="atomicmass">Masa Atomica: <%= element.AtomicMass %></div>
+                            <div class="number">Numero: <%= element.Number %></div>
+                            <div class="group">Grupo: <%= element.Group_ %></div>
+                            <div class="period">Periodo: <%= element.Period %></div>
+                            <div class="classification">Clasificacion: <%= element.Classification%></div>
+                        </div>
+                    </div>
+                <% end %>
+                </ul>
+            <% elsif @searchbar %>
+                <p style="color: red">No se encontraron elementos</p>
+            <% end %>
+        </div>
+    </body>
+</html>

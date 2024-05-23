@@ -12,1065 +12,1065 @@ users = [
 elements = [
   {
     "Symbol": "H",
-    "Name": "Hydrogen",
-    "AtomicMass": "1007",
-    "Number": "1",
-    "Group": "1",
-    "Period": "1",
-    "Classification": "Nonmetal"
+    "Name": "Hidrogeno",
+    "AtomicMass": 1.0080,
+    "Number": 1,
+    "Group_": 1,
+    "Period": 1,
+    "Classification": "No Metales"
   },
   {
     "Symbol": "He",
-    "Name": "Helium",
-    "AtomicMass": "4002",
-    "Number": "2",
-    "Group": "18",
-    "Period": "1",
-    "Classification": "Noble Gas"
+    "Name": "Helio",
+    "AtomicMass": 4.0026,
+    "Number": 2,
+    "Group_": 18,
+    "Period": 1,
+    "Classification": "Gases Nobles"
   },
   {
     "Symbol": "Li",
-    "Name": "Lithium",
-    "AtomicMass": "6941",
-    "Number": "3",
-    "Group": "1",
-    "Period": "2",
-    "Classification": "Alkali Metal"
+    "Name": "Litio",
+    "AtomicMass": 6.94,
+    "Number": 3,
+    "Group_": 1,
+    "Period": 2,
+    "Classification": "Metales Alcalinos"
   },
   {
     "Symbol": "Be",
-    "Name": "Beryllium",
-    "AtomicMass": "9012",
-    "Number": "4",
-    "Group": "2",
-    "Period": "2",
-    "Classification": "Alkaline Earth Metal"
+    "Name": "Berilio",
+    "AtomicMass": 9.0122,
+    "Number": 4,
+    "Group_": 2,
+    "Period": 2,
+    "Classification": "Alcalinotérreos"
   },
   {
     "Symbol": "B",
-    "Name": "Boron",
-    "AtomicMass": "10811",
-    "Number": "5",
-    "Group": "13",
-    "Period": "2",
-    "Classification": "Metalloid"
+    "Name": "Boro",
+    "AtomicMass": 10.81,
+    "Number": 5,
+    "Group_": 13,
+    "Period": 2,
+    "Classification": "Metaloides"
   },
   {
     "Symbol": "C",
-    "Name": "Carbon",
-    "AtomicMass": "12011",
-    "Number": "6",
-    "Group": "14",
-    "Period": "2",
-    "Classification": "Nonmetal"
+    "Name": "Carbono",
+    "AtomicMass": 12.011,
+    "Number": 6,
+    "Group_": 14,
+    "Period": 2,
+    "Classification": "No Metales"
   },
   {
     "Symbol": "N",
-    "Name": "Nitrogen",
-    "AtomicMass": "14007",
-    "Number": "7",
-    "Group": "15",
-    "Period": "2",
-    "Classification": "Nonmetal"
+    "Name": "Nitrógeno",
+    "AtomicMass": 14.007,
+    "Number": 7,
+    "Group_": 15,
+    "Period": 2,
+    "Classification": "No Metales"
   },
   {
     "Symbol": "O",
-    "Name": "Oxygen",
-    "AtomicMass": "15999",
-    "Number": "8",
-    "Group": "16",
-    "Period": "2",
-    "Classification": "Nonmetal"
+    "Name": "Oxígeno",
+    "AtomicMass": 15.999,
+    "Number": 8,
+    "Group_": 16,
+    "Period": 2,
+    "Classification": "No Metales"
   },
   {
     "Symbol": "F",
-    "Name": "Fluorine",
-    "AtomicMass": "18998",
-    "Number": "9",
-    "Group": "17",
-    "Period": "2",
-    "Classification": "Halogen"
+    "Name": "Flúor",
+    "AtomicMass": 18.998,
+    "Number": 9,
+    "Group_": 17,
+    "Period": 2,
+    "Classification": "Halógenos"
   },
   {
     "Symbol": "Ne",
-    "Name": "Neon",
-    "AtomicMass": "20.18",
-    "Number": "10",
-    "Group": "18",
-    "Period": "2",
-    "Classification": "Noble Gas"
+    "Name": "Neón",
+    "AtomicMass": 20.180,
+    "Number": 10,
+    "Group_": 18,
+    "Period": 2,
+    "Classification": "Gases Nobles"
   },
   {
     "Symbol": "Na",
-    "Name": "Sodium",
-    "AtomicMass": "22.99",
-    "Number": "11",
-    "Group": "1",
-    "Period": "3",
-    "Classification": "Alkali Metal"
+    "Name": "Sodio",
+    "AtomicMass": 22.990,
+    "Number": 11,
+    "Group_": 1,
+    "Period": 3,
+    "Classification": "Metales Alcalinos"
   },
   {
     "Symbol": "Mg",
-    "Name": "Magnesium",
-    "AtomicMass": "24305",
-    "Number": "12",
-    "Group": "2",
-    "Period": "3",
-    "Classification": "Alkaline Earth Metal"
+    "Name": "Magnesio",
+    "AtomicMass": 24.305,
+    "Number": 12,
+    "Group_": 2,
+    "Period": 3,
+    "Classification": "Alcalinotérreos"
   },
   {
     "Symbol": "Al",
-    "Name": "Aluminum",
-    "AtomicMass": "26982",
-    "Number": "13",
-    "Group": "13",
-    "Period": "3",
-    "Classification": "Metal"
+    "Name": "Aluminio",
+    "AtomicMass": 26.982,
+    "Number": 13,
+    "Group_": 13,
+    "Period": 3,
+    "Classification": "Otros Metales"
   },
   {
     "Symbol": "Si",
-    "Name": "Silicon",
-    "AtomicMass": "28086",
-    "Number": "14",
-    "Group": "14",
-    "Period": "3",
-    "Classification": "Metalloid"
+    "Name": "Silicio",
+    "AtomicMass": 28.085,
+    "Number": 14,
+    "Group_": 14,
+    "Period": 3,
+    "Classification": "Metaloides"
   },
   {
     "Symbol": "P",
-    "Name": "Phosphorus",
-    "AtomicMass": "30974",
-    "Number": "15",
-    "Group": "15",
-    "Period": "3",
-    "Classification": "Nonmetal"
+    "Name": "Fósforo",
+    "AtomicMass": 30.974,
+    "Number": 15,
+    "Group_": 15,
+    "Period": 3,
+    "Classification": "No Metales"
   },
   {
     "Symbol": "S",
-    "Name": "Sulfur",
-    "AtomicMass": "32065",
-    "Number": "16",
-    "Group": "16",
-    "Period": "3",
-    "Classification": "Nonmetal"
+    "Name": "Asufre",
+    "AtomicMass": 32.06,
+    "Number": 16,
+    "Group_": 16,
+    "Period": 3,
+    "Classification": "No Metales"
   },
   {
     "Symbol": "Cl",
-    "Name": "Chlorine",
-    "AtomicMass": "35453",
-    "Number": "17",
-    "Group": "17",
-    "Period": "3",
-    "Classification": "Halogen"
+    "Name": "Cloro",
+    "AtomicMass": 35.45,
+    "Number": 17,
+    "Group_": 17,
+    "Period": 3,
+    "Classification": "Halógenos"
   },
   {
     "Symbol": "Ar",
-    "Name": "Argon",
-    "AtomicMass": "39948",
-    "Number": "18",
-    "Group": "18",
-    "Period": "3",
-    "Classification": "Noble Gas"
+    "Name": "Argón",
+    "AtomicMass": 39.95,
+    "Number": 18,
+    "Group_": 18,
+    "Period": 3,
+    "Classification": "Gases Nobles"
   },
   {
     "Symbol": "K",
-    "Name": "Potassium",
-    "AtomicMass": "39098",
-    "Number": "19",
-    "Group": "1",
-    "Period": "4",
-    "Classification": "Alkali Metal"
+    "Name": "Potasio",
+    "AtomicMass": 39.098,
+    "Number": 19,
+    "Group_": 1,
+    "Period": 4,
+    "Classification": "Metales Alcalinos"
   },
   {
     "Symbol": "Ca",
-    "Name": "Calcium",
-    "AtomicMass": "40078",
-    "Number": "20",
-    "Group": "2",
-    "Period": "4",
-    "Classification": "Alkaline Earth Metal"
+    "Name": "Calcio",
+    "AtomicMass": 40.078,
+    "Number": 20,
+    "Group_": 2,
+    "Period": 4,
+    "Classification": "Alcalinotérreos"
   },
   {
     "Symbol": "Sc",
-    "Name": "Scandium",
-    "AtomicMass": "44956",
-    "Number": "21",
-    "Group": "3",
-    "Period": "4",
-    "Classification": "Transition Metal"
+    "Name": "Escandio",
+    "AtomicMass": 44.956,
+    "Number": 21,
+    "Group_": 3,
+    "Period": 4,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Ti",
-    "Name": "Titanium",
-    "AtomicMass": "47867",
-    "Number": "22",
-    "Group": "4",
-    "Period": "4",
-    "Classification": "Transition Metal"
+    "Name": "Titanio",
+    "AtomicMass": 47.867,
+    "Number": 22,
+    "Group_": 4,
+    "Period": 4,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "V",
-    "Name": "Vanadium",
-    "AtomicMass": "50942",
-    "Number": "23",
-    "Group": "5",
-    "Period": "4",
-    "Classification": "Transition Metal"
+    "Name": "Vanadio",
+    "AtomicMass": 50.942,
+    "Number": 23,
+    "Group_": 5,
+    "Period": 4,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Cr",
-    "Name": "Chromium",
-    "AtomicMass": "51996",
-    "Number": "24",
-    "Group": "6",
-    "Period": "4",
-    "Classification": "Transition Metal"
+    "Name": "Cromo",
+    "AtomicMass": 51.996,
+    "Number": 24,
+    "Group_": 6,
+    "Period": 4,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Mn",
-    "Name": "Manganese",
-    "AtomicMass": "54938",
-    "Number": "25",
-    "Group": "7",
-    "Period": "4",
-    "Classification": "Transition Metal"
+    "Name": "Manganeso",
+    "AtomicMass": 54.938,
+    "Number": 25,
+    "Group_": 7,
+    "Period": 4,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Fe",
-    "Name": "Iron",
-    "AtomicMass": "55845",
-    "Number": "26",
-    "Group": "8",
-    "Period": "4",
-    "Classification": "Transition Metal"
+    "Name": "Hierro",
+    "AtomicMass": 55.845,
+    "Number": 26,
+    "Group_": 8,
+    "Period": 4,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Co",
-    "Name": "Cobalt",
-    "AtomicMass": "58933",
-    "Number": "27",
-    "Group": "9",
-    "Period": "4",
-    "Classification": "Transition Metal"
+    "Name": "Cobalto",
+    "AtomicMass": 58.933,
+    "Number": 27,
+    "Group_": 9,
+    "Period": 4,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Ni",
-    "Name": "Nickel",
-    "AtomicMass": "58693",
-    "Number": "28",
-    "Group": "10",
-    "Period": "4",
-    "Classification": "Transition Metal"
+    "Name": "Níquel",
+    "AtomicMass": 58.693,
+    "Number": 28,
+    "Group_": 10,
+    "Period": 4,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Cu",
-    "Name": "Copper",
-    "AtomicMass": "63546",
-    "Number": "29",
-    "Group": "11",
-    "Period": "4",
-    "Classification": "Transition Metal"
+    "Name": "Cobre",
+    "AtomicMass": 63.546,
+    "Number": 29,
+    "Group_": 11,
+    "Period": 4,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Zn",
     "Name": "Zinc",
-    "AtomicMass": "65.38",
-    "Number": "30",
-    "Group": "12",
-    "Period": "4",
-    "Classification": "Transition Metal"
+    "AtomicMass": 65.38,
+    "Number": 30,
+    "Group_": 12,
+    "Period": 4,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Ga",
-    "Name": "Gallium",
-    "AtomicMass": "69723",
-    "Number": "31",
-    "Group": "13",
-    "Period": "4",
-    "Classification": "Metal"
+    "Name": "Galio",
+    "AtomicMass": 69.723,
+    "Number": 31,
+    "Group_": 13,
+    "Period": 4,
+    "Classification": "Otros Metales"
   },
   {
     "Symbol": "Ge",
-    "Name": "Germanium",
-    "AtomicMass": "72.64",
-    "Number": "32",
-    "Group": "14",
-    "Period": "4",
-    "Classification": "Metalloid"
+    "Name": "Germanio",
+    "AtomicMass": 72.630,
+    "Number": 32,
+    "Group_": 14,
+    "Period": 4,
+    "Classification": "Metaloides"
   },
   {
     "Symbol": "As",
-    "Name": "Arsenic",
-    "AtomicMass": "74922",
-    "Number": "33",
-    "Group": "15",
-    "Period": "4",
-    "Classification": "Metalloid"
+    "Name": "Arsénico",
+    "AtomicMass": 74.922,
+    "Number": 33,
+    "Group_": 15,
+    "Period": 4,
+    "Classification": "Metaloides"
   },
   {
     "Symbol": "Se",
-    "Name": "Selenium",
-    "AtomicMass": "78.96",
-    "Number": "34",
-    "Group": "16",
-    "Period": "4",
-    "Classification": "Nonmetal"
+    "Name": "Selenio",
+    "AtomicMass": 78.971,
+    "Number": 34,
+    "Group_": 16,
+    "Period": 4,
+    "Classification": "No Metales"
   },
   {
     "Symbol": "Br",
-    "Name": "Bromine",
-    "AtomicMass": "79904",
-    "Number": "35",
-    "Group": "17",
-    "Period": "4",
-    "Classification": "Halogen"
+    "Name": "Bromo",
+    "AtomicMass": 79.904,
+    "Number": 35,
+    "Group_": 17,
+    "Period": 4,
+    "Classification": "Halógenos"
   },
   {
     "Symbol": "Kr",
-    "Name": "Krypton",
-    "AtomicMass": "83798",
-    "Number": "36",
-    "Group": "18",
-    "Period": "4",
-    "Classification": "Noble Gas"
+    "Name": "Kriptón",
+    "AtomicMass": 83.798,
+    "Number": 36,
+    "Group_": 18,
+    "Period": 4,
+    "Classification": "Gases Nobles"
   },
   {
     "Symbol": "Rb",
-    "Name": "Rubidium",
-    "AtomicMass": "85468",
-    "Number": "37",
-    "Group": "1",
-    "Period": "5",
-    "Classification": "Alkali Metal"
+    "Name": "Rubidio",
+    "AtomicMass": 85.468,
+    "Number": 37,
+    "Group_": 1,
+    "Period": 5,
+    "Classification": "Metales Alcalinos"
   },
   {
     "Symbol": "Sr",
-    "Name": "Strontium",
-    "AtomicMass": "87.62",
-    "Number": "38",
-    "Group": "2",
-    "Period": "5",
-    "Classification": "Alkaline Earth Metal"
+    "Name": "Estroncio",
+    "AtomicMass": 87.62,
+    "Number": 38,
+    "Group_": 2,
+    "Period": 5,
+    "Classification": "Alcalinotérreos"
   },
   {
     "Symbol": "Y",
-    "Name": "Yttrium",
-    "AtomicMass": "88906",
-    "Number": "39",
-    "Group": "3",
-    "Period": "5",
-    "Classification": "Transition Metal"
+    "Name": "Itio",
+    "AtomicMass": 88.906,
+    "Number": 39,
+    "Group_": 3,
+    "Period": 5,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Zr",
-    "Name": "Zirconium",
-    "AtomicMass": "91224",
-    "Number": "40",
-    "Group": "4",
-    "Period": "5",
-    "Classification": "Transition Metal"
+    "Name": "Circonio",
+    "AtomicMass": 91.224,
+    "Number": 40,
+    "Group_": 4,
+    "Period": 5,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Nb",
-    "Name": "Niobium",
-    "AtomicMass": "92906",
-    "Number": "41",
-    "Group": "5",
-    "Period": "5",
-    "Classification": "Transition Metal"
+    "Name": "Niobio",
+    "AtomicMass": 92.906,
+    "Number": 41,
+    "Group_": 5,
+    "Period": 5,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Mo",
-    "Name": "Molybdenum",
-    "AtomicMass": "95.96",
-    "Number": "42",
-    "Group": "6",
-    "Period": "5",
-    "Classification": "Transition Metal"
+    "Name": "Molibdeno",
+    "AtomicMass": 95.95,
+    "Number": 42,
+    "Group_": 6,
+    "Period": 5,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Tc",
-    "Name": "Technetium",
-    "AtomicMass": "98",
-    "Number": "43",
-    "Group": "7",
-    "Period": "5",
-    "Classification": "Transition Metal"
+    "Name": "Tecnecio",
+    "AtomicMass": 97,
+    "Number": 43,
+    "Group_": 7,
+    "Period": 5,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Ru",
-    "Name": "Ruthenium",
-    "AtomicMass": "101.07",
-    "Number": "44",
-    "Group": "8",
-    "Period": "5",
-    "Classification": "Transition Metal"
+    "Name": "Rutenio",
+    "AtomicMass": 101.07,
+    "Number": 44,
+    "Group_": 8,
+    "Period": 5,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Rh",
-    "Name": "Rhodium",
-    "AtomicMass": "102906",
-    "Number": "45",
-    "Group": "9",
-    "Period": "5",
-    "Classification": "Transition Metal"
+    "Name": "Rodio",
+    "AtomicMass": 102.91,
+    "Number": 45,
+    "Group_": 9,
+    "Period": 5,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Pd",
-    "Name": "Palladium",
-    "AtomicMass": "106.42",
-    "Number": "46",
-    "Group": "10",
-    "Period": "5",
-    "Classification": "Transition Metal"
+    "Name": "Paladio",
+    "AtomicMass": 106.42,
+    "Number": 46,
+    "Group_": 10,
+    "Period": 5,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Ag",
-    "Name": "Silver",
-    "AtomicMass": "107868",
-    "Number": "47",
-    "Group": "11",
-    "Period": "5",
-    "Classification": "Transition Metal"
+    "Name": "Plata",
+    "AtomicMass": 107.87,
+    "Number": 47,
+    "Group_": 11,
+    "Period": 5,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Cd",
-    "Name": "Cadmium",
-    "AtomicMass": "112411",
-    "Number": "48",
-    "Group": "12",
-    "Period": "5",
-    "Classification": "Transition Metal"
+    "Name": "Cadmio",
+    "AtomicMass": 112.41,
+    "Number": 48,
+    "Group_": 12,
+    "Period": 5,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "In",
-    "Name": "Indium",
-    "AtomicMass": "114818",
-    "Number": "49",
-    "Group": "13",
-    "Period": "5",
-    "Classification": "Metal"
+    "Name": "Indio",
+    "AtomicMass": 114.82,
+    "Number": 49,
+    "Group_": 13,
+    "Period": 5,
+    "Classification": "Otros Metales"
   },
   {
     "Symbol": "Sn",
-    "Name": "Tin",
-    "AtomicMass": "118.71",
-    "Number": "50",
-    "Group": "14",
-    "Period": "5",
-    "Classification": "Metal"
+    "Name": "Estaño",
+    "AtomicMass": 118.71,
+    "Number": 50,
+    "Group_": 14,
+    "Period": 5,
+    "Classification": "Otros Metales"
   },
   {
     "Symbol": "Sb",
-    "Name": "Antimony",
-    "AtomicMass": "121.76",
-    "Number": "51",
-    "Group": "15",
-    "Period": "5",
-    "Classification": "Metalloid"
+    "Name": "Antimonio",
+    "AtomicMass": 121.76,
+    "Number": 51,
+    "Group_": 15,
+    "Period": 5,
+    "Classification": "Metaloides"
   },
   {
     "Symbol": "Te",
-    "Name": "Tellurium",
-    "AtomicMass": "127.6",
-    "Number": "52",
-    "Group": "16",
-    "Period": "5",
-    "Classification": "Metalloid"
+    "Name": "Telurio",
+    "AtomicMass": 127.60,
+    "Number": 52,
+    "Group_": 16,
+    "Period": 5,
+    "Classification": "Metaloides"
   },
   {
     "Symbol": "I",
-    "Name": "Iodine",
-    "AtomicMass": "126904",
-    "Number": "53",
-    "Group": "17",
-    "Period": "5",
-    "Classification": "Halogen"
+    "Name": "Yodo",
+    "AtomicMass": 126.90,
+    "Number": 53,
+    "Group_": 17,
+    "Period": 5,
+    "Classification": "Halógenos"
   },
   {
     "Symbol": "Xe",
-    "Name": "Xenon",
-    "AtomicMass": "131293",
-    "Number": "54",
-    "Group": "18",
-    "Period": "5",
-    "Classification": "Noble Gas"
+    "Name": "Xenón",
+    "AtomicMass": 131.29,
+    "Number": 54,
+    "Group_": 18,
+    "Period": 5,
+    "Classification": "Gases Nobles"
   },
   {
     "Symbol": "Cs",
-    "Name": "Cesium",
-    "AtomicMass": "132905",
-    "Number": "55",
-    "Group": "1",
-    "Period": "6",
-    "Classification": "Alkali Metal"
+    "Name": "Cesio",
+    "AtomicMass": 132.91,
+    "Number": 55,
+    "Group_": 1,
+    "Period": 6,
+    "Classification": "Metales Alcalinos"
   },
   {
     "Symbol": "Ba",
-    "Name": "Barium",
-    "AtomicMass": "137327",
-    "Number": "56",
-    "Group": "2",
-    "Period": "6",
-    "Classification": "Alkaline Earth Metal"
+    "Name": "Bario",
+    "AtomicMass": 137.33,
+    "Number": 56,
+    "Group_": 2,
+    "Period": 6,
+    "Classification": "Alcalinotérreoss"
   },
   {
     "Symbol": "La",
-    "Name": "Lanthanum",
-    "AtomicMass": "138905",
-    "Number": "57",
-    "Group": "3",
-    "Period": "6",
-    "Classification": "Lanthanide"
+    "Name": "Lantano",
+    "AtomicMass": 138.91,
+    "Number": 57,
+    "Group_": nil,
+    "Period": 6,
+    "Classification": "Lantánidos"
   },
   {
     "Symbol": "Ce",
-    "Name": "Cerium",
-    "AtomicMass": "140116",
-    "Number": "58",
-    "Group": 50,
-    "Period": "6",
-    "Classification": "Lanthanide"
+    "Name": "Cerio",
+    "AtomicMass": 140.12,
+    "Number": 58,
+    "Group_": nil,
+    "Period": 6,
+    "Classification": "Lantánidos"
   },
   {
     "Symbol": "Pr",
-    "Name": "Praseodymium",
-    "AtomicMass": "140908",
-    "Number": "59",
-    "Group": 50,
-    "Period": "6",
-    "Classification": "Lanthanide"
+    "Name": "Praseodimio",
+    "AtomicMass": 140.91,
+    "Number": 59,
+    "Group_": nil,
+    "Period": 6,
+    "Classification": "Lantánidos"
   },
   {
     "Symbol": "Nd",
-    "Name": "Neodymium",
-    "AtomicMass": "144242",
-    "Number": "60",
-    "Group": 50,
-    "Period": "6",
-    "Classification": "Lanthanide"
+    "Name": "Neodimio",
+    "AtomicMass": 144.24,
+    "Number": 60,
+    "Group_": nil,
+    "Period": 6,
+    "Classification": "Lantánidos"
   },
   {
     "Symbol": "Pm",
-    "Name": "Promethium",
-    "AtomicMass": "145",
-    "Number": "61",
-    "Group": 50,
-    "Period": "6",
-    "Classification": "Lanthanide"
+    "Name": "Prometio",
+    "AtomicMass": 145,
+    "Number": 61,
+    "Group_": nil,
+    "Period": 6,
+    "Classification": "Lantánidos"
   },
   {
     "Symbol": "Sm",
-    "Name": "Samarium",
-    "AtomicMass": "150.36",
-    "Number": "62",
-    "Group": 50,
-    "Period": "6",
-    "Classification": "Lanthanide"
+    "Name": "Samario",
+    "AtomicMass": 150.36,
+    "Number": 62,
+    "Group_": nil,
+    "Period": 6,
+    "Classification": "Lantánidos"
   },
   {
     "Symbol": "Eu",
-    "Name": "Europium",
-    "AtomicMass": "151964",
-    "Number": "63",
-    "Group": 50,
-    "Period": "6",
-    "Classification": "Lanthanide"
+    "Name": "Europio",
+    "AtomicMass": 151.96,
+    "Number": 63,
+    "Group_": nil,
+    "Period": 6,
+    "Classification": "Lantánidos"
   },
   {
     "Symbol": "Gd",
-    "Name": "Gadolinium",
-    "AtomicMass": "157.25",
-    "Number": "64",
-    "Group": 50,
-    "Period": "6",
-    "Classification": "Lanthanide"
+    "Name": "Gadolinio",
+    "AtomicMass": 157.25,
+    "Number": 64,
+    "Group_": nil,
+    "Period": 6,
+    "Classification": "Lantánidos"
   },
   {
     "Symbol": "Tb",
-    "Name": "Terbium",
-    "AtomicMass": "158925",
-    "Number": "65",
-    "Group": 50,
-    "Period": "6",
-    "Classification": "Lanthanide"
+    "Name": "Terbio",
+    "AtomicMass": 158.93,
+    "Number": 65,
+    "Group_": nil,
+    "Period": 6,
+    "Classification": "Lantánidos"
   },
   {
     "Symbol": "Dy",
-    "Name": "Dysprosium",
-    "AtomicMass": "162.5",
-    "Number": "66",
-    "Group": 50,
-    "Period": "6",
-    "Classification": "Lanthanide"
+    "Name": "Disprosio",
+    "AtomicMass": 162.50,
+    "Number": 66,
+    "Group_": nil,
+    "Period": 6,
+    "Classification": "Lantánidos"
   },
   {
     "Symbol": "Ho",
-    "Name": "Holmium",
-    "AtomicMass": "164.93",
-    "Number": "67",
-    "Group": 50,
-    "Period": "6",
-    "Classification": "Lanthanide"
+    "Name": "Holmio",
+    "AtomicMass": 164.93,
+    "Number": 67,
+    "Group_": nil,
+    "Period": 6,
+    "Classification": "Lantánidos"
   },
   {
     "Symbol": "Er",
-    "Name": "Erbium",
-    "AtomicMass": "167259",
-    "Number": "68",
-    "Group": 50,
-    "Period": "6",
-    "Classification": "Lanthanide"
+    "Name": "Erbio",
+    "AtomicMass": 167.26,
+    "Number": 68,
+    "Group_": nil,
+    "Period": 6,
+    "Classification": "Lantánidos"
   },
   {
     "Symbol": "Tm",
-    "Name": "Thulium",
-    "AtomicMass": "168934",
-    "Number": "69",
-    "Group": 50,
-    "Period": "6",
-    "Classification": "Lanthanide"
+    "Name": "Tulio",
+    "AtomicMass": 168.93,
+    "Number": 69,
+    "Group_": nil,
+    "Period": 6,
+    "Classification": "Lantánidos"
   },
   {
     "Symbol": "Yb",
-    "Name": "Ytterbium",
-    "AtomicMass": "173054",
-    "Number": "70",
-    "Group": 50,
-    "Period": "6",
-    "Classification": "Lanthanide"
+    "Name": "Iterbio",
+    "AtomicMass": 173.05,
+    "Number": 70,
+    "Group_": nil,
+    "Period": 6,
+    "Classification": "Lantánidos"
   },
   {
     "Symbol": "Lu",
-    "Name": "Lutetium",
-    "AtomicMass": "174967",
-    "Number": "71",
-    "Group": 50,
-    "Period": "6",
-    "Classification": "Lanthanide"
+    "Name": "Lutecio",
+    "AtomicMass": 174.97,
+    "Number": 71,
+    "Group_": nil,
+    "Period": 6,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Hf",
-    "Name": "Hafnium",
-    "AtomicMass": "178.49",
-    "Number": "72",
-    "Group": "4",
-    "Period": "6",
-    "Classification": "Transition Metal"
+    "Name": "Hafnio",
+    "AtomicMass": 178.49,
+    "Number": 72,
+    "Group_": 4,
+    "Period": 6,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Ta",
-    "Name": "Tantalum",
-    "AtomicMass": "180948",
-    "Number": "73",
-    "Group": "5",
-    "Period": "6",
-    "Classification": "Transition Metal"
+    "Name": "Tántalo",
+    "AtomicMass": 180.95,
+    "Number": 73,
+    "Group_": 5,
+    "Period": 6,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "W",
-    "Name": "Wolfram",
-    "AtomicMass": "183.84",
-    "Number": "74",
-    "Group": "6",
-    "Period": "6",
-    "Classification": "Transition Metal"
+    "Name": "Wolframio",
+    "AtomicMass": 183.84,
+    "Number": 74,
+    "Group_": 6,
+    "Period": 6,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Re",
-    "Name": "Rhenium",
-    "AtomicMass": "186207",
-    "Number": "75",
-    "Group": "7",
-    "Period": "6",
-    "Classification": "Transition Metal"
+    "Name": "Renio",
+    "AtomicMass": 186.21,
+    "Number": 75,
+    "Group_": 7,
+    "Period": 6,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Os",
-    "Name": "Osmium",
-    "AtomicMass": "190.23",
-    "Number": "76",
-    "Group": "8",
-    "Period": "6",
-    "Classification": "Transition Metal"
+    "Name": "Osmio",
+    "AtomicMass": 190.23,
+    "Number": 76,
+    "Group_": 8,
+    "Period": 6,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Ir",
-    "Name": "Iridium",
-    "AtomicMass": "192217",
-    "Number": "77",
-    "Group": "9",
-    "Period": "6",
-    "Classification": "Transition Metal"
+    "Name": "Iridio",
+    "AtomicMass": 192.22,
+    "Number": 77,
+    "Group_": 9,
+    "Period": 6,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Pt",
-    "Name": "Platinum",
-    "AtomicMass": "195084",
-    "Number": "78",
-    "Group": "10",
-    "Period": "6",
-    "Classification": "Transition Metal"
+    "Name": "Platino",
+    "AtomicMass": 195.08,
+    "Number": 78,
+    "Group_": 10,
+    "Period": 6,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Au",
-    "Name": "Gold",
-    "AtomicMass": "196967",
-    "Number": "79",
-    "Group": "11",
-    "Period": "6",
-    "Classification": "Transition Metal"
+    "Name": "Oro",
+    "AtomicMass": 196.97,
+    "Number": 79,
+    "Group_": 11,
+    "Period": 6,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Hg",
-    "Name": "Mercury",
-    "AtomicMass": "200.59",
-    "Number": "80",
-    "Group": "12",
-    "Period": "6",
-    "Classification": "Transition Metal"
+    "Name": "Mercurio",
+    "AtomicMass": 200.59,
+    "Number": 80,
+    "Group_": 12,
+    "Period": 6,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Tl",
-    "Name": "Thallium",
-    "AtomicMass": "204383",
-    "Number": "81",
-    "Group": "13",
-    "Period": "6",
-    "Classification": "Metal"
+    "Name": "Talio",
+    "AtomicMass": 204.38,
+    "Number": 81,
+    "Group_": 13,
+    "Period": 6,
+    "Classification": "Otros Metales"
   },
   {
     "Symbol": "Pb",
-    "Name": "Lead",
-    "AtomicMass": "207.2",
-    "Number": "82",
-    "Group": "14",
-    "Period": "6",
-    "Classification": "Metal"
+    "Name": "Plomo",
+    "AtomicMass": 207.2,
+    "Number": 82,
+    "Group_": 14,
+    "Period": 6,
+    "Classification": "Otros Metales"
   },
   {
     "Symbol": "Bi",
-    "Name": "Bismuth",
-    "AtomicMass": "208.98",
-    "Number": "83",
-    "Group": "15",
-    "Period": "6",
-    "Classification": "Metal"
+    "Name": "Bismuto",
+    "AtomicMass": 208.98,
+    "Number": 83,
+    "Group_": 15,
+    "Period": 6,
+    "Classification": "Otros Metales"
   },
   {
     "Symbol": "Po",
-    "Name": "Polonium",
-    "AtomicMass": "210",
-    "Number": "84",
-    "Group": "16",
-    "Period": "6",
-    "Classification": "Metalloid"
+    "Name": "Polonio",
+    "AtomicMass": 209,
+    "Number": 84,
+    "Group_": 16,
+    "Period": 6,
+    "Classification": "Metaloides"
   },
   {
     "Symbol": "At",
-    "Name": "Astatine",
-    "AtomicMass": "210",
-    "Number": "85",
-    "Group": "17",
-    "Period": "6",
-    "Classification": "Noble Gas"
+    "Name": "Astato",
+    "AtomicMass": 210,
+    "Number": 85,
+    "Group_": 17,
+    "Period": 6,
+    "Classification": "Halógenos"
   },
   {
     "Symbol": "Rn",
-    "Name": "Radon",
-    "AtomicMass": "222",
-    "Number": "86",
-    "Group": "18",
-    "Period": "6",
-    "Classification": "Alkali Metal"
+    "Name": "Radón",
+    "AtomicMass": 222,
+    "Number": 86,
+    "Group_": 18,
+    "Period": 6,
+    "Classification": "Gases Nobles"
   },
   {
     "Symbol": "Fr",
-    "Name": "Francium",
-    "AtomicMass": "223",
-    "Number": "87",
-    "Group": "1",
-    "Period": "7",
-    "Classification": "Alkaline Earth Metal"
+    "Name": "Francio",
+    "AtomicMass": 223,
+    "Number": 87,
+    "Group_": 1,
+    "Period": 7,
+    "Classification": "Alcalinotérreoss"
   },
   {
     "Symbol": "Ra",
-    "Name": "Radium",
-    "AtomicMass": "226",
-    "Number": "88",
-    "Group": "2",
-    "Period": "7",
-    "Classification": "Actinide"
+    "Name": "Radio",
+    "AtomicMass": 226,
+    "Number": 88,
+    "Group_": 2,
+    "Period": 7,
+    "Classification": "Alcalinotérreos"
   },
   {
     "Symbol": "Ac",
-    "Name": "Actinium",
-    "AtomicMass": "227",
-    "Number": "89",
-    "Group": "3",
-    "Period": "7",
-    "Classification": "Actinide"
+    "Name": "Actinio",
+    "AtomicMass": 227,
+    "Number": 89,
+    "Group_": nil,
+    "Period": 7,
+    "Classification": "Actínidos"
   },
   {
     "Symbol": "Th",
-    "Name": "Thorium",
-    "AtomicMass": "232038",
-    "Number": "90",
-    "Group": 50,
-    "Period": "7",
-    "Classification": "Actinide"
+    "Name": "Torio",
+    "AtomicMass": 232.04,
+    "Number": 90,
+    "Group_": nil,
+    "Period": 7,
+    "Classification": "Actínidos"
   },
   {
     "Symbol": "Pa",
-    "Name": "Protactinium",
-    "AtomicMass": "231036",
-    "Number": "91",
-    "Group": 50,
-    "Period": "7",
-    "Classification": "Actinide"
+    "Name": "Protactinio",
+    "AtomicMass": 231.04,
+    "Number": 91,
+    "Group_": nil,
+    "Period": 7,
+    "Classification": "Actínidos"
   },
   {
     "Symbol": "U",
-    "Name": "Uranium",
-    "AtomicMass": "238029",
-    "Number": "92",
-    "Group": 50,
-    "Period": "7",
-    "Classification": "Actinide"
+    "Name": "Uranio",
+    "AtomicMass": 238.03,
+    "Number": 92,
+    "Group_": nil,
+    "Period": 7,
+    "Classification": "Actínidos"
   },
   {
     "Symbol": "Np",
-    "Name": "Neptunium",
-    "AtomicMass": "237",
-    "Number": "93",
-    "Group": 50,
-    "Period": "7",
-    "Classification": "Actinide"
+    "Name": "Neptunio",
+    "AtomicMass": 237,
+    "Number": 93,
+    "Group_": nil,
+    "Period": 7,
+    "Classification": "Actínidos"
   },
   {
     "Symbol": "Pu",
-    "Name": "Plutonium",
-    "AtomicMass": "244",
-    "Number": "94",
-    "Group": 50,
-    "Period": "7",
-    "Classification": "Actinide"
+    "Name": "Plutonio",
+    "AtomicMass": 244,
+    "Number": 94,
+    "Group_": nil,
+    "Period": 7,
+    "Classification": "Actínidos"
   },
   {
     "Symbol": "Am",
-    "Name": "Americium",
-    "AtomicMass": "243",
-    "Number": "95",
-    "Group": 50,
-    "Period": "7",
-    "Classification": "Actinide"
+    "Name": "Americio",
+    "AtomicMass": 243,
+    "Number": 95,
+    "Group_": nil,
+    "Period": 7,
+    "Classification": "Actínidos"
   },
   {
     "Symbol": "Cm",
-    "Name": "Curium",
-    "AtomicMass": "247",
-    "Number": "96",
-    "Group": 50,
-    "Period": "7",
-    "Classification": "Actinide"
+    "Name": "Curio",
+    "AtomicMass": 247,
+    "Number": 96,
+    "Group_": nil,
+    "Period": 7,
+    "Classification": "Actínidos"
   },
   {
     "Symbol": "Bk",
-    "Name": "Berkelium",
-    "AtomicMass": "247",
-    "Number": "97",
-    "Group": 50,
-    "Period": "7",
-    "Classification": "Actinide"
+    "Name": "Berkelio",
+    "AtomicMass": 247,
+    "Number": 97,
+    "Group_": nil,
+    "Period": 7,
+    "Classification": "Actínidos"
   },
   {
     "Symbol": "Cf",
-    "Name": "Californium",
-    "AtomicMass": "251",
-    "Number": "98",
-    "Group": 50,
-    "Period": "7",
-    "Classification": "Actinide"
+    "Name": "Californio",
+    "AtomicMass": 251,
+    "Number": 98,
+    "Group_": nil,
+    "Period": 7,
+    "Classification": "Actínidos"
   },
   {
     "Symbol": "Es",
-    "Name": "Einsteinium",
-    "AtomicMass": "252",
-    "Number": "99",
-    "Group": 50,
-    "Period": "7",
-    "Classification": "Actinide"
+    "Name": "Einsteinio",
+    "AtomicMass": 252,
+    "Number": 99,
+    "Group_": nil,
+    "Period": 7,
+    "Classification": "Actínidos"
   },
   {
     "Symbol": "Fm",
-    "Name": "Fermium",
-    "AtomicMass": "257",
-    "Number": "100",
-    "Group": 50,
-    "Period": "7",
-    "Classification": "Actinide"
+    "Name": "Fermio",
+    "AtomicMass": 257,
+    "Number": 100,
+    "Group_": nil,
+    "Period": 7,
+    "Classification": "Actínidos"
   },
   {
     "Symbol": "Md",
-    "Name": "Mendelevium",
-    "AtomicMass": "258",
-    "Number": "101",
-    "Group": 50,
-    "Period": "7",
-    "Classification": "Actinide"
+    "Name": "Mendelevio",
+    "AtomicMass": 258,
+    "Number": 101,
+    "Group_": nil,
+    "Period": 7,
+    "Classification": "Actínidos"
   },
   {
     "Symbol": "No",
-    "Name": "Nobelium",
-    "AtomicMass": "259",
-    "Number": "102",
-    "Group": 50,
-    "Period": "7",
-    "Classification": "Actinide"
+    "Name": "Nobelio",
+    "AtomicMass": 259,
+    "Number": 102,
+    "Group_": nil,
+    "Period": 7,
+    "Classification": "Actínidos"
   },
   {
     "Symbol": "Lr",
-    "Name": "Lawrencium",
-    "AtomicMass": "262",
-    "Number": "103",
-    "Group": 50,
-    "Period": "7",
-    "Classification": "Actinide"
+    "Name": "Lawrencio",
+    "AtomicMass": 262,
+    "Number": 103,
+    "Group_": nil,
+    "Period": 7,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Rf",
-    "Name": "Rutherfordium",
-    "AtomicMass": "261",
-    "Number": "104",
-    "Group": "4",
-    "Period": "7",
-    "Classification": "Transactinide"
+    "Name": "Rutherfordio",
+    "AtomicMass": 267,
+    "Number": 104,
+    "Group_": 4,
+    "Period": 7,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Db",
-    "Name": "Dubnium",
-    "AtomicMass": "262",
-    "Number": "105",
-    "Group": "5",
-    "Period": "7",
-    "Classification": "Transactinide"
+    "Name": "Dubnio",
+    "AtomicMass": 268,
+    "Number": 105,
+    "Group_": 5,
+    "Period": 7,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Sg",
-    "Name": "Seaborgium",
-    "AtomicMass": "266",
-    "Number": "106",
-    "Group": "6",
-    "Period": "7",
-    "Classification": "Transactinide"
+    "Name": "Seaborgio",
+    "AtomicMass": 269,
+    "Number": 106,
+    "Group_": 6,
+    "Period": 7,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Bh",
-    "Name": "Bohrium",
-    "AtomicMass": "264",
-    "Number": "107",
-    "Group": "7",
-    "Period": "7",
-    "Classification": "Transactinide"
+    "Name": "Bohrio",
+    "AtomicMass": 270,
+    "Number": 107,
+    "Group_": 7,
+    "Period": 7,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Hs",
-    "Name": "Hassium",
-    "AtomicMass": "267",
-    "Number": "108",
-    "Group": "8",
-    "Period": "7",
-    "Classification": "Transactinide"
+    "Name": "Hasio",
+    "AtomicMass": 269,
+    "Number": 108,
+    "Group_": 8,
+    "Period": 7,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Mt",
-    "Name": "Meitnerium",
-    "AtomicMass": "268",
-    "Number": "109",
-    "Group": "9",
-    "Period": "7",
-    "Classification": "Transactinide"
+    "Name": "Meitnerio",
+    "AtomicMass": 277,
+    "Number": 109,
+    "Group_": 9,
+    "Period": 7,
+    "Classification": "Metales de Transición"
   },
   {
-    "Symbol": "Ds ",
-    "Name": "Darmstadtium ",
-    "AtomicMass": "271",
-    "Number": "110",
-    "Group": "10",
-    "Period": "7",
-    "Classification": "Transactinide"
+    "Symbol": "Ds",
+    "Name": "Darmstatio",
+    "AtomicMass": 281,
+    "Number": 110,
+    "Group_": 10,
+    "Period": 7,
+    "Classification": "Metales de Transición"
   },
   {
-    "Symbol": "Rg ",
-    "Name": "Roentgenium ",
-    "AtomicMass": "272",
-    "Number": "111",
-    "Group": "11",
-    "Period": "7",
-    "Classification": "Transactinide"
+    "Symbol": "Rg",
+    "Name": "Roentgenio",
+    "AtomicMass": 282,
+    "Number": 111,
+    "Group_": 11,
+    "Period": 7,
+    "Classification": "Metales de Transición"
   },
   {
-    "Symbol": "Cn ",
-    "Name": "Copernicium ",
-    "AtomicMass": "285",
-    "Number": "112",
-    "Group": "12",
-    "Period": "7",
-    "Classification": "Transactinide"
+    "Symbol": "Cn",
+    "Name": "Copernicio",
+    "AtomicMass": 285,
+    "Number": 112,
+    "Group_": 12,
+    "Period": 7,
+    "Classification": "Metales de Transición"
   },
   {
     "Symbol": "Nh",
-    "Name": "Nihonium",
-    "AtomicMass": "284",
-    "Number": "113",
-    "Group": "13",
-    "Period": "7",
-    "Classification": 50
+    "Name": "Nihonio",
+    "AtomicMass": 286,
+    "Number": 113,
+    "Group_": 13,
+    "Period": 7,
+    "Classification": "Otros Metales"
   },
   {
     "Symbol": "Fl",
-    "Name": "Flerovium",
-    "AtomicMass": "289",
-    "Number": "114",
-    "Group": "14",
-    "Period": "7",
-    "Classification": "Transactinide"
+    "Name": "Flerovio",
+    "AtomicMass": 290,
+    "Number": 114,
+    "Group_": 14,
+    "Period": 7,
+    "Classification": "Otros Metales"
   },
   {
     "Symbol": "Mc",
-    "Name": "Moscovium",
-    "AtomicMass": "288",
-    "Number": "115",
-    "Group": "15",
-    "Period": "7",
-    "Classification": 50
+    "Name": "Moscovio",
+    "AtomicMass": 290,
+    "Number": 115,
+    "Group_": 15,
+    "Period": 7,
+    "Classification": "Otros Metales"
   },
   {
     "Symbol": "Lv",
-    "Name": "Livermorium",
-    "AtomicMass": "292",
-    "Number": "116",
-    "Group": "16",
-    "Period": "7",
-    "Classification": "Transactinide"
+    "Name": "Livermorio",
+    "AtomicMass": 293,
+    "Number": 116,
+    "Group_": 16,
+    "Period": 7,
+    "Classification": "Otros Metales"
   },
   {
     "Symbol": "Ts",
-    "Name": "Tennessine",
-    "AtomicMass": "295",
-    "Number": "117",
-    "Group": "17",
-    "Period": "7",
-    "Classification": 50
+    "Name": "Teneso",
+    "AtomicMass": 294,
+    "Number": 117,
+    "Group_": 17,
+    "Period": 7,
+    "Classification": "Halógenos"
   },
   {
     "Symbol": "Og",
-    "Name": "Oganesson",
-    "AtomicMass": "294",
-    "Number": "118",
-    "Group": "18",
-    "Period": "7",
-    "Classification": "Noble Gas"
+    "Name": "Oganesón",
+    "AtomicMass": 294,
+    "Number": 118,
+    "Group_": 18,
+    "Period": 7,
+    "Classification": "Gases Nobles"
   }
 ]
 
