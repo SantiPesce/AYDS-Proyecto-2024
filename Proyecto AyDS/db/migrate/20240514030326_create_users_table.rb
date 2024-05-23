@@ -7,6 +7,8 @@ class CreateUsersTable < ActiveRecord::Migration[5.0]
       t.string :password
       t.integer :progress
       t.integer :actualLearning
+      t.integer :actualLearningLevel2;
+      t.integer :lessonMaxProgress
 
       t.datetime :created_at
       t.datetime :updated_at
