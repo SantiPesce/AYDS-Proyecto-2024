@@ -1079,26 +1079,27 @@ elements.each do |k|
 end
 
 
+
 learnings = [
-  { number: 1, lesson:"La tabla periódica clasifica los elementos químicos según su número atómico y propiedades químicas."},
-  { number: 2, lesson:"Los elementos se organizan en filas (períodos) y columnas (grupos) según sus propiedades."},
-  { number: 3, lesson:"La tabla periódica ordena los elementos de izquierda a derecha y de arriba abajo según su número atómico."},
-  { number: 4, lesson:"Los grupos de la tabla periódica muestran patrones en el radio atómico y otras propiedades."},
-  { number: 5, lesson:"Los elementos en un grupo comparten características químicas similares."},
-  { number: 6, lesson:"Existen excepciones a el orden en la tabla periódica."},
-  { number: 7, lesson: "Los períodos de la tabla periódica representan los niveles energéticos de los átomos."},
-  { number: 8, lesson: "Los elementos en el mismo período muestran tendencias similares en sus propiedades."},
-  { number: 9, lesson: "La tabla periódica se divide en bloques según la secuencia en la que se llenan los orbitales de electrones."},
-  { number: 10, lesson: "Los bloques s, p, d y f de la tabla periódica contienen diferentes tipos de elementos."},
-  { number: 11, lesson: "Los elementos se clasifican en metales, metaloides y no metales según sus propiedades físicas y químicas."},
-  { number: 12, lesson:"Los metales y no metales pueden subdividirse en categorías que muestran una gradación en sus propiedades."},
-  { number: 13, lesson:"Los elementos no metales se subdividen en no metales poliatómicos, no metales diatómicos y gases nobles."},
-  { number: 14, lesson:"Los elementos se clasifican en categorías y subcategorías según sus propiedades compartidas."},
-  { number: 15, lesson: "Los elementos son tipos de materia formados por átomos con el mismo número atómico."},
-  { number: 16, lesson: "Algunos elementos son naturales, otros son sintéticos y se han creado artificialmente."},
-  { number: 17, lesson: "El descubrimiento de algunos elementos ha sido revocado o cuestionado debido a la dificultad de reproducir los experimentos."},
-  { number: 18, lesson: "Los elementos reciben nombres basados en griego, latín, inglés, descubridores o lugares de descubrimiento."},
-  { number: 19, lesson: "Los elementos son sustancias puras que consisten en átomos con el mismo número atómico y propiedades únicas."}
+  { number: 1, lesson:"La tabla periódica clasifica los elementos químicos según su número atómico y propiedades químicas.", levelImage: "tabla"},
+  { number: 2, lesson:"Los elementos se organizan en filas (períodos) y columnas (grupos) según sus propiedades.", levelImage: "gruposperiodos"},
+  { number: 3, lesson:"La tabla periódica ordena los elementos de izquierda a derecha y de arriba abajo según su número atómico.", levelImage: "tabla"},
+  { number: 4, lesson:"Los grupos de la tabla periódica muestran patrones en el radio atómico y otras propiedades.", levelImage: "tabla"},
+  { number: 5, lesson:"Los elementos en un grupo comparten características químicas similares.", levelImage: "grupos" },
+  { number: 6, lesson:"Existen excepciones a el orden en la tabla periódica.", levelImage: "tabla"},
+  { number: 7, lesson: "Los períodos de la tabla periódica representan los niveles energéticos de los átomos.", levelImage: "periodos"},
+  { number: 8, lesson: "Los elementos en el mismo período muestran tendencias similares en sus propiedades.", levelImage: "periodos"},
+  { number: 9, lesson: "La tabla periódica se divide en bloques según la secuencia en la que se llenan los orbitales de electrones.", levelImage: "bloques"},
+  { number: 10, lesson: "Los bloques s, p, d y f de la tabla periódica contienen diferentes tipos de elementos.", levelImage: "bloques"},
+  { number: 11, lesson: "Los elementos se clasifican en metales, metaloides y no metales según sus propiedades físicas y químicas.", levelImage: "clasificacion"},
+  { number: 12, lesson:"Los metales y no metales pueden subdividirse en categorías que muestran una gradación en sus propiedades.", levelImage: "clasificacion"},
+  { number: 13, lesson:"Los elementos no metales se subdividen en no metales poliatómicos, no metales diatómicos y gases nobles.", levelImage: "clasificacion"},
+  { number: 14, lesson:"Los elementos se clasifican en categorías y subcategorías según sus propiedades compartidas.", levelImage: "clasificacion"},
+  { number: 15, lesson: "Los elementos son tipos de materia formados por átomos con el mismo número atómico.", levelImage: "elemento"},
+  { number: 16, lesson: "Algunos elementos son naturales, otros son sintéticos y se han creado artificialmente.", levelImage: "elemento"},
+  { number: 17, lesson: "El descubrimiento de algunos elementos ha sido revocado o cuestionado debido a la dificultad de reproducir los experimentos.", levelImage: "elemento"},
+  { number: 18, lesson: "Los elementos reciben nombres basados en griego, latín, inglés, descubridores o lugares de descubrimiento.", levelImage: "elemento"},
+  { number: 19, lesson: "Los elementos son sustancias puras que consisten en átomos con el mismo número atómico y propiedades únicas.", levelImage: "elemento"}
 ]
 
 

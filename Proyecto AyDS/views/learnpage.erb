@@ -31,7 +31,12 @@
 </style>
 </head>
 <body>
-
+<div id="imagen">
+  <% if Learning.exists?(number: @user.actualLearning) %>
+    <% learning = Learning.find_by(number: @user.actualLearning) %>
+    <img src="images/<%=learning.levelImage%>.png">
+  <% end %>
+</div>
 <div id="texto">
   <% if Learning.exists?(number: @user.actualLearning) %>
     <% learning = Learning.find_by(number: @user.actualLearning) %>

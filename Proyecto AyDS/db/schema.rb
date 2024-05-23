@@ -25,6 +25,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_17_202003) do
     t.integer "number"
     t.string "lesson"
     t.integer "level"
+    t.string "levelImage"
   end
 
   create_table "users", force: :cascade do |t|

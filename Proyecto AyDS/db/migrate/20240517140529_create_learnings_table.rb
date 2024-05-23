@@ -4,6 +4,7 @@ class CreateLearningsTable < ActiveRecord::Migration[5.0]
       t.integer :number
       t.string :lesson
       t.integer :level
+      t.string :levelImage
     end    
   end
 end
