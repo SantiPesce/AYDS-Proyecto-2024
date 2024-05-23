@@ -1,8 +1,8 @@
 require './models/learning'
 users = [
-    { names: 'Jon Doe', username: 'jondoe', email: 'jon@doe.com', password: 'abc',progress: 20,actualLearning: 1},
-    { names: 'Jane Doe', username: 'janedoe', email: 'jane@doe.com', password: 'abc',progress: 20,actualLearning: 1},
-    { names: 'Baby Doe', username: 'babydoe', email: 'baby@doe.com', password: 'abc', progress: 20,actualLearning: 1},
+    { names: 'Jon Doe', username: 'jondoe', email: 'jon@doe.com', password: 'abc',progress: 20,actualLearning: 1, actualLearningLevel2: 15},
+    { names: 'Jane Doe', username: 'janedoe', email: 'jane@doe.com', password: 'abc',progress: 20,actualLearning: 1, actualLearningLevel2: 15},
+    { names: 'Baby Doe', username: 'babydoe', email: 'baby@doe.com', password: 'abc', progress: 20,actualLearning: 1, actualLearningLevel2: 15},
   ]
   
   users.each do |u|
@@ -1080,20 +1080,27 @@ end
 
 
 learnings = [
-  { number: 1, lesson:"La tabla periódica de los elementos es una disposición de los elementos químicos en forma de tabla, ordenados por su número atómico (número de protones),por su configuración de electrones y sus propiedades químicas. Este ordenamiento muestra tendencias periódicas como elementos con comportamiento similar en la misma columna.", level: 1},
-  { number: 2, lesson:"Las filas de la tabla se denominan períodos y las columnas grupos. La tabla también se divide en cuatro bloques con algunas propiedades químicas similares. Debido a que las posiciones están ordenadas, se puede utilizar la tabla para obtener relaciones entre las propiedades de los elementos, o pronosticar propiedades de elementos nuevos todavía no descubiertos o sintetizados.", level: 1},
-  { number: 3, lesson:"La tabla periódica actual es un sistema donde se clasifican los elementos conocidos hasta la fecha. Se colocan De izquierda a derecha y de arriba abajo en orden creciente de sus números atómicos. Los elementos están ordenados en siete hileras horizontales llamadas periodos, y en 18 columnas verticales llamadas grupos o familias. Hacia abajo y a la izquierda aumenta el radio atómico y el radio iónico. Hacia arriba y a la derecha aumenta la energía de ionización, la afinidad electrónica y la electronegatividad.", level: 1},
-  { number: 4, lesson:"Grupos. columnas verticales de la tabla se las conoce como grupos o familias. Hay 18 grupos en la tabla periódica estándar. En virtud de un convenio internacional de denominación, los grupos están numerados de 1 a 18 desde la columna más a la izquierda,los metales alcalinos, hasta la columna más a la derecha los ,gases nobles.", level: 1},
-  { number: 5, lesson:"Los elementos de un mismo grupo tienden a mostrar patrones en el radio atómico, energía de ionización y electronegatividad. De arriba abajo en un grupo, aumentan los radios atómicos de los elementos. Puesto que hay niveles de energía más llenos, los electrones de valencia se encuentran más alejados del núcleo. Desde la parte superior, cada elemento sucesivo tiene una energía de ionización más baja, ya que es más fácil quitar un electrón en los átomos que están menos fuertemente unidos.", level: 1},
-  { number: 6, lesson:"Hay excepciones a estas tendencias, como por ejemplo lo que ocurre en el grupo 11, donde la electronegatividad aumenta más abajo en el grupo.64​ Además, en algunas partes de la tabla periódica como los bloques d y f, las similitudes horizontales pueden ser tan o más pronunciadas que las verticales.", level: 1},
-  { number: 7, lesson: "Las filas horizontales de la tabla periódica son llamadas períodos.​ El número de niveles energéticos de un átomo determina el periodo al que pertenece. Cada nivel está dividido en distintos subniveles, que conforme aumenta su número atómico se van llenando en este orden:", level: 1},
-  { number: 8, lesson: "Los elementos en el mismo período muestran tendencias similares en radio atómico, energía de ionización, afinidad electrónica y electronegatividad. En un período el radio atómico normalmente decrece si nos desplazamos hacia la derecha debido a que cada elemento sucesivo añadió protones y electrones, lo que provoca que este último sea arrastrado más cerca del núcleo.69​ Esta disminución del radio atómico también causa que la energía de ionización y la electronegatividad aumenten de izquierda a derecha en un período, debido a la atracción que ejerce el núcleo sobre los electrones.", level: 1},
-  { number: 9, lesson: "Bloques. La tabla periódica se puede también dividir en bloques de acuerdo a la secuencia en la que se llenan las capas de electrones de los elementos. Cada bloque se denomina según el orbital en el que en teoría reside el último electrón: s, p, d y f.", level: 1},
-  { number: 10, lesson: "El bloque s comprende los dos primeros grupos (metales alcalinos y alcalinotérreos), así como el hidrógeno y el helio. El bloque p comprende los últimos seis grupos —que son grupos del 13 al 18 y contiene, entre otros elementos, todos los metaloides. El bloque d comprende los grupos 3 a 12 —o 3B a 2B en la numeración americana de grupo— y contiene todos los metales de transición .El bloque f, a menudo colocado por debajo del resto de la tabla periódica, no tiene números de grupo y se compone de lantánidos y actínidos.", level: 1},
-  { number: 11, lesson: "Metales, metaloides y no metales. De acuerdo con las propiedades físicas y químicas que comparten, los elementos se pueden clasificar en tres grandes categorías: metales, metaloides y no metales. Los metales son sólidos generalmente brillantes, altamente conductores que forman aleaciones de unos con otros y compuestos iónicos similares a sales con compuestos no metálicos —siempre que no sean los gases nobles—. La mayoría de los no metales son gases incoloros o de colores", level: 1},
-  { number: 12, lesson:"Metales y no metales pueden clasificarse en sub_categorías que muestran una gradación desde lo metálico a las propiedades no metálicas, de izquierda a derecha, en las filas: metales alcalinos —altamente reactivos—, metales alcalinotérreos —menos reactivos—, lantánidos y actínidos, metales de transición y metales post-transición.", level: 1},
-  { number: 13, lesson:"Los no metales se subdividen simplemente en no metales poliatómicos —que, por estar más cercanos a los metaloides, muestran cierto carácter metálico incipiente—, no metales diatómicos —que son esencialmente no metálicos— y los gases nobles, que son monoatómicos no metálicos y casi completamente inertes.", level: 1},
+  { number: 1, lesson:"La tabla periódica clasifica los elementos químicos según su número atómico y propiedades químicas."},
+  { number: 2, lesson:"Los elementos se organizan en filas (períodos) y columnas (grupos) según sus propiedades."},
+  { number: 3, lesson:"La tabla periódica ordena los elementos de izquierda a derecha y de arriba abajo según su número atómico."},
+  { number: 4, lesson:"Los grupos de la tabla periódica muestran patrones en el radio atómico y otras propiedades."},
+  { number: 5, lesson:"Los elementos en un grupo comparten características químicas similares."},
+  { number: 6, lesson:"Existen excepciones a el orden en la tabla periódica."},
+  { number: 7, lesson: "Los períodos de la tabla periódica representan los niveles energéticos de los átomos."},
+  { number: 8, lesson: "Los elementos en el mismo período muestran tendencias similares en sus propiedades."},
+  { number: 9, lesson: "La tabla periódica se divide en bloques según la secuencia en la que se llenan los orbitales de electrones."},
+  { number: 10, lesson: "Los bloques s, p, d y f de la tabla periódica contienen diferentes tipos de elementos."},
+  { number: 11, lesson: "Los elementos se clasifican en metales, metaloides y no metales según sus propiedades físicas y químicas."},
+  { number: 12, lesson:"Los metales y no metales pueden subdividirse en categorías que muestran una gradación en sus propiedades."},
+  { number: 13, lesson:"Los elementos no metales se subdividen en no metales poliatómicos, no metales diatómicos y gases nobles."},
+  { number: 14, lesson:"Los elementos se clasifican en categorías y subcategorías según sus propiedades compartidas."},
+  { number: 15, lesson: "Los elementos son tipos de materia formados por átomos con el mismo número atómico."},
+  { number: 16, lesson: "Algunos elementos son naturales, otros son sintéticos y se han creado artificialmente."},
+  { number: 17, lesson: "El descubrimiento de algunos elementos ha sido revocado o cuestionado debido a la dificultad de reproducir los experimentos."},
+  { number: 18, lesson: "Los elementos reciben nombres basados en griego, latín, inglés, descubridores o lugares de descubrimiento."},
+  { number: 19, lesson: "Los elementos son sustancias puras que consisten en átomos con el mismo número atómico y propiedades únicas."}
 ]
+
 
 learnings.each do |h|
   Learning.create(h)

@@ -33,37 +33,36 @@
 <body>
 
 <div id="texto">
-  <% if Learning.exists?(number: @user.actualLearning) %>
-    <% learning = Learning.find_by(number: @user.actualLearning) %>
+  <% if Learning.exists?(number: @user.actualLearningLevel2) %>
+    <% learning = Learning.find_by(number: @user.actualLearningLevel2) %>
     <%= learning.lesson %>
   <% else %>
     El aprendizaje correspondiente no se encontró.
   <% end %>
 </div>
 <div id="botones">
-  <form action="/actualizar_leccion" method="post">
-    <% nueva_leccion = @user.actualLearning - 1 %>
-    <% nueva_leccion = 1 if nueva_leccion < 1 %>
-    <% nueva_leccion = Learning.maximum(:number) if nueva_leccion > Learning.maximum(:number) %>
+  <form action="/actualizar_leccion2" method="post">
+    <% nueva_leccion2 = @user.actualLearningLevel2 - 1 %>
+    <% nueva_leccion2 = 15 if nueva_leccion2 < 15 %>
+    <% nueva_leccion2 = Learning.maximum(:number) if nueva_leccion2 > Learning.maximum(:number) %>
      <!-- Asegurar que el valor no sea menor que 0 ni mayor que el máximo número de elementos -->
-    <input type="hidden" name="nueva_leccion" value="<%= nueva_leccion %>">
+    <input type="hidden" name="nueva_leccion2" value="<%= nueva_leccion2 %>">
     <button class="boton">Atrás</button>
   </form>
   <form action="/menu" method="get">
     <button class="boton">Menú</button>
   </form>
-  <% nueva_leccion = @user.actualLearning + 1 %>
-  <% nueva_leccion = 1 if nueva_leccion < 1 %>
-  <% if nueva_leccion > 14 %>
+  <% nueva_leccion2 = @user.actualLearningLevel2 + 1 %>
+  <% nueva_leccion2 = 1 if nueva_leccion2 < 1 %>
+  <% if nueva_leccion2 > 19 %>
     <a href="/congratsLevel" class="boton"><button class="boton">Terminar</button></a>
   <% else %>
-    <form action="/actualizar_leccion" method="post">
+    <form action="/actualizar_leccion2" method="post">
       <!-- Asegurar que el valor no sea menor que 0 ni mayor que el máximo número de elementos -->
-      <input type="hidden" name="nueva_leccion" value="<%= nueva_leccion %>">
+      <input type="hidden" name="nueva_leccion2" value="<%= nueva_leccion2 %>">
       <button class="boton">Adelante</button>
     </form>
   <% end %>
 </div>
-
 </body>
 </html>

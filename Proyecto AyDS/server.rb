@@ -76,7 +76,7 @@ class App < Sinatra::Application
     end
   
     # Creo el nuevo usuario
-    user = User.new(names: names, username: username, email: email, password: password, progress: 0)
+    user = User.new(names: names, username: username, email: email, password: password, progress: 0, actualLearning: 1, actualLearningLevel2: 15)
   
     if user.save
       @success = "Te registraste correctamente, inicia sesion"
@@ -93,6 +93,11 @@ class App < Sinatra::Application
     erb :'menu'
   end
 
+  get '/levelSelect' do
+    @user = User.find(session[:user_id])
+    erb :'levels'
+  end
+
   get '/learnpage' do
     @user = User.find(session[:user_id])
     @learnings = Learning.all
@@ -105,10 +110,30 @@ class App < Sinatra::Application
     erb :'learnpage'
   end
 
+
+  get '/learnpage2' do
+    @user = User.find(session[:user_id])
+    @learnings = Learning.all
+    erb :'learnpage2'
+  end
+
+  post '/learnpage2' do
+    @user = User.find(session[:user_id])
+    @learnings = Learning.all
+    erb :'learnpage2'
+  end
+
+  post '/actualizar_leccion2' do
+    nueva_leccion2 = params[:nueva_leccion2]
+    @user = User.find(session[:user_id])
+    @user.update(actualLearningLevel2: nueva_leccion2)
+    redirect '/learnpage2'
+  end
+
   post '/actualizar_leccion' do
     nueva_leccion = params[:nueva_leccion]
-    user = User.find(session[:user_id])
-    user.update(actualLearning: nueva_leccion)
+    @user = User.find(session[:user_id])
+    @user.update(actualLearning: nueva_leccion)
     redirect '/learnpage'
   end
 
@@ -116,6 +141,14 @@ class App < Sinatra::Application
     @elements = Element.all
     erb:'table'
   end
+
+  get '/congratsLevel' do
+    @user = User.find(session[:user_id])
+    @user.update(progress: @user.progress + 5)
+    erb:'congratsLevel'
+  end
+
+  
   
   get '/searchpage' do
     @searchbarfilter = params[:searchbarfilter]

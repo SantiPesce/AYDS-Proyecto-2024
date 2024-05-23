@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seleccionar Nivel</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+    }
+
+    form {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h2 {
+        margin-top: 0;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    select {
+        width: 200px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .bloqueado {
+        color: gray;
+        font-style: italic;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+<form id="nivelForm" action="/learnpage" method="get">
+    <h2>Selecciona un nivel:</h2>
+    <label for="nivel">Nivel:</label>
+    <select id="nivel" name="nivel">
+        <option value="tabla">Nivel 1 - Tabla</option>
+        <option value="elementos">Nivel 2 - Elementos</option>
+        <option value="bloqueado" disabled class="bloqueado">Nivel 3</option>
+    </select>
+    <button type="submit" id="aceptar">Aceptar</button>
+</form>
+
+<script>
+    document.getElementById('nivelForm').addEventListener('submit', function(event) {
+        var nivelSeleccionado = document.getElementById('nivel').value;
+        if (nivelSeleccionado === 'tabla') {
+            this.action = '/learnpage';
+        } else if (nivelSeleccionado === 'elementos') {
+            this.action = '/learnpage2';
+        } else {
+            event.preventDefault(); 
+        }
+    });
+</script>
+
+</body>
+</html>
