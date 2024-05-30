@@ -62,11 +62,6 @@ body {
     text-align: right;
 }
 
-.header a{
-    text-decoration: none;
-    color: black;
-}
-
 /* Estilos de la barra de progreso */
 .progress {
     height: 20px;
@@ -79,8 +74,9 @@ body {
 .progress-bar {
     height: 100%;
     background-color: seagreen;
-    width: <%= @user.progress %>%; /* Puedes cambiar este valor para ajustar el progreso */
+    width: 100%; /* Puedes cambiar este valor para ajustar el progreso */
 }
+
 
 </style>
 </head>
@@ -90,9 +86,7 @@ body {
     <!-- Encabezado con nombre de usuario -->
     
     <div class="header">
-        <a href="/logout" alt="Botón 1"><strong>logout</strong></a>
-        <strong>|</strong>
-        <strong><%= @user.username %></strong>
+        <strong>Guest</strong>
     </div>
 
     <!-- Barra de progreso -->
@@ -103,8 +97,8 @@ body {
   
     <!-- Menú -->
     <ul class="menu">
-    <li><a href="/levelSelect"><img src="images/1.png" alt="Botón 1"></a></li>
-    <li><a href="#"><img src="images/2.png" alt="Botón 2"></a></li>
+    <li><a value="bloqueado" disabled class="bloqueado"><img src="images/1.png" alt="Botón 1"></a></li>
+    <li><a value="bloqueado" disabled class="bloqueado"><img src="images/2.png" alt="Botón 2"></a></li>
     <li><a href="/searchpage"><img src="images/3.png" alt="Botón 3"></a></li>
     <li><a href="/table"><img src="images/4.png" alt="Botón 4"></a></li>
 </ul>

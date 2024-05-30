@@ -2,7 +2,6 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'rake'
 
-
 set :database_file, './config/database.yml'
 
 enable :sessions
@@ -93,6 +92,11 @@ class App < Sinatra::Application
     erb :'menu'
   end
 
+
+  get '/menuGuest' do
+    erb :'menuGuest'
+  end
+
   get '/levelSelect' do
     @user = User.find(session[:user_id])
     erb :'levels'
@@ -181,4 +185,10 @@ class App < Sinatra::Application
   post '/searchpage' do
     erb :'searchpage'
   end
+
+  get '/logout' do 
+    session.clear
+    erb :welcome
+  end
+  
 end
