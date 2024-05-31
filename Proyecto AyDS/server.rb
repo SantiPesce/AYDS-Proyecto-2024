@@ -166,41 +166,39 @@ end
     erb :'questions'
   end
   
-post '/questions' do
-  @user = User.find(session[:user_id])
-  # Obtener el valor de 'respuesta_correcta' desde los parámetros del formulario
-  respuesta_correcta = params[:respuesta_correcta] == "true"
-  
-  # Inicializa el contador de respuestas correctas desde la sesión
-  session[:correct_answers_count] ||= 0
-  session[:incorrect_answers_count] ||=0
-  if respuesta_correcta
-    # Incrementa el contador de respuestas correctas
-    session[:correct_answers_count] += 1
-    @user.update(actualLearning: @user.actualLearning + 1)
-    redirect '/questions'
-  else
-    # Respuesta incorrecta, cuento por incorrecta
-    session[:incorrect_answers_count] += 1
-    if  session[:incorrect_answers_count] == 2
-      @user.update(actualLearning: @user.actualLearning - 2)
-      redirect '/learnpage'
-    end  
-  end
-
-  # Redirige según las condiciones
-  if session[:correct_answers_count] >= 3
-    redirect '/learnpage'
-  else
-  # Muestra un mensaje o realiza alguna otra acción
-    @message = "Tenés que contestar 3 preguntas seguidas para continuar."
+  post '/questions' do
     @user = User.find(session[:user_id])
-    @questions = Question.all
-    @options = Option.all
-    erb :'questions'
+    # Obtener el valor de 'respuesta_correcta' desde los parámetros del formulario
+    respuesta_correcta = params[:respuesta_correcta] == "true"
+    
+    # Inicializa los contadores de respuestas correctas e incorrectas desde la sesión
+    session[:correct_answers_count] ||= 0
+    session[:incorrect_answers_count] ||= 0
+  
+    if respuesta_correcta
+      # Incrementa el contador de respuestas correctas
+      session[:correct_answers_count] += 1
+      @user.update(actualLearning: @user.actualLearning + 1)
+    else
+      # Incrementa el contador de respuestas incorrectas
+      session[:incorrect_answers_count] += 1
+  
+      if session[:incorrect_answers_count] >= 2
+        @user.update(actualLearning: @user.actualLearning - 2)
+        # Redirige a la página de lecciones si hay 2 respuestas incorrectas
+        redirect '/learnpage'
+        return
+      end
+    end
+  
+    # Redirige según las condiciones después de actualizar los contadores
+    if session[:correct_answers_count] >= 3
+      redirect '/learnpage'
+    else
+      redirect '/questions'
+    end
   end
-end
-
+  
   get '/congratsLevel' do
     @user = User.find(session[:user_id])
     @user.update(progress: @user.progress + 5)

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Questions</title>
+</head>
+<body>
+        <h1>Todas las preguntas</h1>
+    <ul>
+      <% Question.all.each do |question| %>
+        <li><%= question.enunciation %></li>
+      <% end %>
+    </ul>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Questions</title>
+</head>
+<h1>Preguntas para la lección de: <%= @user.lessonMaxProgress %></h1>
+<ul>
+  <% @questions.each do |question| %>
+    <li>
+      <%= question.enunciation %>
+      <ul>
+        <% question.options.each do |option| %>
+          <li><%= option.enunciation %></li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta para la lección <%= @user.lessonMaxProgress %></title>
+</head>
+<body>
+    <h1>Pregunta para la lección <%= @user.lessonMaxProgress %></h1>
+    <form action="/responder" method="post">
+        <% question = @questions.find { |q| q.number == @user.lessonMaxProgress } %>
+        <h1> PREGUNTA NUMERO<%question%></h1>
+        <fieldset>
+            <legend><%= question.enunciation %></legend>
+            <% question.options.each do |option| %>
+                <label>
+                    <input type="radio" name="respuesta" value="<%= option.id %>">
+                    <%= option.enunciation %>
+                </label>
+                <br> <!-- Agrega un salto de línea para separar las opciones -->
+            <% end %>
+        </fieldset>
+        <button type="submit">Responder</button>
+    </form>
+</body>
+</html>
