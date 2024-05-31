@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_17_202003) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_30_175530) do
   create_table "elements", force: :cascade do |t|
     t.string "Symbol"
     t.string "Name"
@@ -26,6 +26,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_17_202003) do
     t.string "lesson"
     t.integer "level"
     t.string "levelImage"
+  end
+
+  create_table "options", force: :cascade do |t|
+    t.integer "level"
+    t.integer "questionNumber"
+    t.boolean "correct"
+    t.string "enunciation"
+    t.integer "question_id"
+    t.index ["question_id"], name: "index_options_on_question_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer "number"
+    t.integer "level"
+    t.string "enunciation"
   end
 
   create_table "users", force: :cascade do |t|

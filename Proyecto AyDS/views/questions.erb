@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta para la lección <%= @user.actualLearning %></title>
+    <style>
+        /* Estilos para la notificación */
+        #notificacion {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f0f0f0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        /* Estilos para el botón Continuar */
+        #boton-continuar {
+            display: block;
+            margin: 10px auto; /* Centrar horizontalmente */
+            font-size: 18px; /* Tamaño del botón */
+        }
+    </style>
+    <script>
+        function generarColorAleatorio() {
+            const letras = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letras[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function mostrarFelicitacion(event) {
+            event.preventDefault(); // Evita el envío automático del formulario
+
+            // Obtener todas las opciones
+            const opciones = document.getElementsByName("respuesta");
+
+            // Verificar si alguna opción está marcada como correcta
+            let opcionCorrecta = false;
+            for (const opcion of opciones) {
+                if (opcion.checked) {
+                    // Obtener el atributo "correct" de la opción
+                    const esCorrecta = opcion.getAttribute("correct");
+                    if (esCorrecta === "true") {
+                        opcionCorrecta = true;
+                        break;
+                    }
+                }
+            }
+
+            // Mostrar la notificación si la opción es correcta
+            const notificacion = document.getElementById("notificacion");
+            notificacion.style.display = "block";
+
+            // Generar un color aleatorio y aplicarlo al fondo de la notificación
+            const colorAleatorio = generarColorAleatorio();
+            notificacion.style.backgroundColor = colorAleatorio;
+
+            // Crear el formulario de redirección
+            const formRedirect = document.createElement("form");
+            formRedirect.method = "post";
+            formRedirect.action = "/questions";
+
+            // Campo oculto para indicar si la respuesta fue correcta
+            const inputHidden = document.createElement("input");
+            inputHidden.type = "hidden";
+            inputHidden.name = "respuesta_correcta";
+            inputHidden.value = opcionCorrecta ? "true" : "false";
+            formRedirect.appendChild(inputHidden);
+
+            // Botón para enviar el formulario
+            const botonContinuar = document.createElement("button");
+            botonContinuar.type = "submit";
+            botonContinuar.id = "boton-continuar";
+            botonContinuar.textContent = "Continuar";
+            formRedirect.appendChild(botonContinuar);
+
+            notificacion.textContent = opcionCorrecta ? "¡Correcto! ¡Buena elección!" : "¡Incorrecto! Deberías repasar algunos conceptos...";
+            notificacion.appendChild(formRedirect);
+        }
+    </script>
+</head>
+<body>
+    <h1>Veamos lo aprendido... </h1>
+    <form id="formulario" method="post">
+        <% question = @questions.find { |q| q.number == @user.actualLearning - 2 } %>
+        <h1> PREGUNTA NUMERO <%= question.number%></h1>
+        <fieldset>
+            <legend><%= question.enunciation %></legend>
+            <% question.options.each do |option| %>
+                <label>
+                    <input type="radio" name="respuesta" value="<%= option.id %>" correct="<%= option.correct %>">
+                    <%= option.enunciation %>
+                </label>
+                <br>
+            <% end %>
+        </fieldset>
+        <button type="button" onclick="mostrarFelicitacion(event)">Responder</button>
+    </form>
+    
+     <!-- Elemento para la notificación -->
+    <div id="notificacion"></div>
+</body>
+</html>
+
