@@ -6,9 +6,11 @@ users = [
     { names: 'Jane Doe', username: 'janedoe', email: 'jane@doe.com', password: 'abc',progress: 0,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
     { names: 'Baby Doe', username: 'babydoe', email: 'baby@doe.com', password: 'abc', progress: 0,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
   ]
-  
+
   users.each do |u|
-    User.create(u)
+    unless User.exists?(u)
+      User.create(u)
+    end
   end
 
 
@@ -35,7 +37,9 @@ learnings = [
 ]
 
 learnings.each do |h|
-  Learning.create(h)
+  unless Learning.exists?(h)
+    Learning.create(h)
+  end
 end
 
 questions = [
@@ -55,25 +59,27 @@ questions = [
 ]
 
 questions.each do|q|
-  Question.create(q)
+  unless Question.exists?(q)
+    Question.create(q)
+  end
 end
 
 options = [
 ############################# --- NIVEL 1 --- ##############################
 
-# -- Opciones de la pregunta 1 -- #   
+# -- Opciones de la pregunta 1 -- #
   {question_id: 1,correct: true, enunciation:"Número de protones"},
   {question_id: 1,correct: false, enunciation:"Configuración de electrones"},
   {question_id: 1,correct: false, enunciation:"Propiedades químicas"},
   {question_id: 1,correct: false, enunciation:"Punto de ebullición"},
 
-# -- Opciones de la pregunta 2 -- #  
+# -- Opciones de la pregunta 2 -- #
   {question_id: 2,correct: true, enunciation:"Grupos"},
   {question_id: 2,correct: false, enunciation:"Períodos"},
   {question_id: 2,correct: false, enunciation:"Bloques"},
   {question_id: 2,correct: false, enunciation:"Elementos"},
 
-# -- Opciones de la pregunta 3 -- #  
+# -- Opciones de la pregunta 3 -- #
   {question_id: 3,correct: true, enunciation:"de izquierda a derecha y de arriba abajo en orden creciente de sus números atómicos"},
   {question_id: 3,correct: false, enunciation:"de izquierda a derecha y de arriba abajo en orden decreciente de sus números atómicos."},
   {question_id: 3,correct: false, enunciation:"de derecha a izquierda y de abajo arriba en orden creciente de sus números atómicos."},
@@ -103,7 +109,7 @@ options = [
   {question_id: 7,correct: false, enunciation:"El número de electrones en la capa más externa del átomo"},
   {question_id: 7,correct: false, enunciation:"El número total de electrones del átomo"},
 
-# -- Opciones de la pregunta 8 -- #  
+# -- Opciones de la pregunta 8 -- #
   {question_id: 8,correct: true, enunciation:"El radio atómico disminuye, la energía de ionización aumenta y la electronegatividad aumenta."},
   {question_id: 8,correct: false, enunciation:"El radio atómico aumenta, la energía de ionización disminuye y la electronegatividad disminuye."},
   {question_id: 8,correct: false, enunciation:"El radio atómico disminuye, la energía de ionización disminuye y la electronegatividad aumenta."},
@@ -142,7 +148,9 @@ options = [
 ]
 
 options.each do |o|
-  Option.create(o)
+  unless Option.exists?(o)
+    Option.create(o)
+  end
 end
 
 
@@ -1213,5 +1221,7 @@ elements = [
 ]
 
 elements.each do |k|
-  Element.create(k)
+  unless Element.exists(k)
+    Element.create(k)
+  end
 end
