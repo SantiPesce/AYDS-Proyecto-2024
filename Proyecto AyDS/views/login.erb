@@ -9,17 +9,36 @@
         body {
             background-image: url('/images/fondo_quimica.jpg') ; /* Cambia 'fondo_quimica.jpg' por la ruta de tu imagen de fondo */
             background-size: cover;
-            font-family: Arial, sans-serif;
+            font-family: 'Muli', sans-serif;
             margin-top: 150px;
+            background-image: url('images/fondo.jpg'); /* Añadir la imagen de fondo */
+            background-size: cover; /* Ajustar el tamaño de la imagen de fondo */
         }
         .login-container {
             max-width: 400px;
             margin: 0 auto;
             padding: 20px;
-            background-color: rgba(255,255,255, 0.8) ;
+            background-color: rgba(71,82,83,0.9);
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            font-family: 'Muli', sans-serif;
         }
+
+        .login-container h2{
+            text-align: center;
+            font-family: 'Muli', sans-serif;
+        }
+
+        .login-container p{
+            text-align: center;
+        }
+
+        .login-container p a{
+            text-decoration: none;
+            color: hsla(180, 28%, 86%, 1); 
+            font-family: 'Muli', sans-serif;
+        }
+
         input[type="text"], input[type="password"] {
             width: 95%;
             padding: 10px;
@@ -30,13 +49,18 @@
         input[type="submit"] {
             width: 100%;
             padding: 10px;
-            background-color: #007bff;
+            background-color: rgba(71,82,83,0.9);
             color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            
         }
         input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .login-container form input{
             background-color: #0056b3;
         }
     </style>

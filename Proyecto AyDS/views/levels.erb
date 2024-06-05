@@ -12,11 +12,13 @@
         align-items: center;
         height: 100vh;
         margin: 0;
-        background-color: #f0f0f0;
+        background-color: #f0f0f0;    
+        background-image: url('images/fondo.jpg'); /* Añadir la imagen de fondo */
+    background-size: cover; /* Ajustar el tamaño de la imagen de fondo */
     }
 
     form {
-        background-color: #ffffff;
+        background-color: #475253;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -50,21 +52,23 @@
 
     button {
         padding: 10px 20px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
+        width: 100%;
+            padding: 10px;
+            background-color: rgba(53,164,247,0.75);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
     }
 
     button:hover {
-        background-color: #45a049;
+         background-color: #0056b3;
     }
 </style>
 </head>
 <body>
 <form id="nivelForm" action="/learnpage" method="get">
-    <h2>Selecciona un nivel:</h2>
+    <h2>Selecciona un nivel</h2>
     <label for="nivel">Nivel:</label>
     <select id="nivel" name="nivel">
         <option value="tabla">Nivel 1 - Tabla</option>

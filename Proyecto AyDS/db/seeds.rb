@@ -658,7 +658,7 @@ elements = [
     "Number": 56,
     "Group_": 2,
     "Period": 6,
-    "Classification": "Alcalinotérreoss"
+    "Classification": "Alcalinotérreos"
   },
   {
     "Symbol": "La",
@@ -937,7 +937,7 @@ elements = [
     "Number": 87,
     "Group_": 1,
     "Period": 7,
-    "Classification": "Alcalinotérreoss"
+    "Classification": "Alcalinotérreos"
   },
   {
     "Symbol": "Ra",

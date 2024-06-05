@@ -7,9 +7,11 @@
 <style>
 /* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Muli', sans-serif;
     margin: 0;
     padding: 0;
+    background-image: url('images/fondo.jpg'); /* Añadir la imagen de fondo */
+    background-size: cover; /* Ajustar el tamaño de la imagen de fondo */
 }
 
 .container {
@@ -33,7 +35,7 @@ body {
     display: block; /* Convertir el enlace en un bloque para que ocupe todo el espacio disponible */
     text-decoration: none;
     color: #fff;
-    background-color: gray; /* Color de fondo verde */
+    background-color: rgba(71,82,83,0.9);
     transition: background-color 0.3s ease; /* Efecto de transición suave */
     border-radius: 5px; /* Botones más redondeados */
     overflow: hidden; /* Evitar que la imagen se desborde del botón */
@@ -51,15 +53,20 @@ body {
 
 
 .menu li a:hover {
-    background-color: #45a049; /* Color de fondo verde más oscuro al pasar el ratón */
+    background-color: #475253; /* Color de fondo verde más oscuro al pasar el ratón */
 }
 
 /* Estilos del encabezado */
 .header {
-    background-color: #333;
+    background-color: #475253;
     color: #fff;
     padding: 20px; /* Mayor espacio en el encabezado */
     text-align: right;
+}
+
+.header a{
+    text-decoration: none;
+    color: black;
 }
 
 /* Estilos de la barra de progreso */

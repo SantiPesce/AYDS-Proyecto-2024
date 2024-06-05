@@ -13,7 +13,7 @@ require './models/question'
 require './models/option'
 
 class App < Sinatra::Application
-  
+
   def initialize(app = nil)
     super()
   end
@@ -36,14 +36,14 @@ class App < Sinatra::Application
 
   get '/login' do
     @error = session.delete(:error)
-    erb :'login' 
+    erb :'login'
   end
 
   post '/login' do
     name = params[:usuario]
     password = params[:password]
     user = User.find_by(username: name, password: password) #busco por usuario y contrase;a
-  
+
     if user # Si se encuentra el usuario y la contraseña coincide guardo su ID en la sesion
       session[:user_id] = user.id
       redirect '/menu' #redirijo al inicio
@@ -65,7 +65,7 @@ class App < Sinatra::Application
     username = params[:username]
     email = params[:email]
     password = params[:password]
-  
+
     if User.exists?(email: email)
       session[:error] = "El email ya esta registrado"
       redirect '/register' # Redirigijo si el correo electrónico ya existe
@@ -75,10 +75,10 @@ class App < Sinatra::Application
       session[:error] = "El nombre de usuario ya esta registrado"
       redirect '/register' # Redirijo si el nombre de usuario ya existe
     end
-  
+
     # Creo el nuevo usuario
     user = User.new(names: names, username: username, email: email, password: password, progress: 0, actualLearning: 1, actualLearningLevel2: 15)
-  
+
     if user.save
       @success = "Te registraste correctamente, inicia sesion"
       erb :login # Sino tiro a una pagina fallida o login nuevamente
@@ -87,8 +87,8 @@ class App < Sinatra::Application
       redirect '/register' # trato el error de registro de alguna manera
     end
   end
-  
-  
+
+
   get '/menu' do
     @user = User.find(session[:user_id])
     erb :'menu'
@@ -154,27 +154,27 @@ end
     @elements = Element.all
     erb:'table'
   end
-  
-  get '/questions' do 
+
+  get '/questions' do
     @user = User.find(session[:user_id])
     @questions = Question.all
     @options = Option.all
-    
+
     # Inicializa el contador de respuestas correctas
     @correct_answers_count ||= 0
     @incorrect_answers_count ||=0
     erb :'questions'
   end
-  
+
   post '/questions' do
     @user = User.find(session[:user_id])
     # Obtener el valor de 'respuesta_correcta' desde los parámetros del formulario
     respuesta_correcta = params[:respuesta_correcta] == "true"
-    
+
     # Inicializa los contadores de respuestas correctas e incorrectas desde la sesión
     session[:correct_answers_count] ||= 0
     session[:incorrect_answers_count] ||= 0
-  
+
     if respuesta_correcta
       # Incrementa el contador de respuestas correctas
       session[:correct_answers_count] += 1
@@ -182,7 +182,7 @@ end
     else
       # Incrementa el contador de respuestas incorrectas
       session[:incorrect_answers_count] += 1
-  
+
       if session[:incorrect_answers_count] >= 2
         @user.update(actualLearning: @user.actualLearning - 2)
         # Redirige a la página de lecciones si hay 2 respuestas incorrectas
@@ -190,7 +190,7 @@ end
         return
       end
     end
-  
+
     # Redirige según las condiciones después de actualizar los contadores
     if session[:correct_answers_count] >= 3
       redirect '/learnpage'
@@ -198,15 +198,15 @@ end
       redirect '/questions'
     end
   end
-  
+
   get '/congratsLevel' do
     @user = User.find(session[:user_id])
     @user.update(progress: @user.progress + 5)
     erb:'congratsLevel'
   end
 
-  
-  
+
+
   get '/searchpage' do
     @searchbarfilter = params[:searchbarfilter]
     @searchbar = params[:searchbar]
@@ -218,7 +218,7 @@ end
       @results = Element.where("Name LIKE ?", "%#{@searchbar}%")
     elsif @searchbarfilter == "AtomicMass"
       search_atomic_mass = @searchbar.to_f
-      variacion = 0.03
+      variacion = 0.3
       @results = Element.where("AtomicMass BETWEEN ? AND ?", search_atomic_mass - variacion, search_atomic_mass + variacion)
     elsif @searchbarfilter == "Number"
       search_number = @searchbar.to_i
@@ -239,9 +239,9 @@ end
     erb :'searchpage'
   end
 
-  get '/logout' do 
+  get '/logout' do
     session.clear
     erb :welcome
   end
-  
+
 end

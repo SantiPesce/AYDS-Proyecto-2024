@@ -15,6 +15,11 @@
   transform: none;
 }
 
+
+.body{
+
+}
+
 .type-1 {
   background: #ffc78e;
 }
@@ -38,6 +43,7 @@
 .type-6 {
   background: #8fff9b;
 }
+
 
 .type-7 {
   background: #8cff9a;
@@ -160,6 +166,28 @@ body {
     height: 150%;
     zoom: 150%;
 }
+
+
+
+.button-container button{
+      padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: rgba(53,164,247,0.75);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.button-container {
+    text-align: center;
+}
+.button-container button:hover {
+    background-color: rgba(70,138,184,0.75);
+}
+
 .element {
   position: absolute;
   top: 0;
@@ -2603,6 +2631,11 @@ li{
     </ul>
 </div>
   <div style="clear:both;"></div>
+</div>
+<div class="button-container">
+    <br>
+    <br>
+    <button type="button" onclick="window.location.href='/menu'">Volver al Menú</button>
 </div>
 </body>
 </html>

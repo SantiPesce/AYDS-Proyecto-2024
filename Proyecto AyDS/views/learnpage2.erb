@@ -12,6 +12,8 @@
     align-items: center;
     height: 100vh;
     margin: 0;
+        background-image: url('images/fondo.jpg'); /* Añadir la imagen de fondo */
+    background-size: cover; /* Ajustar el tamaño de la imagen de fondo */
   }
   #texto {
     text-align: center;
@@ -23,12 +25,22 @@
     display: flex;
     justify-content: space-between;
     width: 80%; /* Ancho de los botones */
+    
   }
   .boton {
     padding: 10px 20px;
-    font-size: 16px;
+    padding: 10px;
+    background-color: rgba(53,164,247,0.75);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
   }
+
+  
+
+  
+  
 </style>
 </head>
 <body>
@@ -61,7 +73,7 @@
   <% nueva_leccion2 = @user.actualLearningLevel2 + 1 %>
   <% nueva_leccion2 = 1 if nueva_leccion2 < 1 %>
   <% if nueva_leccion2 > 19 %>
-    <a href="/congratsLevel" class="boton"><button class="boton">Terminar</button></a>
+    <button onclick="window.location.href='/congratsLevel'" class="boton">Terminar</button>
   <% else %>
     <form action="/actualizar_leccion2" method="post">
       <!-- Asegurar que el valor no sea menor que 0 ni mayor que el máximo número de elementos -->

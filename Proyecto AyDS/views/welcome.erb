@@ -3,53 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <title>Bienvenido</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Muli', sans-serif;
       text-align: center;
-      background-color: white;
       margin-top: 150px;
       padding: 0;
+      background-image: url('images/fondo.jpg'); /* Añadir la imagen de fondo */
+      background-size: cover; /* Ajustar el tamaño de la imagen de fondo */
     }
     .container {
-       max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: rgba(255,255,255, 0.8) ;
-            display: inline-block;  
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(71,82,83,0.9);
+      display: inline-block;  
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
     h1, h2 {
-      color: #333;
+      color: hsla(180, 28%, 86%, 1); 
     }
     h2 {
       margin-top: 20px;
+      transition: opacity 0.5s ease; /* Añadimos transición para el título */
     }
     .button {
-      display: none;
-      opacity: 0;
-      transform: scale(1);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      opacity: 0; /* Comenzamos con opacidad 0 */
+      transform: translateY(20px); /* Empezarán desplazados hacia abajo */
+      transition: opacity 0.5s ease, transform 0.5s ease; /* Añadimos transiciones para la opacidad y el desplazamiento */
       padding: 15px 30px;
       font-size: 18px;
-      background-color: #007bff;
+      background-color: rgba(53,164,247,0.75);
       color: white;
       border: none;
       border-radius: 5px;
       margin: 10px;
       cursor: pointer;
+      text-decoration:none;
+      font-family: 'Muli', sans-serif;
     }
     .button:hover {
-      background-color: #48a770;
+      background-color: #0056b3;
     }
     .button.visible {
-      display: inline-block;
-      opacity: 1;
-      transform: scale(1);
+      opacity: 1; /* Cambiamos la opacidad a 1 */
+      transform: translateY(0); /* Los botones se mueven a su posición original */
     }
   </style>
 </head>
@@ -64,17 +65,26 @@
         setTimeout(function() {
           var buttons = document.querySelectorAll('.button');
           var h2 = document.querySelector('h2');
-          buttons.forEach(function(button) {
-            button.classList.add('visible');
+          buttons.forEach(function(button, index) {
+            setTimeout(function() {
+              button.classList.add('visible');
+            }, index * 300); // Aparecerán cada 300ms
           });
           h2.style.opacity = 0;
-        }, 1000); // 1000 milisegundos = 1 segundos
+        }, 1); // 3000 milisegundos = 3 segundos
       };
     </script>
 
     <a class="button" href="/login">Logearse</a>
     <a class="button" href="/register">Registrarse</a>
+    <br>
+    <br>
+    <br>
     <a class="button" href="/menuGuest">Entrar como Invitado</a>
+    <br>
+    <br>
+    <br>
+    <br>
   </div>
 </body>
 </html>

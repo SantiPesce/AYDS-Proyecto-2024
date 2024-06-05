@@ -12,23 +12,46 @@
     align-items: center;
     height: 100vh;
     margin: 0;
+    background-image: url('images/fondo.jpg'); /* Añadir la imagen de fondo */
+    background-size: cover; /* Ajustar el tamaño de la imagen de fondo */
   }
   #texto {
     text-align: center;
     font-family: Arial, sans-serif;
     font-size: 20px;
     margin-bottom: 20px; /* Espacio entre el texto y los botones */
+    background-color: hsla(180, 28%, 86%, 1);
+    width:100%;
+    padding-bottom: 15px;
+      box-shadow: 0px 0px 20px 25px hsla(180, 28%, 86%, 1);
+    padding-top: 15px;
   }
+
   #botones {
     display: flex;
     justify-content: space-between;
     width: 80%; /* Ancho de los botones */
+    
   }
+
+
   .boton {
     padding: 10px 20px;
-    font-size: 16px;
+    padding: 20px;
+    background-color: rgba(7,32,35,0.9);
+    backdrop-filter: blur(20px);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    box-shadow: 0px 0px 10px 2px #072023;
   }
+
+  img{
+    box-shadow: 0px 0px 20px 10px #072023;
+    border-radius: 10px;
+  }
+
 </style>
 </head>
 <body>
@@ -37,6 +60,9 @@
     <% learning = Learning.find_by(number: @user.actualLearning) %>
     <img src="images/<%=learning.levelImage%>.png">
   <% end %>
+  <br>
+  <br>
+  <br>
 </div>
 <div id="texto">
   <% if Learning.exists?(number: @user.actualLearning) %>
@@ -46,6 +72,7 @@
     El aprendizaje correspondiente no se encontró.
   <% end %>
 </div>
+<br>
 <div id="botones">
   <form action="/actualizar_leccion" method="post">
     <% nueva_leccion = @user.actualLearning - 1 %>
@@ -61,7 +88,7 @@
   <% nueva_leccion = @user.actualLearning + 1 %>
   <% nueva_leccion = 1 if nueva_leccion < 1 %>
   <% if nueva_leccion > 14 %>
-    <a href="/congratsLevel" class="boton"><button class="boton">Terminar</button></a>
+  <button onclick="window.location.href='/congratsLevel'" class="boton">Terminar</button>
   <% else %>
     <form action="/actualizar_leccion" method="post">
       <!-- Asegurar que el valor no sea menor que 0 ni mayor que el máximo número de elementos -->
