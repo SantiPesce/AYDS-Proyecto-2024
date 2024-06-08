@@ -150,6 +150,20 @@ post '/actualizar_leccion' do
   end
 end
 
+post '/actualizar_valor' do
+  nueva_leccion = params[:nueva_leccion]
+  user = User.find(session[:user_id])
+  user.update(actualLearning: nueva_leccion)
+  redirect'/menu'
+end
+
+post '/actualizar_valor2' do
+  nueva_leccion = params[:nueva_leccion]
+  user = User.find(session[:user_id])
+  user.update(actualLearningLevel2: nueva_leccion)
+  redirect'/menu'
+end
+
   get '/table' do
     @elements = Element.all
     erb:'table'

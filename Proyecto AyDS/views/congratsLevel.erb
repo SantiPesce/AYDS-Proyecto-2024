@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="images/favicon.png" >
 <title>Felicitaciones</title>
 <style>
   body {
     background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+   font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,7 +49,25 @@
 <div class="container">
   <h1>Felicitaciones</h1>
   <p>¡Has completado el nivel!</p>
-  <button class="button" onclick="window.location.href='/menu'">Volver al Menú</button>
+  <% if @user.actualLearning == 14 || @user.actualLearningLevel2 == 19%>
+      <% if @user.actualLearning == 14 %>
+      <% nueva_leccion = 1 %>
+      <form action="/actualizar_valor" method="post">
+       <input type="hidden" name="nueva_leccion" value="<%= nueva_leccion %>">
+      <button class="button" onclick="window.location.href='/menu'">Volver al Menú</button>
+      </form>
+      <%end%>
+      <% if @user.actualLearningLevel2 == 19 %>
+            <% nueva_leccion = 15%>
+            <form action="/actualizar_valor2" method="post">
+             <input type="hidden" name="nueva_leccion" value="<%= nueva_leccion %>">
+            <button class="button" onclick="window.location.href='/menu'">Volver al Menú</button>
+            </form>
+      <%end%>
+  <%end%>
+
+
+
 </div>
 
 </body>

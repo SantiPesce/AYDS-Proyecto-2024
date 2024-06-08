@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="images/favicon.png" >
 <title>Texto en el Centro</title>
 <style>
   body {
@@ -17,7 +18,7 @@
   }
   #texto {
     text-align: center;
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     margin-bottom: 20px; /* Espacio entre el texto y los botones */
     background-color: hsla(180, 28%, 86%, 1);
@@ -50,17 +51,18 @@
   img{
     box-shadow: 0px 0px 20px 10px #072023;
     border-radius: 10px;
+    background-color: white;
   }
 
 </style>
 </head>
 <body>
 <div id="imagen">
+
   <% if Learning.exists?(number: @user.actualLearning) %>
     <% learning = Learning.find_by(number: @user.actualLearning) %>
     <img src="images/<%=learning.levelImage%>.png">
   <% end %>
-  <br>
   <br>
   <br>
 </div>
@@ -72,7 +74,6 @@
     El aprendizaje correspondiente no se encontró.
   <% end %>
 </div>
-<br>
 <div id="botones">
   <form action="/actualizar_leccion" method="post">
     <% nueva_leccion = @user.actualLearning - 1 %>

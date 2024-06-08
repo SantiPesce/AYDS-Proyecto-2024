@@ -3,17 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="images/favicon.png" >
 <title>Menú con Usuario y Barra de Progreso - Adaptativo</title>
 <style>
 /* Estilos generales */
 body {
-    font-family: 'Muli', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
     background-image: url('images/fondo.jpg'); /* Añadir la imagen de fondo */
     background-size: cover; /* Ajustar el tamaño de la imagen de fondo */
 }
 
+ul{
+    padding-inline-start: 15px;
+    padding-inline-end: 15px;
+}
 .container {
     width: 100%;
     padding: 10px;
@@ -21,10 +26,11 @@ body {
 }
 
 .menu li {
+    width: 100%;
     display: inline-block;
-    margin-right: 2%; /* Espacio entre cada elemento li */
+    margin-right: 4.5%; /* Espacio entre cada elemento li */
     text-align: center; /* Alinear el texto al centro dentro de los elementos li */
-    width: 23%; /* Cada elemento li ocupará el 23% del ancho del contenedor */
+    width: 30%; /* Cada elemento li ocupará el 23% del ancho del contenedor */
 }
 
 .menu li:last-child {
@@ -62,6 +68,7 @@ body {
     color: #fff;
     padding: 20px; /* Mayor espacio en el encabezado */
     text-align: right;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .header a{
@@ -106,7 +113,7 @@ body {
     <!-- Menú -->
     <ul class="menu">
     <li><a href="/levelSelect"><img src="images/1.png" alt="Botón 1"></a></li>
-    <li><a href="/questions"><img src="images/2.png" alt="Botón 2"></a></li>
+
     <li><a href="/searchpage"><img src="images/3.png" alt="Botón 3"></a></li>
     <li><a href="/table"><img src="images/4.png" alt="Botón 4"></a></li>
 </ul>
