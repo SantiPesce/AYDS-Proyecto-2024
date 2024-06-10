@@ -1221,7 +1221,7 @@ elements = [
 ]
 
 elements.each do |k|
-  unless Element.exists(k)
+  unless Element.exists?(k)
     Element.create(k)
   end
 end

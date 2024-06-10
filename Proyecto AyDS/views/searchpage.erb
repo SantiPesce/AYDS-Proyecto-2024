@@ -17,12 +17,11 @@
                 margin: 0 auto;
                 padding: 20px;
                 border-radius: 10px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                box-shadow: 0 8px 10px -5px;
                 font-family: 'Montserrat', sans-serif;
                 text-decoration: none;
-                background-color: hsla(180, 6%, 45%, 0.9);
                 backdrop-filter: blur(2px);
-                background: linear-gradient(to bottom, transparent, #798485);
+                background: linear-gradient(to bottom, transparent, rgba(71,82,83,0.9));
             }
 
 
@@ -47,7 +46,7 @@
                 width: 200px;
                 margin: 0 20px;
                 padding: 10px;
-                background-color: #475253;
+                background-color: rgba(53,164,247,0.75);
                 color: #fff;
                 border: none;
                 border-radius: 5px;
@@ -56,7 +55,7 @@
             }
 
             input[type="submit"]:hover {
-                background-color: #1a1425;
+                background-color: #0056b3;
             }
 
             .cell {
@@ -65,17 +64,23 @@
                 padding: 20px;
                 background-color: hsla(180, 6%, 45%, 0.9);
                 border-radius: 10px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                box-shadow: -5px 5px 10px 2px;
                 backdrop-filter: blur(2px);
                 font-family: 'Montserrat', sans-serif;
                 margin-bottom:15px;
-                background: linear-gradient(to left, transparent, #798485);
+                background: linear-gradient(to left, transparent, rgba(71,82,83,0.9));
+            }
+
+            .cell div {
+                color: #000;
+                font-weight: bold;
+                text-shadow: 0px 0px 10px rgba(255,255,255,0.75);
             }
 
             a{
                 text-decoration: none;
                 color: #1a1425;
-               font-family: 'Montserrat', sans-serif;
+                font-family: 'Muli', sans-serif;
             }
 
             select{
@@ -88,7 +93,18 @@
                 background-color:hsla(180, 28%, 86%, 1);
             }
 
+            .searchpage-container a{
+                padding: 20px;
+                text-decoration: none;
+                color: hsla(180, 28%, 86%, 1); 
+                font-family: 'Muli', sans-serif;
+            }
 
+            .searchpage-container a:hover{
+                text-decoration: solid underline 3px;
+                color: #000089;
+                font-family: 'Muli', sans-serif;
+            }
         </style>
     </head>
     <body>
@@ -108,6 +124,7 @@
                 <input type="text" name="searchbar" placeholder="Hierro / 55.845" value="<%= @searchbar %>" />
                 <input class="button" type="submit" value="Buscar" />
             </form>
+            <br>
             <a href="/menu">« Volver</a>
         </div>
 

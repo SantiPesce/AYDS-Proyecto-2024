@@ -65,6 +65,8 @@
   <% end %>
   <br>
   <br>
+  <br>
+  <br>
 </div>
 <div id="texto">
   <% if Learning.exists?(number: @user.actualLearning) %>
@@ -74,6 +76,10 @@
     El aprendizaje correspondiente no se encontró.
   <% end %>
 </div>
+  <br>
+  <br>
+  <br>
+  <br>
 <div id="botones">
   <form action="/actualizar_leccion" method="post">
     <% nueva_leccion = @user.actualLearning - 1 %>

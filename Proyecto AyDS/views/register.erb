@@ -21,10 +21,9 @@
                 padding: 20px;
                 background-color: rgba(71,82,83,0.9);
                 border-radius: 10px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                box-shadow: 0 0 10px 0;
                 font-family: 'Montserrat', sans-serif;
                 text-align: center;
-                color: hsla(180, 28%, 86%, 1); 
                 
             }
 
@@ -52,9 +51,19 @@
             }
 
             .register-container a{
-              text-decoration: none;
-                color: hsla(180, 28%, 86%, 1);  
-               font-family: 'Montserrat', sans-serif;
+                text-decoration: none;
+                color: hsla(180, 28%, 86%, 1); 
+                font-family: 'Muli', sans-serif;
+            }
+
+            .register-container a:hover{
+                text-decoration: solid underline 3px;
+                color: #000089;
+                font-family: 'Muli', sans-serif;
+            }
+            
+            h1, h2 {
+                color: hsla(180, 28%, 86%, 1); 
             }
         </style>
     </head>
@@ -62,7 +71,7 @@
         <div class="register-container">
             <h2>Bienvenido a Elementally</h2>
             <% if @error %>
-                <p style="color: red"><%= @error %></p>
+                <p style="color: #e00"><%= @error %></p>
             <% end %>
             <form action="/register" method="post">
                 <input type="email" name="email" placeholder="Email" required />
@@ -71,6 +80,7 @@
                 <input type="text" name="username" placeholder="Nombre de usuario" required/>
                 <input class="button" type="submit" value="Registrarse" />
             </form>
+            <br>
             <br>
             <a href="/">« Volver</a>
         </div>
