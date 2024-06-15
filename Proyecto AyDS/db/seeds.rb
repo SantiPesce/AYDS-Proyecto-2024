@@ -2,9 +2,9 @@ require './models/learning'
 require './models/question'
 require './models/option'
 users = [
-    { names: 'Jon Doe', username: 'jondoe', email: 'jon@doe.com', password: 'abc',progress: 0,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
-    { names: 'Jane Doe', username: 'janedoe', email: 'jane@doe.com', password: 'abc',progress: 0,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
-    { names: 'Baby Doe', username: 'babydoe', email: 'baby@doe.com', password: 'abc', progress: 0,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
+    { names: 'Jon Doe', username: 'jondoe', email: 'jon@doe.com', password: 'abc',progress: 1,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
+    { names: 'Jane Doe', username: 'janedoe', email: 'jane@doe.com', password: 'abc',progress: 1,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
+    { names: 'Baby Doe', username: 'babydoe', email: 'baby@doe.com', password: 'abc', progress: 1,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
   ]
 
   users.each do |u|
@@ -56,7 +56,14 @@ questions = [
   {number: 11, level: 1,  enunciation:"¿Cómo se clasifican los elementos en la tabla periódica según sus propiedades físicas y químicas?"},
   {number: 12, level: 1,  enunciation:"¿Cómo se clasifican los metales y no metales en la tabla periódica?"},
   {number: 13, level: 1,  enunciation:"¿Cómo se subdividen los no metales en la tabla periódica?"},
+  {number: 14, level: 2,  enunciation:"¿Cuál de las siguientes opciones representa correctamente la clasificación de elementos en categorías y subcategorías basada en sus propiedades compartidas?"},
+  {number: 15, level: 2,  enunciation:"¿Qué número único a cada elemento químico determina su identidad y posición en la tabla periódica?"},
+  {number: 16, level: 2,  enunciation:"¿Cuál de las siguientes afirmaciones es correcta respecto a los elementos químicos?"},
+  {number: 17, level: 2,  enunciation:"¿¿Por qué ha sido revocado o cuestionado el descubrimiento de algunos elementos químicos?"},
+  {number: 18, level: 2,  enunciation:"¿En qué se basan los nombres de los elementos químicos?"},
+  {number: 19, level: 2,  enunciation:"¿Qué caracteriza a un elemento químico como una sustancia pura?"},
 ]
+
 
 questions.each do|q|
   unless Question.exists?(q)
@@ -144,6 +151,42 @@ options = [
   {question_id: 13,correct: false, enunciation:"No metales poliatómicos, no metales monoatómicos y gases nobles."},
   {question_id: 13,correct: false, enunciation:"No metales diatómicos, no metales monoatómicos y gases nobles."},
   {question_id: 13,correct: false, enunciation:"No metales poliatómicos, no metales triatómicos y gases nobles"},
+
+# -- Opciones de la pregunta 14 -- #
+  {question_id: 14,correct: true, enunciation:"Gases nobles y halógenos - clasificados por su reactividad y posición en la tabla periódica."},
+  {question_id: 14,correct: false, enunciation:"Elementos metálicos y no metálicos - clasificados por sus propiedades físicas y químicas."},
+  {question_id: 14,correct: false, enunciation:"Líquidos y sólidos - clasificados únicamente por su estado de agregación."},
+  {question_id: 14,correct: false, enunciation:"Metales de transición y lantánidos - clasificados por su configuración electrónica y uso en la industria."},  
+
+# -- Opciones de la pregunta 15 -- #
+  {question_id: 15,correct: true, enunciation:"Número atómico - El total de protones en el núcleo de un átomo."},
+  {question_id: 15,correct: false, enunciation:"Número de masa - La suma del número de protones y neutrones en el núcleo."},
+  {question_id: 15,correct: false, enunciation:"Número de electrones - El total de electrones que orbitan alrededor del núcleo."},
+  {question_id: 15,correct: false, enunciation:"Número de isotopos - Las variantes de un elemento con diferente número de neutrones."},
+
+# -- Opciones de la pregunta 16 -- #
+  {question_id: 16,correct: true, enunciation:"Algunos elementos son naturales y otros son sintéticos, creados artificialmente."},
+  {question_id: 16,correct: false, enunciation:"Todos los elementos químicos son sintéticos."},
+  {question_id: 16,correct: false, enunciation:"Los elementos químicos no pueden ser creados artificialmente."},
+  {question_id: 16,correct: false, enunciation:"Los elementos naturales no existen en la naturaleza."},
+
+# -- Opciones de la pregunta 17 -- #
+  {question_id: 17,correct: true, enunciation:"Porque ha habido dificultades para reproducir los experimentos que afirman su descubrimiento."},
+  {question_id: 17,correct: false, enunciation:"Porque los elementos químicos son inestables por naturaleza."},
+  {question_id: 17,correct: false, enunciation:"Porque los elementos fueron descubiertos accidentalmente.."},
+  {question_id: 17,correct: false, enunciation:"Porque los elementos descubiertos no tienen aplicaciones prácticas."},
+
+# -- Opciones de la pregunta 18 -- #
+  {question_id: 18,correct: true, enunciation:"En idiomas como el griego, latín, inglés, en los descubridores o en los lugares de descubrimiento."},
+  {question_id: 18,correct: false, enunciation:"En una combinación de colores y propiedades físicas."},
+  {question_id: 18,correct: false, enunciation:"Solo en el nombre de sus descubridores."},
+  {question_id: 18,correct: false, enunciation:"En mitos y leyendas exclusivamente."},
+
+# -- Opciones de la pregunta 19 -- #
+  {question_id: 19,correct: true, enunciation:"Que consiste en átomos con el mismo número atómico y propiedades únicas."},
+  {question_id: 19,correct: false, enunciation:"Que está compuesto por moléculas con diferentes números atómicos."},
+  {question_id: 19,correct: false, enunciation:"Que tiene propiedades que cambian constantemente."},
+  {question_id: 19,correct: false, enunciation:"Que se puede descomponer en sustancias más simples mediante reacciones químicas."},
 
 ]
 
