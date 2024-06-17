@@ -44,7 +44,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_175530) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "names"
     t.string "username"
     t.string "email"
     t.string "password"
@@ -52,8 +51,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_175530) do
     t.integer "actualLearning"
     t.integer "actualLearningLevel2"
     t.integer "lessonMaxProgress"
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
   end
 
 end

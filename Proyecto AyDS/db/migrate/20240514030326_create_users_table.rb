@@ -1,7 +1,6 @@
 class CreateUsersTable < ActiveRecord::Migration[5.0]
   def change
     create_table :users do |t|
-      t.string :names
       t.string :username
       t.string :email
       t.string :password
@@ -10,7 +9,8 @@ class CreateUsersTable < ActiveRecord::Migration[5.0]
       t.integer :actualLearningLevel2
       t.integer :lessonMaxProgress
 
-      t.timestamps  # This will create created_at and updated_at columns
+      t.datetime "created_at"
+      t.datetime "updated_at"
     end
   end
 end

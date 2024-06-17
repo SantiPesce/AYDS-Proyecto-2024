@@ -78,15 +78,7 @@ class App < Sinatra::Application
     encrypted_password = BCrypt::Password.create(password)
 
     # Crear el nuevo usuario
-    user = User.new(
-      names: names,
-      username: username,
-      email: email,
-      password: encrypted_password, # Guardar la contraseña encriptada
-      progress: 1,
-      actualLearning: 1,
-      actualLearningLevel2: 15
-    )
+    user = User.new(username: username, email: email, password: encrypted_password, progress: 1, actualLearning: 1, actualLearningLevel2: 15)
 
     if user.save
       @success = "Te registraste correctamente, inicia sesión"

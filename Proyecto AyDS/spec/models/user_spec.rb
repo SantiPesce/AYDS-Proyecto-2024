@@ -11,7 +11,6 @@ RSpec.describe User, type: :model do
   describe "validations" do
     it "is valid with valid attributes" do
       user = User.new(
-        names: "John Doe",
         username: "johndoe",
         email: "john.doe@example.com",
         password: "password123",
@@ -34,7 +33,6 @@ RSpec.describe User, type: :model do
 
     it "is not valid without a unique email" do
       User.create(
-        names: "John Doe",
         username: "johndoe",
         email: "john.doe@example.com",
         password: "password123"
@@ -52,7 +50,6 @@ RSpec.describe User, type: :model do
   describe "create" do
     it "creates a new user" do
       user = User.create(
-        names: "John Doe",
         username: "johndoe",
         email: "john.doe@example.com",
         password: "password123",

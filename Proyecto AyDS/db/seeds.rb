@@ -2,9 +2,9 @@ require './models/learning'
 require './models/question'
 require './models/option'
 users = [
-    { names: 'Jon Doe', username: 'jondoe', email: 'jon@doe.com', password: 'abc',progress: 1,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
-    { names: 'Jane Doe', username: 'janedoe', email: 'jane@doe.com', password: 'abc',progress: 1,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
-    { names: 'Baby Doe', username: 'babydoe', email: 'baby@doe.com', password: 'abc', progress: 1,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
+    {username: 'jondoe', email: 'jon@doe.com', password: 'abc',progress: 1,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
+    {username: 'janedoe', email: 'jane@doe.com', password: 'abc',progress: 1,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
+    {username: 'babydoe', email: 'baby@doe.com', password: 'abc', progress: 1,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
   ]
 
   users.each do |u|
