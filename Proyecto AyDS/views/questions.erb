@@ -134,7 +134,7 @@
 <body>
     <h1>Veamos lo aprendido... </h1>
     <form id="formulario" method="post">
-        <% actual_question = @current_question%>
+        <% actual_question = @current_question%> 
         <% question = @questions.find { |q| q.number == actual_question } %>
         <h1> PREGUNTA NUMERO <%= actual_question %></h1>
         <br>

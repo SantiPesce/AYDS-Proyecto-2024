@@ -137,6 +137,11 @@ class App < Sinatra::Application
   post '/actualizar_leccion' do
     nueva_leccion = params[:nueva_leccion].to_i
     user = User.find(session[:user_id])
+    
+   
+    
+    #variables auxiliares para mejorar la sintaxis 
+    #cantidad de preguntas del nivel y preguntas restantes
     max_lvl1_qnumber = Question.where(level: 1).maximum(:number)
     remaining_questions = max_lvl1_qnumber - (nueva_leccion)
     
@@ -157,9 +162,6 @@ class App < Sinatra::Application
     if (nueva_leccion > user.progress) && (nueva_leccion % 3 == 1) || (nueva_leccion > max_lvl1_qnumber) 
       redirect '/questions'
     else
-      if nueva_leccion > max_lvl1_qnumber
-        redirect '/congratsLevel'
-      end
       user.update(actualLearning: nueva_leccion)
       redirect '/learnpage'
     end
@@ -195,7 +197,10 @@ class App < Sinatra::Application
       session[:correct_answers_count] += 1
       session[:current_question] += 1
       else
-        redirect '/congratsLevel'
+        @user.update(progress: @user.progress + 1)
+        @user.update(actualLearning: @user.actualLearning + 1)
+        redirect '/congratsLevel' 
+        
         return
       end
     else
@@ -212,7 +217,7 @@ class App < Sinatra::Application
     # Redirige según las condiciones después de actualizar los contadores
     if session[:correct_answers_count] >= 3
       session[:correct_answers_count] = 0  
-      @user.update(progress: @user.progress + 3)
+      @user.update(progress: @user.progress + 1)
       @user.update(actualLearning: @user.actualLearning + 1)
       redirect '/learnpage'
     else
@@ -222,7 +227,7 @@ class App < Sinatra::Application
 
   get '/congratsLevel' do
     @user = User.find(session[:user_id])
-    @user.update(progress: @user.progress + 5)
+    @questions = Question.all
     erb:'congratsLevel'
   end
 
