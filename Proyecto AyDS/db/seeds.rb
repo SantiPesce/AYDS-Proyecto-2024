@@ -156,7 +156,7 @@ options = [
   {question_id: 14,correct: true, enunciation:"Gases nobles y halógenos - clasificados por su reactividad y posición en la tabla periódica."},
   {question_id: 14,correct: false, enunciation:"Elementos metálicos y no metálicos - clasificados por sus propiedades físicas y químicas."},
   {question_id: 14,correct: false, enunciation:"Líquidos y sólidos - clasificados únicamente por su estado de agregación."},
-  {question_id: 14,correct: false, enunciation:"Metales de transición y lantánidos - clasificados por su configuración electrónica y uso en la industria."},  
+  {question_id: 14,correct: false, enunciation:"Metales de transición y lantánidos - clasificados por su configuración electrónica y uso en la industria."},
 
 # -- Opciones de la pregunta 15 -- #
   {question_id: 15,correct: true, enunciation:"Número atómico - El total de protones en el núcleo de un átomo."},

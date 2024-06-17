@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'rake'
+require 'bcrypt'
 
 set :database_file, './config/database.yml'
 
@@ -40,9 +41,9 @@ class App < Sinatra::Application
   post '/login' do
     name = params[:usuario]
     password = params[:password]
-    user = User.find_by(username: name, password: password) #busco por usuario y contrase;a
+    user = User.find_by(username: name) #busco por usuario y contrase;a
 
-    if user # Si se encuentra el usuario y la contraseña coincide guardo su ID en la sesion
+    if user && BCrypt::Password.new(user.password) == password # Si se encuentra el usuario y la contraseña coincide guardo su ID en la sesion
       session[:user_id] = user.id
       redirect '/menu' #redirijo al inicio
     else
@@ -57,7 +58,6 @@ class App < Sinatra::Application
   end
 
   post '/register' do
-
     # Obtengo valores
     names = params[:names]
     username = params[:username]
@@ -65,27 +65,37 @@ class App < Sinatra::Application
     password = params[:password]
 
     if User.exists?(email: email)
-      session[:error] = "El email ya esta registrado"
-      redirect '/register' # Redirigijo si el correo electrónico ya existe
+      session[:error] = "El email ya está registrado"
+      redirect '/register' # Redirigir si el correo electrónico ya existe
     end
 
     if User.exists?(username: username)
-      session[:error] = "El nombre de usuario ya esta registrado"
-      redirect '/register' # Redirijo si el nombre de usuario ya existe
+      session[:error] = "El nombre de usuario ya está registrado"
+      redirect '/register' # Redirigir si el nombre de usuario ya existe
     end
 
-    # Creo el nuevo usuario
-    user = User.new(names: names, username: username, email: email, password: password, progress: 1, actualLearning: 1, actualLearningLevel2: 15)
+    # Encriptar la contraseña
+    encrypted_password = BCrypt::Password.create(password)
+
+    # Crear el nuevo usuario
+    user = User.new(
+      names: names,
+      username: username,
+      email: email,
+      password: encrypted_password, # Guardar la contraseña encriptada
+      progress: 1,
+      actualLearning: 1,
+      actualLearningLevel2: 15
+    )
 
     if user.save
-      @success = "Te registraste correctamente, inicia sesion"
-      erb :login # Sino tiro a una pagina fallida o login nuevamente
+      @success = "Te registraste correctamente, inicia sesión"
+      erb :login
     else
-      session[:error] = "Ocurrio un error al registrarte, intentalo de nuevo"
-      redirect '/register' # trato el error de registro de alguna manera
+      session[:error] = "Ocurrió un error al registrarte, inténtalo de nuevo"
+      redirect '/register'
     end
   end
-
 
   get '/menu' do
     @user = User.find(session[:user_id])
@@ -137,29 +147,29 @@ class App < Sinatra::Application
   post '/actualizar_leccion' do
     nueva_leccion = params[:nueva_leccion].to_i
     user = User.find(session[:user_id])
-    
-   
-    
-    #variables auxiliares para mejorar la sintaxis 
+
+
+
+    #variables auxiliares para mejorar la sintaxis
     #cantidad de preguntas del nivel y preguntas restantes
     max_lvl1_qnumber = Question.where(level: 1).maximum(:number)
     remaining_questions = max_lvl1_qnumber - (nueva_leccion)
-    
+
     #Chequeo de la pregunta que se debe hacer en el momento apropiado
-    if (remaining_questions >=3) 
-      session[:current_question] = nueva_leccion-3 
+    if (remaining_questions >=3)
+      session[:current_question] = nueva_leccion-3
     elsif remaining_questions == 2
-      session[:current_question] = max_lvl1_qnumber - remaining_questions  
+      session[:current_question] = max_lvl1_qnumber - remaining_questions
     elsif remaining_questions == 1
-      session[:current_question] = max_lvl1_qnumber - remaining_questions 
+      session[:current_question] = max_lvl1_qnumber - remaining_questions
     elsif remaining_questions == 0
       session[:current_question] = max_lvl1_qnumber - (remaining_questions + 3)
-    else 
+    else
       session[:current_question] = max_lvl1_qnumber
-    end    
-     
+    end
+
     # Verifica si pasaron 3 lecciones o si es la leccion actual es la ultima del nivel
-    if (nueva_leccion > user.progress) && (nueva_leccion % 3 == 1) || (nueva_leccion > max_lvl1_qnumber) 
+    if (nueva_leccion > user.progress) && (nueva_leccion % 3 == 1) || (nueva_leccion > max_lvl1_qnumber)
       redirect '/questions'
     else
       user.update(actualLearning: nueva_leccion)
@@ -172,7 +182,7 @@ class App < Sinatra::Application
     @questions = Question.all
     @options = Option.all
     @current_question = session[:current_question]
-    # Inicializa el contador de respuestas correctas  
+    # Inicializa el contador de respuestas correctas
     @correct_answers_count ||= 0
     @incorrect_answers_count ||=0
     erb :'questions'
@@ -182,7 +192,7 @@ class App < Sinatra::Application
     @user = User.find(session[:user_id])
     # Obtener el valor de 'respuesta_correcta' desde los parámetros del formulario
     respuesta_correcta = params[:respuesta_correcta] == "true"
-    
+
     #control de pregunta actual(en base a la ultima leccion)
     session[:current_question]
     # Inicializa los contadores de respuestas correctas e incorrectas desde la sesión
@@ -191,7 +201,7 @@ class App < Sinatra::Application
     #numero de preguntas de nivel 1
     max_lvl1_qnumber = Question.where(level: 1).maximum(:number)
 
-    if respuesta_correcta 
+    if respuesta_correcta
       if session[:current_question] < max_lvl1_qnumber
       # Incrementa el contador de respuestas correctas
       session[:correct_answers_count] += 1
@@ -199,8 +209,8 @@ class App < Sinatra::Application
       else
         @user.update(progress: @user.progress + 1)
         @user.update(actualLearning: @user.actualLearning + 1)
-        redirect '/congratsLevel' 
-        
+        redirect '/congratsLevel'
+
         return
       end
     else
@@ -216,7 +226,7 @@ class App < Sinatra::Application
 
     # Redirige según las condiciones después de actualizar los contadores
     if session[:correct_answers_count] >= 3
-      session[:correct_answers_count] = 0  
+      session[:correct_answers_count] = 0
       @user.update(progress: @user.progress + 1)
       @user.update(actualLearning: @user.actualLearning + 1)
       redirect '/learnpage'
@@ -237,19 +247,19 @@ class App < Sinatra::Application
     user.update(actualLearning: nueva_leccion)
     redirect'/menu'
   end
-  
+
   post '/actualizar_valor2' do
     nueva_leccion = params[:nueva_leccion]
     user = User.find(session[:user_id])
     user.update(actualLearningLevel2: nueva_leccion)
     redirect'/menu'
   end
-  
+
     get '/table' do
       @elements = Element.all
       erb:'table'
     end
-  
+
 
   get '/searchpage' do
     @searchbarfilter = params[:searchbarfilter]
