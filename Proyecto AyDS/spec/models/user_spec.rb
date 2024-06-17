@@ -22,15 +22,6 @@ RSpec.describe User, type: :model do
       expect(user).to be_valid
     end
 
-    it "is not valid without a name" do
-      user = User.new(
-        username: "johndoe",
-        email: "john.doe@example.com",
-        password: "password123"
-      )
-      expect(user).to_not be_valid
-    end
-
     it "is not valid without a unique email" do
       User.create(
         username: "johndoe",
@@ -38,7 +29,6 @@ RSpec.describe User, type: :model do
         password: "password123"
       )
       user = User.new(
-        names: "Jane Smith",
         username: "janesmith",
         email: "john.doe@example.com",  # Este email ya existe
         password: "anotherpassword"
@@ -59,7 +49,7 @@ RSpec.describe User, type: :model do
         lessonMaxProgress: 10
       )
       expect(User.count).to eq(1)
-      expect(user.names).to eq("John Doe")
+      expect(user.username).to eq("johndoe")
     end
   end
 
