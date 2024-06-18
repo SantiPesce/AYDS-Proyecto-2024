@@ -1,10 +1,11 @@
 require './models/learning'
 require './models/question'
 require './models/option'
+require 'bcrypt'
 users = [
-    {username: 'jondoe', email: 'jon@doe.com', password: 'abc',progress: 1,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
-    {username: 'janedoe', email: 'jane@doe.com', password: 'abc',progress: 1,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
-    {username: 'babydoe', email: 'baby@doe.com', password: 'abc', progress: 1,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
+    {username: 'jondoe', email: 'jon@doe.com', password: BCrypt::Password.create('abc'),progress: 1,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
+    {username: 'janedoe', email: 'jane@doe.com',password: BCrypt::Password.create('abc'),progress: 1,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
+    {username: 'babydoe', email: 'baby@doe.com',password: BCrypt::Password.create('abc'), progress: 1,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
   ]
 
   users.each do |u|

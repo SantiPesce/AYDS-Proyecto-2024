@@ -1,0 +1,78 @@
+<!-- views/random_attribute_question.erb -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta sobre Atributo de Elemento Químico</title>
+  <script>
+    function checkAnswer() {
+        var userAnswer = document.getElementById('user_answer').value.trim();
+        var correctAnswer = '<%= @random_element.send(@random_attribute.to_sym) %>'.toLowerCase();
+        if (userAnswer.toLowerCase() === correctAnswer) {
+            alert('¡Respuesta correcta!');
+            return true;  // Permite que el formulario se envíe para la siguiente pregunta
+        } else {
+            alert('Respuesta incorrecta. Inténtalo de nuevo.');
+            window.location.href = '/menu'; // Redirige al usuario al menú principal
+            return false;  // Evita que el formulario se envíe
+        }
+    }
+</script>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('images/fondo.jpg'); /* Añadir la imagen de fondo */
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .question-container {
+            max-width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(71,82,83,0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px 0;
+            font-family: 'Montserrat', sans-serif;
+            color: hsla(180, 28%, 86%, 1); 
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="question-container">
+        <h2>Pregunta sobre elementos químicos</h2>
+        <p>¿Cuál es el <%= @random_attribute %> del elemento <%= @random_element.Name %>?</p>
+        <form id="answerForm" action="/evaluacionl3" onsubmit="return checkAnswer()">
+            <input type="hidden" name="element_id" value="<%= @random_element.id %>">
+            <input type="text" id="user_answer" name="user_answer" placeholder="Ingrese su respuesta aquí" required>
+            <br>
+            <button type="submit">Verificar</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -11,4 +11,3 @@ class CreateElementsTable < ActiveRecord::Migration[5.0]
       end
     end
   end
-  

@@ -74,12 +74,17 @@
     <select id="nivel" name="nivel">
         <option value="tabla">Nivel 1 - Tabla</option>
         <option value="elementos">Nivel 2 - Elementos</option>
-        <option value="bloqueado" disabled class="bloqueado">Nivel 3</option>
+        <% if @user.progress === 1 then %>
+            <option value="level3">Nivel 3</option>
+        <% else  %>
+            <option value="level3" disabled class="level3">Nivel 3</option>
+        <% end %>
     </select>
     <button type="submit" id="aceptar">Aceptar</button>
     <br>
     <button type="button" onclick="window.location.href='/menu'">Volver al Menú</button>
 </form>
+
 
 <script>
     document.getElementById('nivelForm').addEventListener('submit', function(event) {
@@ -89,7 +94,7 @@
         } else if (nivelSeleccionado === 'elementos') {
             this.action = '/learnpage2';
         } else {
-            event.preventDefault(); 
+            this.action = '/learnpage3';
         }
     });
 </script>

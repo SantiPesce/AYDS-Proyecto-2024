@@ -25,6 +25,14 @@ ul{
     box-sizing: border-box;
 }
 
+.container2{
+    width: 96%;
+    margin-left: 15px;
+    background-color: rgba(71,82,83,0.9);
+    padding: 10px;
+    border-radius: 5px;
+}
+
 .menu li {
     width: 100%;
     display: inline-block;
@@ -76,6 +84,7 @@ ul{
     color: black;
 }
 
+
 /* Estilos de la barra de progreso */
 .progress {
     height: 20px;
@@ -89,6 +98,13 @@ ul{
     height: 100%;
     background-color: seagreen;
     width: <%= @user.progress %>%; /* Puedes cambiar este valor para ajustar el progreso */
+}
+
+.botonnivel{
+    text-align: center;
+    color: black;
+    font-family: system-ui;
+    text-decoration: none;
 }
 
 </style>
@@ -116,8 +132,11 @@ ul{
 
     <li><a href="/searchpage"><img src="images/3.png" alt="Botón 3"></a></li>
     <li><a href="/table"><img src="images/4.png" alt="Botón 4"></a></li>
-</ul>
 
+</ul>
+    <div class="container2">    
+        <a href="/evaluacionl3" class="botonnivel"><h1>Evaluacion nivel 3</h1></a>
+    </div>
 </div>
 
 </body>

@@ -94,10 +94,15 @@ class App < Sinatra::Application
     erb :'menu'
   end
 
+  get '/learnpage3' do
+    @user = User.find(session[:user_id])
+    erb  :'learnpage3'
+  end
 
   get '/menuGuest' do
     erb :'menuGuest'
   end
+
 
   get '/levelSelect' do
     @user = User.find(session[:user_id])
@@ -289,5 +294,15 @@ class App < Sinatra::Application
     session.clear
     erb :welcome
   end
+
+get '/evaluacionl3' do
+  @user = User.find(session[:user_id])
+  @random_element = Element.order("RANDOM()").first
+  random_attributes = [:Symbol, :AtomicMass, :Group_, :Period, :Classification]
+  @random_attribute = random_attributes.sample.to_s  # Convertido a cadena explícitamente
+
+  erb :'evaluacionl3'
+end
+
 
 end
