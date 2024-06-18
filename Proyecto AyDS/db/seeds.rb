@@ -19,7 +19,7 @@ learnings = [
   { number: 1, lesson:"La tabla periódica clasifica los elementos químicos según su número atómico y propiedades químicas.", levelImage: "tabla"},
   { number: 2, lesson:"Los elementos se organizan en filas (períodos) y columnas (grupos) según sus propiedades.", levelImage: "gruposperiodos"},
   { number: 3, lesson:"La tabla periódica ordena los elementos de izquierda a derecha y de arriba abajo según su número atómico.", levelImage: "tabla"},
-  { number: 4, lesson:"Los grupos de la tabla periódica muestran patrones en el radio atómico y otras propiedades.", levelImage: "tabla"},
+  { number: 4, lesson:"Los grupos de la tabla periódica muestran patrones en el radio atómico y otras propiedades fiscoquimicas.", levelImage: "tabla"},
   { number: 5, lesson:"Los elementos en un grupo comparten características químicas similares.", levelImage: "grupos" },
   { number: 6, lesson:"Existen excepciones a el orden en la tabla periódica.", levelImage: "tabla"},
   { number: 7, lesson: "Los períodos de la tabla periódica representan los niveles energéticos de los átomos.", levelImage: "periodos"},
@@ -47,20 +47,20 @@ questions = [
   {number: 1, level: 1, enunciation: "¿Cuál de los siguientes factores se utiliza para ordenar los elementos en la tabla periódica?"},
   {number: 2, level: 1,  enunciation:"¿Cómo se denominan las columnas de la tabla periódica?"},
   {number: 3, level: 1,  enunciation: "¿Cómo están ordenados los elementos en la tabla periódica actual?"},
-  {number: 4, level: 1,  enunciation: "¿Cómo se conocen las columnas verticales de la tabla periódica y cuántas hay?"},
-  {number: 5, level: 1,  enunciation:"¿Qué sucede con el radio atómico y la energía de ionización de los elementos de un mismo grupo en la tabla periódica?"},
-  {number: 6, level: 1,  enunciation:"¿Qué excepción se menciona en el texto con respecto a las tendencias generales en la tabla periódica?"},
+  {number: 4, level: 1,  enunciation: "¿Dónde se pueden encontrar patrones en los grupos de la tabla periódica?"},
+  {number: 5, level: 1,  enunciation:"¿Según qué criterio puedo encontrar elementos que compartan características químicas similares?"},
+  {number: 6, level: 1,  enunciation:"¿Cuál de las siguientes afirmaciones es correcta?"},
   {number: 7, level: 1,  enunciation:"¿Qué determina el periodo al que pertenece un átomo en la tabla periódica?"},
-  {number: 8, level: 1,  enunciation:"¿Qué sucede con el radio atómico, la energía de ionización y la electronegatividad cuando nos desplazamos de izquierda a derecha en un período de la tabla periódica?"},
-  {number: 9, level: 1,  enunciation:"¿Cómo se dividen los bloques en la tabla periódica y cómo se denominan?"},
-  {number: 10, level: 1,  enunciation:"¿Qué elementos comprenden los diferentes bloques en la tabla periódica?"},
+  {number: 8, level: 1,  enunciation:"¿Qué se puede observar de los elementos en el mismo período de la tabla periódica?"},
+  {number: 9, level: 1,  enunciation:"¿Según qué criterio se divide la tabla periódica en bloques?"},
+  {number: 10, level: 1,  enunciation:"¿Con que letras de denominan los distintos bloques a los que pertenecen los elementos de la tabla periodica?"},
   {number: 11, level: 1,  enunciation:"¿Cómo se clasifican los elementos en la tabla periódica según sus propiedades físicas y químicas?"},
-  {number: 12, level: 1,  enunciation:"¿Cómo se clasifican los metales y no metales en la tabla periódica?"},
+  {number: 12, level: 1,  enunciation:"¿Qué se puede decir sobre los metales y no metales en términos de su clasificación y propiedades?"},
   {number: 13, level: 1,  enunciation:"¿Cómo se subdividen los no metales en la tabla periódica?"},
-  {number: 14, level: 2,  enunciation:"¿Cuál de las siguientes opciones representa correctamente la clasificación de elementos en categorías y subcategorías basada en sus propiedades compartidas?"},
+  {number: 14, level: 2,  enunciation:"¿Cómo se organiza la clasificación de los elementos en la tabla periódica?"},
   {number: 15, level: 2,  enunciation:"¿Qué número único a cada elemento químico determina su identidad y posición en la tabla periódica?"},
   {number: 16, level: 2,  enunciation:"¿Cuál de las siguientes afirmaciones es correcta respecto a los elementos químicos?"},
-  {number: 17, level: 2,  enunciation:"¿¿Por qué ha sido revocado o cuestionado el descubrimiento de algunos elementos químicos?"},
+  {number: 17, level: 2,  enunciation:"¿Por qué ha sido revocado o cuestionado el descubrimiento de algunos elementos químicos?"},
   {number: 18, level: 2,  enunciation:"¿En qué se basan los nombres de los elementos químicos?"},
   {number: 19, level: 2,  enunciation:"¿Qué caracteriza a un elemento químico como una sustancia pura?"},
 ]
@@ -76,7 +76,7 @@ options = [
 ############################# --- NIVEL 1 --- ##############################
 
 # -- Opciones de la pregunta 1 -- #
-  {question_id: 1,correct: true, enunciation:"Número de protones"},
+  {question_id: 1,correct: true, enunciation:"Número átomico"},
   {question_id: 1,correct: false, enunciation:"Configuración de electrones"},
   {question_id: 1,correct: false, enunciation:"Propiedades químicas"},
   {question_id: 1,correct: false, enunciation:"Punto de ebullición"},
@@ -94,22 +94,22 @@ options = [
   {question_id: 3,correct: false, enunciation:"de derecha a izquierda y de abajo arriba en orden decreciente de sus números atómicos."},
 
 # -- Opciones de la pregunta 4 -- #
-  {question_id: 4,correct: true, enunciation:"Se conocen como grupos o familias y hay 18 grupos."},
-  {question_id: 4,correct: false, enunciation:"Se conocen como periodos y hay 7 grupos."},
-  {question_id: 4,correct: false, enunciation:"Se conocen como familias y hay 7 grupos."},
-  {question_id: 4,correct: false, enunciation:"Se conocen como periodos y hay 18 grupos."},
+  {question_id: 4,correct: true, enunciation:" En las propiedades químicas y físicas, como el radio atómico y la electronegatividad.."},
+  {question_id: 4,correct: false, enunciation:"En el número de protones de los elementos."},
+  {question_id: 4,correct: false, enunciation:"En la distribución de isótopos."},
+  {question_id: 4,correct: false, enunciation:"En la cantidad de enlaces que puede formar un elemento en un compuesto específico.."},
 
 # -- Opciones de la pregunta 5 -- #
-  {question_id: 5,correct: true, enunciation:"El radio atómico aumenta y la energía de ionización disminuye de arriba abajo en un grupo."},
-  {question_id: 5,correct: false, enunciation:"El radio atómico disminuye y la energía de ionización aumenta de arriba abajo en un grupo."},
-  {question_id: 5,correct: false, enunciation:"El radio atómico aumenta y la energía de ionización aumenta de arriba abajo en un grupo."},
-  {question_id: 5,correct: false, enunciation:"El radio atómico disminuye y la energía de ionización disminuye de arriba abajo en un grupo."},
+  {question_id: 5,correct: true, enunciation:"Según su posición en el mismo grupo de la tabla periódica."},
+  {question_id: 5,correct: false, enunciation:"Según su número de protones."},
+  {question_id: 5,correct: false, enunciation:"El radio atómico aumenSegún su masa atómica."},
+  {question_id: 5,correct: false, enunciation:"Según su configuración nuclear."},
 
 # -- Opciones de la pregunta 6 -- #
-  {question_id: 6,correct: true, enunciation:"En el grupo 11, la electronegatividad aumenta más abajo en el grupo."},
-  {question_id: 6,correct: false, enunciation:"En el grupo 11, la energía de ionización aumenta más abajo en el grupo."},
-  {question_id: 6,correct: false, enunciation:"En los bloques d y f, las similitudes verticales son más pronunciadas que las horizontales."},
-  {question_id: 6,correct: false, enunciation:"En el grupo 11, el radio atómico disminuye más abajo en el grupo."},
+  {question_id: 6,correct: true, enunciation:"Existen excepciones al orden en la tabla periódica."},
+  {question_id: 6,correct: false, enunciation:"La tabla periódica es muy específica en cuanto a su orden, sin excepciones."},
+  {question_id: 6,correct: false, enunciation:"Todos los elementos en la tabla periódica se organizan de acuerdo a su número atómico sin ninguna excepción."},
+  {question_id: 6,correct: false, enunciation:"La tabla periódica sigue un orden estricto basado únicamente en las propiedades físicas de los elementos."},
 
 # -- Opciones de la pregunta 7 -- #
   {question_id: 7,correct: true, enunciation:"El número de niveles energéticos del átomo."},
@@ -118,22 +118,22 @@ options = [
   {question_id: 7,correct: false, enunciation:"El número total de electrones del átomo"},
 
 # -- Opciones de la pregunta 8 -- #
-  {question_id: 8,correct: true, enunciation:"El radio atómico disminuye, la energía de ionización aumenta y la electronegatividad aumenta."},
-  {question_id: 8,correct: false, enunciation:"El radio atómico aumenta, la energía de ionización disminuye y la electronegatividad disminuye."},
-  {question_id: 8,correct: false, enunciation:"El radio atómico disminuye, la energía de ionización disminuye y la electronegatividad aumenta."},
-  {question_id: 8,correct: false, enunciation:"El radio atómico aumenta, la energía de ionización aumenta y la electronegatividad disminuye."},
+  {question_id: 8,correct: true, enunciation:"Muestran tendencias similares en sus propiedades."},
+  {question_id: 8,correct: false, enunciation:"Tienen el mismo número de electrones de valencia."},
+  {question_id: 8,correct: false, enunciation:"Tienen la misma masa atómica."},
+  {question_id: 8,correct: false, enunciation:"Comparten el mismo grupo de la tabla periódica."},
 
 # -- Opciones de la pregunta 9 -- #
-  {question_id: 9,correct: true, enunciation:"Se dividen según la secuencia en la que se llenan las capas de electrones y se  denominan según el orbital en el que reside el último electrón: s, p, d y f."},
-  {question_id: 9,correct: false, enunciation:"Se dividen según la secuencia en la que se llenan las capas de protones y se denominan según el orbital en el que reside el primer protón: s, p, d y f."},
-  {question_id: 9,correct: false, enunciation:"Se dividen según la secuencia en la que se llenan las capas de neutrones y se denominan según el orbital en el que reside el último neutrón: s, p, d y f."},
-  {question_id: 9,correct: false, enunciation:"Se dividen según la secuencia en la que se llenan las capas de electrones y se denominan según el orbital en el que reside el primer electrón: s, p, d y f."},
+  {question_id: 9,correct: true, enunciation:"Según la secuencia en la que se llenan los orbitales de electrones."},
+  {question_id: 9,correct: false, enunciation:"Según el número de neutrones en el núcleo."},
+  {question_id: 9,correct: false, enunciation:"Según la densidad de los elementos."},
+  {question_id: 9,correct: false, enunciation:"Según el punto de fusión de los elementos."},
 
 # -- Opciones de la pregunta 10 -- #
-  {question_id: 10,correct: true, enunciation:"Bloque s: metales alcalinos y alcalinotérreos, así como el hidrógeno y el helio, Bloque p: metaloides, Bloque d: metales de transición, Bloque f: lantánidos y actínidos."},
-  {question_id: 10,correct: false, enunciation:"Bloque s: hidrógeno y helio, Bloque p: metaloides, Bloque d: metales de transición, Bloque f: lantánidos y actínidos."},
-  {question_id: 10,correct: false, enunciation:"Bloque s: metales alcalinos y alcalinotérreos, Bloque p: gases nobles, Bloque d: metales de transición, Bloque f: lantánidos y actínidos."},
-  {question_id: 10,correct: false, enunciation:"Bloque s: metales alcalinos y alcalinotérreos, Bloque p: metaloides, Bloque d: gases nobles, Bloque f: lantánidos y actínidos."},
+  {question_id: 10,correct: true, enunciation:"s, p, d, f"},
+  {question_id: 10,correct: false, enunciation:"s, p, t, f"},
+  {question_id: 10,correct: false, enunciation:"a, p, d, q"},
+  {question_id: 10,correct: false, enunciation:"k, l, m, n"},
 
 # -- Opciones de la pregunta 11 -- #
   {question_id: 11,correct: true, enunciation:"Metales, metaloides y no metales."},
@@ -142,10 +142,10 @@ options = [
   {question_id: 11,correct: false, enunciation:"Metales, gases nobles y metaloides."},
 
 # -- Opciones de la pregunta 12 -- #
-  {question_id: 12,correct: true, enunciation:"De izquierda a derecha, en las filas: metales alcalinos, metales alcalinotérreos, lantánidos y actínidos, metales de transición y metales post-transición."},
-  {question_id: 12,correct: false, enunciation:"De derecha a izquierda, en las filas: metales alcalinos, metales alcalinotérreos, lantánidos y actínidos, metales de transición y metales post-transición."},
-  {question_id: 12,correct: false, enunciation:"De arriba abajo, en las columnas: metales alcalinos, metales alcalinotérreos, lantánidos y actínidos, metales de transición y metales post-transición."},
-  {question_id: 12,correct: false, enunciation:"De abajo arriba, en las columnas: metales alcalinos, metales alcalinotérreos, lantánidos y actínidos, metales de transición y metales post-transición."},
+  {question_id: 12,correct: true, enunciation:"Los metales y no metales pueden subdividirse en categorías."},
+  {question_id: 12,correct: false, enunciation:"Los metales y no metales forman dos grandes grupos de elementos con las mismas propiedades."},
+  {question_id: 12,correct: false, enunciation:"Los metales y no metales son parte de un mismo grupo."},
+  {question_id: 12,correct: false, enunciation:"Los metales y no metales se comportan químicamente de la misma manera."},
 
 # -- Opciones de la pregunta 13 -- #
   {question_id: 13,correct: true, enunciation:"No metales poliatómicos, no metales diatómicos y gases nobles."},

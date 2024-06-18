@@ -142,7 +142,7 @@
         <br>
         <fieldset>
             <legend><%= question.enunciation %></legend>
-            <% question.options.each do |option| %>
+            <% question.options.shuffle.each do |option| %>
                 <label>
                     <input type="radio" name="respuesta" value="<%= option.id %>" correct="<%= option.correct %>">
                     <%= option.enunciation %>

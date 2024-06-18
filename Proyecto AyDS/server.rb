@@ -198,7 +198,7 @@ class App < Sinatra::Application
       session[:current_question] += 1
       else
         @user.update(actualLearning: @user.actualLearning + 1)
-        @user.update(progress: @user.progress + 5)
+        @user.update(progress: @user.progress + 3)
         redirect '/congratsLevel' 
         return
       end
@@ -206,14 +206,17 @@ class App < Sinatra::Application
       # Incrementa el contador de respuestas incorrectas
       session[:incorrect_answers_count] += 1
       if session[:incorrect_answers_count] >= 2
-        # Redirige a la página de lecciones si hay 2 respuestas incorrectas
+        # Redirige a la página de lecciones si hay 2 respuestas incorrectas y reinicia los contadores
+        session[:incorrect_answers_count] = 0
+        session[:correct_answers_count] = 0 
         redirect '/learnpage'
       return
       end
     end
 
-    # Redirige según las condiciones después de actualizar los contadores
+    # Redirige según las condiciones después de reiniciar los contadores
     if session[:correct_answers_count] >= 3
+      session[:incorrect_answers_count] = 0
       session[:correct_answers_count] = 0  
       @user.update(progress: @user.progress + 3)
       @user.update(actualLearning: @user.actualLearning + 1)
