@@ -26,8 +26,6 @@ ul{
 }
 
 .container2{
-    width: 96%;
-    margin-left: 15px;
     background-color: rgba(71,82,83,0.9);
     padding: 10px;
     border-radius: 5px;
@@ -97,7 +95,7 @@ ul{
 .progress-bar {
     height: 100%;
     background-color: seagreen;
-    width: <%= @user.progress %>%; /* Puedes cambiar este valor para ajustar el progreso */
+    width: <%= (@user.progress * 3) + (@user.progress2 * 3) %>%; /* Puedes cambiar este valor para ajustar el progreso */
 }
 
 .botonnivel{
@@ -134,8 +132,14 @@ ul{
     <li><a href="/table"><img src="images/4.png" alt="Botón 4"></a></li>
 
 </ul>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="container2">    
-        <a href="/evaluacionl3" class="botonnivel"><h1>Evaluacion nivel 3</h1></a>
+        <% if @user.progress + @user.progress2 >= 33 %>
+            <a href="/evaluacionl3" class="botonnivel"><h1>Evaluacion nivel 3</h1></a>
+        <% end %>
     </div>
 </div>
 

@@ -3,9 +3,9 @@ require './models/question'
 require './models/option'
 require 'bcrypt'
 users = [
-    {username: 'jondoe', email: 'jon@doe.com', password: BCrypt::Password.create('abc'),progress: 1,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
-    {username: 'janedoe', email: 'jane@doe.com',password: BCrypt::Password.create('abc'),progress: 1,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
-    {username: 'babydoe', email: 'baby@doe.com',password: BCrypt::Password.create('abc'), progress: 1,actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
+    {username: 'jondoe', email: 'jon@doe.com', password: BCrypt::Password.create('abc'),progress: 1, progress2: 14, actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
+    {username: 'janedoe', email: 'jane@doe.com',password: BCrypt::Password.create('abc'),progress: 1, progress2: 14, actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
+    {username: 'babydoe', email: 'baby@doe.com',password: BCrypt::Password.create('abc'), progress: 1, progress2: 14, actualLearning: 1, actualLearningLevel2: 15, lessonMaxProgress: 1},
   ]
 
   users.each do |u|
@@ -157,7 +157,7 @@ options = [
   {question_id: 14,correct: true, enunciation:"Gases nobles y halógenos - clasificados por su reactividad y posición en la tabla periódica."},
   {question_id: 14,correct: false, enunciation:"Elementos metálicos y no metálicos - clasificados por sus propiedades físicas y químicas."},
   {question_id: 14,correct: false, enunciation:"Líquidos y sólidos - clasificados únicamente por su estado de agregación."},
-  {question_id: 14,correct: false, enunciation:"Metales de transición y lantánidos - clasificados por su configuración electrónica y uso en la industria."},
+  {question_id: 14,correct: false, enunciation:"Metales de transición y lantánidos - clasificados por su configuración electrónica y uso en la industria."},  
 
 # -- Opciones de la pregunta 15 -- #
   {question_id: 15,correct: true, enunciation:"Número atómico - El total de protones en el núcleo de un átomo."},

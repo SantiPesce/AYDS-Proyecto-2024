@@ -48,6 +48,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_175530) do
     t.string "email"
     t.string "password"
     t.integer "progress"
+    t.integer "progress2"
     t.integer "actualLearning"
     t.integer "actualLearningLevel2"
     t.integer "lessonMaxProgress"
