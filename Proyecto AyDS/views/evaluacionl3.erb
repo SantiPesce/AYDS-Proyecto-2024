@@ -20,48 +20,52 @@
         }
     }
 </script>
-    <style>
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('images/fondo.jpg'); /* Añadir la imagen de fondo */
+    text-align: center;
+    padding: 20px;
+}
         
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url('images/fondo.jpg'); /* Añadir la imagen de fondo */
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .question-container {
-            max-width: 50%;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: rgba(71,82,83,0.9);
-            border-radius: 10px;
-            box-shadow: 0 0 10px 0;
-            font-family: 'Montserrat', sans-serif;
-            color: hsla(180, 28%, 86%, 1); 
-        }
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+.question-container {
+    max-width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(71,82,83,0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0;
+    font-family: 'Montserrat', sans-serif;
+    color: hsla(180, 28%, 86%, 1); 
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+       
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+</style>
 </head>
 <body>
     <div class="question-container">
@@ -71,7 +75,7 @@
             <input type="hidden" name="element_id" value="<%= @random_element.id %>">
             <input type="text" id="user_answer" name="user_answer" placeholder="Ingrese su respuesta aquí" required>
             <br>
-            <button type="submit">Verificar</button>
+        <button type="submit">Verificar</button>
         </form>
     </div>
 </body>

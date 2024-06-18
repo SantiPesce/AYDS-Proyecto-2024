@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="images/favicon.png" >
-    <title>Inicio de Sesión</title>
-    <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="images/favicon.png" >
+<title>Inicio de Sesión</title>
+<style>
         
         body {
             background-image: url('/images/fondo_quimica.jpg') ; /* Cambia 'fondo_quimica.jpg' por la ruta de tu imagen de fondo */
@@ -76,9 +76,10 @@
         h1, h2 {
             color: hsla(180, 28%, 86%, 1); 
         }
-    </style>
+</style>
 </head>
 <body>
+
     <div class="login-container">
         <h2>Iniciar Sesión</h2>
         <% if @error %>
@@ -87,13 +88,16 @@
         <% if @success %>
             <p style="color: #0d0"><%= @success %></p>
         <% end %>
+
         <form action="/login" method="post">
             <input type="text" name="usuario" placeholder="Nombre de usuario" required>
             <input type="password" name="password" placeholder="Contraseña" required>
             <input type="submit" value="Iniciar Sesión">
         </form>
+        
         <br>
         <p><a href="/register">¿No tienes cuenta? Regístrate aquí</a></p>
     </div>
+
 </body>
 </html>

@@ -1,78 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="images/favicon.png" >
-        <title>Registro - Elementally</title>
-        <style>
-            body {
-                background-image: url('/imagenes/a.jpeg') ; /* Cambia 'fondo_quimica.jpg' por la ruta de tu imagen de fondo */
-                background-size: cover;
-                font-family: 'Montserrat', sans-serif;
-                margin-top: 150px;
-                background-image: url('images/fondo.jpg'); /* Añadir la imagen de fondo */
-                background-size: cover; /* Ajustar el tamaño de la imagen de fondo */
-            }
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="images/favicon.png" >
+<title>Registro - Elementally</title>
+<style>
+body {
+    background-image: url('/imagenes/a.jpeg') ; /* Cambia 'fondo_quimica.jpg' por la ruta de tu imagen de fondo */
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 150px;
+    background-image: url('images/fondo.jpg'); /* Añadir la imagen de fondo */
+    background-size: cover; /* Ajustar el tamaño de la imagen de fondo */
+}
 
-            .register-container {
-                   max-width: 400px;
-                margin: 0 auto;
-                padding: 20px;
-                background-color: rgba(71,82,83,0.9);
-                border-radius: 10px;
-                box-shadow: 0 0 10px 0;
-                font-family: 'Montserrat', sans-serif;
-                text-align: center;
-                
-            }
+.register-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(71,82,83,0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    
+}
 
-            input[type="text"], input[type="password"], input[type="email"] {
-                width: 95%;
-                padding: 10px;
-                margin-bottom: 10px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-                font-family: 'Montserrat', sans-serif;
-            }
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+}
 
-            input[type="submit"] {
-                 width: 100%;
-            padding: 10px;
-            background-color: rgba(53,164,247,0.75);
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            }
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(53,164,247,0.75);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-            input[type="submit"]:hover {
-                background-color: #0056b3;
-            }
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
 
-            .register-container a{
-                text-decoration: none;
-                color: hsla(180, 28%, 86%, 1); 
-                font-family: 'Muli', sans-serif;
-            }
+.register-container a{
+    text-decoration: none;
+    color: hsla(180, 28%, 86%, 1); 
+    font-family: 'Muli', sans-serif;
+}
 
-            .register-container a:hover{
-                text-decoration: solid underline 3px;
-                color: #000089;
-                font-family: 'Muli', sans-serif;
-            }
-            
-            h1, h2 {
-                color: hsla(180, 28%, 86%, 1); 
-            }
-        </style>
-    </head>
+.register-container a:hover{
+    text-decoration: solid underline 3px;
+    color: #000089;
+    font-family: 'Muli', sans-serif;
+}
+
+h1, h2 {
+    color: hsla(180, 28%, 86%, 1); 
+}
+
+</style>
+</head>
     <body>
+
         <div class="register-container">
             <h2>Bienvenido a Elementally</h2>
             <% if @error %>
                 <p style="color: #e00"><%= @error %></p>
             <% end %>
+
             <form action="/register" method="post">
                 <input type="email" name="email" placeholder="Email" required />
                 <input type="password" name="password" placeholder="Contraseña" required />
@@ -80,9 +83,11 @@
                 <input type="text" name="username" placeholder="Nombre de usuario" required/>
                 <input class="button" type="submit" value="Registrarse" />
             </form>
+            
             <br>
             <br>
             <a href="/">« Volver</a>
         </div>
+
     </body>
 </html>

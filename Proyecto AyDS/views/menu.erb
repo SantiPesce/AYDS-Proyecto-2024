@@ -6,19 +6,20 @@
 <link rel="icon" type="image/x-icon" href="images/favicon.png" >
 <title>Menú con Usuario y Barra de Progreso - Adaptativo</title>
 <style>
-/* Estilos generales */
+
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('images/fondo.jpg'); /* Añadir la imagen de fondo */
-    background-size: cover; /* Ajustar el tamaño de la imagen de fondo */
+    background-image: url('images/fondo.jpg');
+    background-size: cover;
 }
 
 ul{
     padding-inline-start: 15px;
     padding-inline-end: 15px;
 }
+
 .container {
     width: 100%;
     padding: 10px;
@@ -26,6 +27,8 @@ ul{
 }
 
 .container2{
+    width: 96%;
+    margin-left: 15px;
     background-color: rgba(71,82,83,0.9);
     padding: 10px;
     border-radius: 5px;
@@ -34,45 +37,44 @@ ul{
 .menu li {
     width: 100%;
     display: inline-block;
-    margin-right: 4.5%; /* Espacio entre cada elemento li */
-    text-align: center; /* Alinear el texto al centro dentro de los elementos li */
-    width: 30%; /* Cada elemento li ocupará el 23% del ancho del contenedor */
+    margin-right: 4.5%; 
+    text-align: center; 
+    width: 30%; 
 }
 
 .menu li:last-child {
-    margin-right: 0; /* Eliminar el margen derecho del último elemento li */
+    margin-right: 0; 
 }
 
 .menu li a {
-    display: block; /* Convertir el enlace en un bloque para que ocupe todo el espacio disponible */
+    display: block; 
     text-decoration: none;
     color: #fff;
     background-color: rgba(71,82,83,0.9);
-    transition: background-color 0.3s ease; /* Efecto de transición suave */
-    border-radius: 5px; /* Botones más redondeados */
-    overflow: hidden; /* Evitar que la imagen se desborde del botón */
+    transition: background-color 0.3s ease; 
+    border-radius: 5px; 
+    overflow: hidden;
 }
 
 .menu li a img {
-    width: 100%; /* La imagen ocupará todo el ancho del botón */
-    height: auto; /* La altura se ajustará automáticamente para mantener la proporción */
-    transition: transform 0.3s ease; /* Efecto de transición suave al pasar el ratón */
+    width: 100%;
+    height: auto; 
+    transition: transform 0.3s ease;
 }
 
 .menu li a:hover img {
-    transform: scale(1.1); /* Escalar la imagen al pasar el ratón para dar un efecto de aumento */
+    transform: scale(1.1);
 }
 
 
 .menu li a:hover {
-    background-color: #475253; /* Color de fondo verde más oscuro al pasar el ratón */
+    background-color: #475253;
 }
 
-/* Estilos del encabezado */
 .header {
     background-color: #475253;
     color: #fff;
-    padding: 20px; /* Mayor espacio en el encabezado */
+    padding: 20px; 
     text-align: right;
     font-family: 'Montserrat', sans-serif;
 }
@@ -82,8 +84,6 @@ ul{
     color: black;
 }
 
-
-/* Estilos de la barra de progreso */
 .progress {
     height: 20px;
     background-color: #f0f0f0;
@@ -95,7 +95,7 @@ ul{
 .progress-bar {
     height: 100%;
     background-color: seagreen;
-    width: <%= (@user.progress * 3) + (@user.progress2 * 3) %>%; /* Puedes cambiar este valor para ajustar el progreso */
+    width: <%= @user.progress %>%; 
 }
 
 .botonnivel{
@@ -127,22 +127,16 @@ ul{
     <!-- Menú -->
     <ul class="menu">
     <li><a href="/levelSelect"><img src="images/1.png" alt="Botón 1"></a></li>
-
     <li><a href="/searchpage"><img src="images/3.png" alt="Botón 3"></a></li>
     <li><a href="/table"><img src="images/4.png" alt="Botón 4"></a></li>
+    </ul>
 
-</ul>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="container2">    
-        <% if @user.progress + @user.progress2 >= 33 %>
-            <a href="/evaluacionl3" class="botonnivel"><h1>Evaluacion nivel 3</h1></a>
-        <% end %>
+    <div class="container2">
+
+        <a href="/evaluacionl3" class="botonnivel"><h1>Evaluacion nivel 3</h1></a>
     </div>
-</div>
 
+</div>
 </body>
 
 </html>

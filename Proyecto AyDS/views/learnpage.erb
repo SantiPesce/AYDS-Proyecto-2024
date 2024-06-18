@@ -6,7 +6,7 @@
 <link rel="icon" type="image/x-icon" href="images/favicon.png" >
 <title>Texto en el Centro</title>
 <style>
-  body {
+body {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,8 +15,9 @@
     margin: 0;
     background-image: url('images/fondo.jpg'); /* Añadir la imagen de fondo */
     background-size: cover; /* Ajustar el tamaño de la imagen de fondo */
-  }
-  #texto {
+}
+
+#texto {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
@@ -26,17 +27,16 @@
     padding-bottom: 15px;
       box-shadow: 0px 0px 20px 25px hsla(180, 28%, 86%, 1);
     padding-top: 15px;
-  }
+}
 
-  #botones {
+ #botones {
     display: flex;
     justify-content: space-between;
     width: 80%; /* Ancho de los botones */
     
-  }
+}
 
-
-  .boton {
+.boton {
     padding: 10px 20px;
     padding: 20px;
     background-color: rgba(7,32,35,0.9);
@@ -46,19 +46,18 @@
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0px 0px 10px 2px #072023;
-  }
+}
 
-  img{
+img{
     box-shadow: 0px 0px 20px 10px #072023;
     border-radius: 10px;
     background-color: white;
-  }
+}
 
 </style>
 </head>
 <body>
 <div id="imagen">
-
   <% if Learning.exists?(number: @user.actualLearning) %>
     <% learning = Learning.find_by(number: @user.actualLearning) %>
     <img src="images/<%=learning.levelImage%>.png">
@@ -68,18 +67,21 @@
   <br>
   <br>
 </div>
+
 <div id="texto">
   <% if Learning.exists?(number: @user.actualLearning) %>
     <% learning = Learning.find_by(number: @user.actualLearning) %>
     <%= learning.lesson %>
   <% else %>
-    El aprendizaje correspondiente no se encontró.
+      El aprendizaje correspondiente no se encontró.
   <% end %>
 </div>
+
   <br>
   <br>
   <br>
   <br>
+
 <div id="botones">
   <form action="/actualizar_leccion" method="post">
     <% nueva_leccion = @user.actualLearning - 1 %>
@@ -89,9 +91,11 @@
     <input type="hidden" name="nueva_leccion" value="<%= nueva_leccion %>">
     <button class="boton">Atrás</button>
   </form>
+
   <form action="/menu" method="get">
     <button class="boton">Menú</button>
   </form>
+
   <% nueva_leccion = @user.actualLearning + 1 %>
   <% nueva_leccion = 1 if nueva_leccion < 1 %>
   <% if nueva_leccion > 14 %>

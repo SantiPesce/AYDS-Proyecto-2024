@@ -8,7 +8,7 @@
 <style>
   body {
     background-color: #f0f0f0;
-   font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,22 +22,25 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
+
   h1 {
     color: #0056b3;
   }
+
   p {
     color: #333;
     font-size: 18px;
   }
+
   .button {
-     padding: 10px 20px;
-        width: 100%;
-        padding: 10px;
-        background-color: rgba(53,164,247,0.75);
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
+    padding: 10px 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(53,164,247,0.75);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
   }
   .button:hover {
     background-color: #0056b3;
@@ -51,24 +54,20 @@
   <p>¡Has completado el nivel!</p>
   <% if @user.actualLearning == 14 || @user.actualLearningLevel2 == 19%>
       <% if @user.actualLearning == 14 %>
-      <% nueva_leccion = 1 %>
-      <form action="/actualizar_valor" method="post">
-       <input type="hidden" name="nueva_leccion" value="<%= nueva_leccion %>">
-      <button class="button" onclick="window.location.href='/menu'">Volver al Menú</button>
-      </form>
+        <% nueva_leccion = 1 %>
+        <form action="/actualizar_valor" method="post">
+        <input type="hidden" name="nueva_leccion" value="<%= nueva_leccion %>">
+        <button class="button" onclick="window.location.href='/menu'">Volver al Menú</button>
+        </form>
       <%end%>
       <% if @user.actualLearningLevel2 == 19 %>
-            <% nueva_leccion = 15%>
-            <form action="/actualizar_valor2" method="post">
-             <input type="hidden" name="nueva_leccion" value="<%= nueva_leccion %>">
-            <button class="button" onclick="window.location.href='/menu'">Volver al Menú</button>
-            </form>
+        <% nueva_leccion = 15%>
+        <form action="/actualizar_valor2" method="post">
+        <input type="hidden" name="nueva_leccion" value="<%= nueva_leccion %>">
+        <button class="button" onclick="window.location.href='/menu'">Volver al Menú</button>
+        </form>
       <%end%>
   <%end%>
-
-
-
 </div>
-
 </body>
 </html>

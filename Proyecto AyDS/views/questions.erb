@@ -1,78 +1,77 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="images/favicon.png" >
-    <title>Pregunta para la lección <%= @user.actualLearning %></title>
-    <style>
-        /* Estilos para la notificación */
-        #notificacion {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #f0f0f0;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-        /* Estilos para el botón Continuar */
-        #boton-continuar {
-            display: block;
-            margin: 10px auto; /* Centrar horizontalmente */
-            font-size: 18px; /* Tamaño del botón */
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="images/favicon.png" >
+<title>Pregunta para la lección <%= @user.actualLearning %></title>
+<style>
 
-        body{
-            background-image: url('images/fondo.jpg'); /* Añadir la imagen de fondo */
-               background-size: cover;
-               font-family: 'Montserrat', sans-serif;
-        }
+#notificacion {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
 
-        body h1{
-            background-color: hsla(180, 28%, 86%, 1);
-            font-family: 'Montserrat', sans-serif;
-            text-align: center;
-            padding: 10px;
-             box-shadow: 0px 0px 5px 5px hsla(180, 28%, 86%, 1);
-        }
+#boton-continuar {
+    display: block;
+    margin: 10px auto; 
+    font-size: 18px; 
+}
 
-        fieldset{
-            background-color: hsla(180, 28%, 86%, 1);
-            font-family: 'Montserrat', sans-serif;
-        }
+body{
+    background-image: url('images/fondo.jpg');
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+}
 
-        legend{
-         background-color: hsla(180, 28%, 86%, 1);
-                    font-family: 'Montserrat', sans-serif;
-                    padding: 10px;
-                    text-align: center;
-        }
+body h1{
+    background-color: hsla(180, 28%, 86%, 1);
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0px 0px 5px 5px hsla(180, 28%, 86%, 1);
+}
 
-        button{
-            padding: 20px;
-            background-color: rgba(7,32,35,0.9);
-            backdrop-filter: blur(20px);
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            box-shadow: 0px 0px 10px 2px #072023;
-        }
+fieldset{
+    background-color: hsla(180, 28%, 86%, 1);
+    font-family: 'Montserrat', sans-serif;
+}
 
-        #notificacion{
-            font-family: 'Montserrat', sans-serif;
-            padding: 40px;
-            border: none;
-            border-radius: 10px;
-            background-color: rgba(71,82,83,0.8);
+legend{
+    background-color: hsla(180, 28%, 86%, 1);
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+    text-align: center;
+}
 
-        }
+button{
+    padding: 20px;
+    background-color: rgba(7,32,35,0.9);
+    backdrop-filter: blur(20px);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 2px #072023;
+}
 
-    </style>
+#notificacion{
+    font-family: 'Montserrat', sans-serif;
+    padding: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(71,82,83,0.8);
+}
+
+</style>
     <script>
         function generarColorAleatorio() {
             const letras = "0123456789ABCDEF";
@@ -133,6 +132,7 @@
 </head>
 <body>
     <h1>Veamos lo aprendido... </h1>
+
     <form id="formulario" method="post">
         <% actual_question = @current_question%> 
         <% question = @questions.find { |q| q.number == actual_question } %>
@@ -140,6 +140,7 @@
         <br>
         <br>
         <br>
+
         <fieldset>
             <legend><%= question.enunciation %></legend>
             <% question.options.shuffle.each do |option| %>
@@ -150,13 +151,12 @@
                 <br>
             <% end %>
         </fieldset>
-        <br>
 
+        <br>
         <button type="button" onclick="mostrarFelicitacion(event)">Responder</button>
     </form>
     
      <!-- Elemento para la notificación -->
     <div id="notificacion"></div>
 </body>
-
 </html>
