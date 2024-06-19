@@ -135,7 +135,7 @@ ul{
         <br>
         <h1> <%@user.progress + @user.progress2%> </h1>
         <div class="container2">    
-            <% if @user.progress + @user.progress2 >= 16 %>
+            <% if (@user.progress + @user.progress2 - 15) * 6.5 >=  100 %>
                 <a href="/evaluacionl3" class="botonnivel"><h1>Evaluacion nivel 3</h1></a>
             <% end %>
         </div>
