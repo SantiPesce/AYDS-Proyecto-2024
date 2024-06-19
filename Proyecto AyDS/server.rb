@@ -63,6 +63,20 @@ class App < Sinatra::Application
     username = params[:username]
     email = params[:email]
     password = params[:password]
+    password = params[:password]  # Suponiendo que obtienes la contraseña desde los parámetros
+
+    # Verificar si la contraseña cumple con los requisitos de seguridad
+    if password.length < 12 ||
+      password == password.upcase ||
+      password == password.downcase ||
+      password == 'Zendesk' ||
+      password == email ||
+      !password.match(/[0-9]/) ||
+      !password.match(/[^a-zA-Z0-9]/)
+      session[:error] = "La contraseña no cumple con los requisitos de seguridad"
+      redirect '/register'
+    end
+
 
     if User.exists?(email: email)
       session[:error] = "El email ya está registrado"

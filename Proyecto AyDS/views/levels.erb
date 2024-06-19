@@ -77,7 +77,7 @@ button:hover {
     <select id="nivel" name="nivel">
         <option value="tabla">Nivel 1 - Tabla</option>
         <option value="elementos">Nivel 2 - Elementos</option>
-        <% if @user.progress === 1 then %>
+        <% if @user.progress + @user.progress2 > 16 then %>
             <option value="level3">Nivel 3</option>
         <% else  %>
             <option value="level3" disabled class="level3">Nivel 3</option>
