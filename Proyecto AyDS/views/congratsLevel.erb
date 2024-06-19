@@ -52,22 +52,20 @@
 <div class="container">
   <h1>Felicitaciones</h1>
   <p>¡Has completado el nivel!</p>
-  <% if @user.actualLearning == 14 || @user.actualLearningLevel2 == 19%>
-      <% if @user.actualLearning == 14 %>
-        <% nueva_leccion = 1 %>
-        <form action="/actualizar_valor" method="post">
-        <input type="hidden" name="nueva_leccion" value="<%= nueva_leccion %>">
-        <button class="button" onclick="window.location.href='/menu'">Volver al Menú</button>
-        </form>
-      <%end%>
-      <% if @user.actualLearningLevel2 == 19 %>
-        <% nueva_leccion = 15%>
-        <form action="/actualizar_valor2" method="post">
-        <input type="hidden" name="nueva_leccion" value="<%= nueva_leccion %>">
-        <button class="button" onclick="window.location.href='/menu'">Volver al Menú</button>
-        </form>
-      <%end%>
-  <%end%>
+    <% if @user.actualLearning == 13 %>
+      <% nueva_leccion = 1 %>
+      <form action="/actualizar_valor" method="post">
+      <input type="hidden" name="nueva_leccion" value="<%= nueva_leccion %>">
+      <button class="button" onclick="window.location.href='/menu'">Volver al Menú</button>
+      </form>
+    <%end%>
+    <% if @user.actualLearningLevel2 == 19 %>
+      <% nueva_leccion = 15%>
+      <form action="/actualizar_valor2" method="post">
+      <input type="hidden" name="nueva_leccion" value="<%= nueva_leccion %>">
+      <button class="button" onclick="window.location.href='/menu'">Volver al Menú</button>
+      </form>
+    <%end%>
 </div>
 </body>
 </html>

@@ -98,7 +98,7 @@ img{
 
   <% nueva_leccion = @user.actualLearning + 1 %>
   <% nueva_leccion = 1 if nueva_leccion < 1 %>
-  <% if nueva_leccion > 14 %>
+  <% if nueva_leccion > 15 %>
   <button onclick="window.location.href='/congratsLevel'" class="boton">Terminar</button>
   <% else %>
     <form action="/actualizar_leccion" method="post">

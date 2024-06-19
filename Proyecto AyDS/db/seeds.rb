@@ -57,7 +57,7 @@ questions = [
   {number: 11, level: 1,  enunciation:"¿Cómo se clasifican los elementos en la tabla periódica según sus propiedades físicas y químicas?"},
   {number: 12, level: 1,  enunciation:"¿Qué se puede decir sobre los metales y no metales en términos de su clasificación y propiedades?"},
   {number: 13, level: 1,  enunciation:"¿Cómo se subdividen los no metales en la tabla periódica?"},
-  {number: 14, level: 2,  enunciation:"¿Cómo se organiza la clasificación de los elementos en la tabla periódica?"},
+  {number: 14, level: 1,  enunciation:"¿Cómo se organiza la clasificación de los elementos en la tabla periódica?"},
   {number: 15, level: 2,  enunciation:"¿Qué número único a cada elemento químico determina su identidad y posición en la tabla periódica?"},
   {number: 16, level: 2,  enunciation:"¿Cuál de las siguientes afirmaciones es correcta respecto a los elementos químicos?"},
   {number: 17, level: 2,  enunciation:"¿Por qué ha sido revocado o cuestionado el descubrimiento de algunos elementos químicos?"},
