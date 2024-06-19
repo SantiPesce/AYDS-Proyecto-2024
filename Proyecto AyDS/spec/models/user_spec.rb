@@ -15,9 +15,9 @@ RSpec.describe User, type: :model do
         email: "john.doe@example.com",
         password: "password123",
         progress: 1,
+        progress2: 1,
         actualLearning: 1,
         actualLearningLevel2: 15,
-        lessonMaxProgress: 10
       )
       expect(user).to be_valid
     end
@@ -44,9 +44,9 @@ RSpec.describe User, type: :model do
         email: "john.doe@example.com",
         password: "password123",
         progress: 1,
+        progress2: 1,
         actualLearning: 1,
         actualLearningLevel2: 15,
-        lessonMaxProgress: 10
       )
       expect(User.count).to eq(1)
       expect(user.username).to eq("johndoe")
