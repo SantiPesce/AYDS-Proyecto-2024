@@ -16,61 +16,65 @@ users = [
 
 
 learnings = [
-  { number: 1, lesson:"La tabla periódica clasifica los elementos químicos según su número atómico y propiedades químicas.", levelImage: "tabla"},
-  { number: 2, lesson:"Los elementos se organizan en filas (períodos) y columnas (grupos) según sus propiedades.", levelImage: "gruposperiodos"},
-  { number: 3, lesson:"La tabla periódica ordena los elementos de izquierda a derecha y de arriba abajo según su número atómico.", levelImage: "tabla"},
-  { number: 4, lesson:"Los grupos de la tabla periódica muestran patrones en el radio atómico y otras propiedades fiscoquimicas.", levelImage: "tabla"},
-  { number: 5, lesson:"Los elementos en un grupo comparten características químicas similares.", levelImage: "grupos" },
-  { number: 6, lesson:"Existen excepciones a el orden en la tabla periódica.", levelImage: "tabla"},
-  { number: 7, lesson: "Los períodos de la tabla periódica representan los niveles energéticos de los átomos.", levelImage: "periodos"},
-  { number: 8, lesson: "Los elementos en el mismo período muestran tendencias similares en sus propiedades.", levelImage: "periodos"},
-  { number: 9, lesson: "La tabla periódica se divide en bloques según la secuencia en la que se llenan los orbitales de electrones.", levelImage: "bloques"},
-  { number: 10, lesson: "Los bloques s, p, d y f de la tabla periódica contienen diferentes tipos de elementos.", levelImage: "bloques"},
-  { number: 11, lesson: "Los elementos se clasifican en metales, metaloides y no metales según sus propiedades físicas y químicas.", levelImage: "clasificacion"},
-  { number: 12, lesson:"Los metales y no metales pueden subdividirse en categorías que muestran una gradación en sus propiedades.", levelImage: "clasificacion"},
-  { number: 13, lesson:"Los elementos no metales se subdividen en no metales poliatómicos, no metales diatómicos y gases nobles.", levelImage: "clasificacion"},
-  { number: 14, lesson:"Los elementos se clasifican en categorías y subcategorías según sus propiedades compartidas.", levelImage: "clasificacion"},
-  { number: 15, lesson: "Los elementos son tipos de materia formados por átomos con el mismo número atómico.", levelImage: "elemento"},
-  { number: 16, lesson: "Algunos elementos son naturales, otros son sintéticos y se han creado artificialmente.", levelImage: "elemento"},
-  { number: 17, lesson: "El descubrimiento de algunos elementos ha sido revocado o cuestionado debido a la dificultad de reproducir los experimentos.", levelImage: "elemento"},
-  { number: 18, lesson: "Los elementos reciben nombres basados en griego, latín, inglés, descubridores o lugares de descubrimiento.", levelImage: "elemento"},
-  { number: 19, lesson: "Los elementos son sustancias puras que consisten en átomos con el mismo número atómico y propiedades únicas.", levelImage: "elemento"}
+  { lesson:"La tabla periódica clasifica los elementos químicos según su número atómico y propiedades químicas.", levelImage: "tabla"},
+  { lesson:"Los elementos se organizan en filas (períodos) y columnas (grupos) según sus propiedades.", levelImage: "gruposperiodos"},
+  { lesson:"La tabla periódica ordena los elementos de izquierda a derecha y de arriba abajo según su número atómico.", levelImage: "tabla"},
+  { lesson:"Los grupos de la tabla periódica muestran patrones en el radio atómico y otras propiedades fiscoquimicas.", levelImage: "tabla"},
+  { lesson:"Los elementos en un grupo comparten características químicas similares.", levelImage: "grupos" },
+  { lesson:"Existen excepciones a el orden en la tabla periódica.", levelImage: "tabla"},
+  { lesson: "Los períodos de la tabla periódica representan los niveles energéticos de los átomos.", levelImage: "periodos"},
+  { lesson: "Los elementos en el mismo período muestran tendencias similares en sus propiedades.", levelImage: "periodos"},
+  { lesson: "La tabla periódica se divide en bloques según la secuencia en la que se llenan los orbitales de electrones.", levelImage: "bloques"},
+  { lesson: "Los bloques s, p, d y f de la tabla periódica contienen diferentes tipos de elementos.", levelImage: "bloques"},
+  { lesson: "Los elementos se clasifican en metales, metaloides y no metales según sus propiedades físicas y químicas.", levelImage: "clasificacion"},
+  { lesson:"Los metales y no metales pueden subdividirse en categorías que muestran una gradación en sus propiedades.", levelImage: "clasificacion"},
+  { lesson:"Los elementos no metales se subdividen en no metales poliatómicos, no metales diatómicos y gases nobles.", levelImage: "clasificacion"},
+  { lesson:"Los elementos se clasifican en categorías y subcategorías según sus propiedades compartidas.", levelImage: "clasificacion"},
+  { lesson: "Los elementos son tipos de materia formados por átomos con el mismo número atómico.", levelImage: "elemento"},
+  { lesson: "Algunos elementos son naturales, otros son sintéticos y se han creado artificialmente.", levelImage: "elemento"},
+  { lesson: "El descubrimiento de algunos elementos ha sido revocado o cuestionado debido a la dificultad de reproducir los experimentos.", levelImage: "elemento"},
+  { lesson: "Los elementos reciben nombres basados en griego, latín, inglés, descubridores o lugares de descubrimiento.", levelImage: "elemento"},
+  { lesson: "Los elementos son sustancias puras que consisten en átomos con el mismo número atómico y propiedades únicas.", levelImage: "elemento"}
 ]
 
-learnings.each do |h|
-  unless Learning.exists?(h)
-    Learning.create(h)
+learnings.each_slice(3).with_index do |slice, index|
+  unless Learning.exists?(lesson: slice.first[:lesson])  
+    slice.each do |learning|
+      Learning.create(learning.merge(class_number: index + 1))
+    end
   end
 end
 
 questions = [
-  {number: 1, level: 1, enunciation: "¿Cuál de los siguientes factores se utiliza para ordenar los elementos en la tabla periódica?"},
-  {number: 2, level: 1,  enunciation:"¿Cómo se denominan las columnas de la tabla periódica?"},
-  {number: 3, level: 1,  enunciation: "¿Cómo están ordenados los elementos en la tabla periódica actual?"},
-  {number: 4, level: 1,  enunciation: "¿Dónde se pueden encontrar patrones en los grupos de la tabla periódica?"},
-  {number: 5, level: 1,  enunciation:"¿Según qué criterio puedo encontrar elementos que compartan características químicas similares?"},
-  {number: 6, level: 1,  enunciation:"¿Cuál de las siguientes afirmaciones es correcta?"},
-  {number: 7, level: 1,  enunciation:"¿Qué determina el periodo al que pertenece un átomo en la tabla periódica?"},
-  {number: 8, level: 1,  enunciation:"¿Qué se puede observar de los elementos en el mismo período de la tabla periódica?"},
-  {number: 9, level: 1,  enunciation:"¿Según qué criterio se divide la tabla periódica en bloques?"},
-  {number: 10, level: 1,  enunciation:"¿Con que letras de denominan los distintos bloques a los que pertenecen los elementos de la tabla periodica?"},
-  {number: 11, level: 1,  enunciation:"¿Cómo se clasifican los elementos en la tabla periódica según sus propiedades físicas y químicas?"},
-  {number: 12, level: 1,  enunciation:"¿Qué se puede decir sobre los metales y no metales en términos de su clasificación y propiedades?"},
-  {number: 13, level: 1,  enunciation:"¿Cómo se subdividen los no metales en la tabla periódica?"},
-  {number: 14, level: 1,  enunciation:"¿Cómo se organiza la clasificación de los elementos en la tabla periódica?"},
-  {number: 15, level: 2,  enunciation:"¿Qué número único a cada elemento químico determina su identidad y posición en la tabla periódica?"},
-  {number: 16, level: 2,  enunciation:"¿Cuál de las siguientes afirmaciones es correcta respecto a los elementos químicos?"},
-  {number: 17, level: 2,  enunciation:"¿Por qué ha sido revocado o cuestionado el descubrimiento de algunos elementos químicos?"},
-  {number: 18, level: 2,  enunciation:"¿En qué se basan los nombres de los elementos químicos?"},
-  {number: 19, level: 2,  enunciation:"¿Qué caracteriza a un elemento químico como una sustancia pura?"},
+  {enunciation: "¿Cuál de los siguientes factores se utiliza para ordenar los elementos en la tabla periódica?"},
+  {enunciation:"¿Cómo se denominan las columnas de la tabla periódica?"},
+  {enunciation: "¿Cómo están ordenados los elementos en la tabla periódica actual?"},
+  {enunciation: "¿Dónde se pueden encontrar patrones en los grupos de la tabla periódica?"},
+  {enunciation:"¿Según qué criterio puedo encontrar elementos que compartan características químicas similares?"},
+  {enunciation:"¿Cuál de las siguientes afirmaciones es correcta?"},
+  {enunciation:"¿Qué determina el periodo al que pertenece un átomo en la tabla periódica?"},
+  {enunciation:"¿Qué se puede observar de los elementos en el mismo período de la tabla periódica?"},
+  {enunciation:"¿Según qué criterio se divide la tabla periódica en bloques?"},
+  {enunciation:"¿Con que letras de denominan los distintos bloques a los que pertenecen los elementos de la tabla periodica?"},
+  {enunciation:"¿Cómo se clasifican los elementos en la tabla periódica según sus propiedades físicas y químicas?"},
+  {enunciation:"¿Qué se puede decir sobre los metales y no metales en términos de su clasificación y propiedades?"},
+  {enunciation:"¿Cómo se subdividen los no metales en la tabla periódica?"},
+  {enunciation:"¿Cómo se organiza la clasificación de los elementos en la tabla periódica?"},
+  {enunciation:"¿Qué número único a cada elemento químico determina su identidad y posición en la tabla periódica?"},
+  {enunciation:"¿Cuál de las siguientes afirmaciones es correcta respecto a los elementos químicos?"},
+  {enunciation:"¿Por qué ha sido revocado o cuestionado el descubrimiento de algunos elementos químicos?"},
+  {enunciation:"¿En qué se basan los nombres de los elementos químicos?"},
+  {enunciation:"¿Qué caracteriza a un elemento químico como una sustancia pura?"}
 ]
 
-
-questions.each do|q|
-  unless Question.exists?(q)
-    Question.create(q)
+questions.each_slice(3).with_index do |slice, index|
+  unless Question.exists?(enunciation: slice.first [:enunciation]): 
+    slice.each do |question|
+      Question.create(question.merge(class_number: index +1))
+    end
   end
 end
+
 
 options = [
 ############################# --- NIVEL 1 --- ##############################
