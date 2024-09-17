@@ -290,7 +290,7 @@ class App < Sinatra::Application
     # Inicializo contador de respuestas correctas e incorrectas
     @correct_answers_count ||= 0
     @incorrect_answers_count ||=0
-    erb:'questions2'
+    erb :'questions2'
   end
 
 
@@ -343,7 +343,7 @@ class App < Sinatra::Application
 
   get '/congratsLevel' do
     @user = User.find(session[:user_id])
-    erb:'congratsLevel'
+    erb :'congratsLevel'
   end
 
 
@@ -364,7 +364,7 @@ class App < Sinatra::Application
 
   get '/table' do
     @elements = Element.all
-    erb:'table'
+    erb :'table'
   end
 
 

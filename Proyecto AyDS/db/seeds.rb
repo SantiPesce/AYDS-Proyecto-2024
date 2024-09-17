@@ -6,6 +6,7 @@ users = [
     {username: 'jondoe', email: 'jon@doe.com', password: BCrypt::Password.create('abc'),progress: 1, progress2: 14, actualLearning: 1, actualLearningLevel2: 15},
     {username: 'janedoe', email: 'jane@doe.com',password: BCrypt::Password.create('abc'),progress: 1, progress2: 14, actualLearning: 1, actualLearningLevel2: 15},
     {username: 'babydoe', email: 'baby@doe.com',password: BCrypt::Password.create('abc'), progress: 1, progress2: 14, actualLearning: 1, actualLearningLevel2: 15},
+    {username: 'superadmin', email: 'admin@gmail.com', password: BCrypt::Password.create('superadmin'), progress: 13, progress2: 19, actualLearning: 13, actualLearningLevel2: 19},
   ]
 
   users.each do |u|
@@ -1264,8 +1265,8 @@ elements = [
   }
 ]
 
-elements.each do |k|
-  unless Element.exists?(k)
-    Element.create(k)
+  elements.each do |k|
+    unless Element.exists?(k)
+      Element.create(k)
+    end
   end
-end
