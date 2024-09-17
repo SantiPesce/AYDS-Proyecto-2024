@@ -151,7 +151,22 @@ class App < Sinatra::Application
     @user = User.find(session[:user_id])
     @random_element = Element.order("RANDOM()").first
     random_attributes = [:Symbol, :AtomicMass, :Group_, :Period, :Classification]
-    @random_attribute = random_attributes.sample.to_s  # Convertido a cadena explícitamente
+    @random_attribute = random_attributes.sample.to_s
+
+    # Hash de traducciones definido aquí mismo
+    attribute_translations = {
+      "Symbol" => "Símbolo",
+      "Name" => "Nombre",
+      "AtomicMass" => "Masa Atómica",
+      "Number" => "Número Atómico",
+      "Group_" => "Grupo",
+      "Period" => "Período",
+      "Classification" => "Clasificación"
+    }
+
+    # Usar la traducción
+    @translated_attribute = attribute_translations[@random_attribute]
+
     erb :'evaluacionl3'
   end
 

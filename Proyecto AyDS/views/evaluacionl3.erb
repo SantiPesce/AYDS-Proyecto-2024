@@ -70,7 +70,7 @@ button:hover {
 <body>
     <div class="question-container">
         <h2>Pregunta sobre elementos químicos</h2>
-        <p>¿Cuál es el <%= @random_attribute %> del elemento <%= @random_element.Name %>?</p>
+        <p>¿Cuál es el/la <%= @translated_attribute %> del elemento <%= @random_element.Name %>?</p>
         <form id="answerForm" action="/evaluacionl3" onsubmit="return checkAnswer()">
             <input type="hidden" name="element_id" value="<%= @random_element.id %>">
             <input type="text" id="user_answer" name="user_answer" placeholder="Ingrese su respuesta aquí" required>
