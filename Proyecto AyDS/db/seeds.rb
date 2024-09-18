@@ -34,11 +34,11 @@ learnings = [
   { lesson: "Algunos elementos son naturales, otros son sintéticos y se han creado artificialmente.", levelImage: "elemento"},
   { lesson: "El descubrimiento de algunos elementos ha sido revocado o cuestionado debido a la dificultad de reproducir los experimentos.", levelImage: "elemento"},
   { lesson: "Los elementos reciben nombres basados en griego, latín, inglés, descubridores o lugares de descubrimiento.", levelImage: "elemento"},
-  { lesson: "Los elementos son sustancias puras que consisten en átomos con el mismo número atómico y propiedades únicas.", levelImage: "elemento"}
+  { lesson:z "Los elementos son sustancias puras que consisten en átomos con el mismo número atómico y propiedades únicas.", levelImage: "elemento"}
 ]
 
 learnings.each_slice(3).with_index do |slice, index|
-  unless Learning.exists?(lesson: slice.first[:lesson])  
+  unless Learning.exists?(lesson: slice.first[:lesson])
     slice.each do |learning|
       Learning.create(learning.merge(class_number: index + 1))
     end
@@ -68,7 +68,7 @@ questions = [
 ]
 
 questions.each_slice(3).with_index do |slice, index|
-  unless Question.exists?(enunciation: slice.first [:enunciation]): 
+  unless Question.exists?(enunciation: slice.first [:enunciation])
     slice.each do |question|
       Question.create(question.merge(class_number: index +1))
     end
