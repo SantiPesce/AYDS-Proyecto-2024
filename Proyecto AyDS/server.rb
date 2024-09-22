@@ -12,6 +12,7 @@ require './models/element'
 require './models/learning'
 require './models/question'
 require './models/option'
+require './models/navigation'
 
 class App < Sinatra::Application
 
@@ -117,11 +118,23 @@ class App < Sinatra::Application
     erb :'levels'
   end
 
+  #TODO
+  # IDEA: ver la logica del nivel porque hay
+  # una vista 'levels' y tal vez esa logica o
+  # #gran parte deberia ir en levelselect
   get '/learnpage' do
-    @user = User.find(session[:user_id])
-    @learnings = Learning.all
-    erb :'learnpage'
-  end
+  @user = User.find(session[:user_id])
+  @learnings = Learning.all
+
+  # Llamada al método next_lesson del módulo Navigation
+  level = params[:level].to_i # Suponiendo que el nivel se pasa como parámetro
+  @next_lesson = Navigation.next_lesson(@user, level)
+
+  # Llamada al método previous_lesson del módulo Navigation
+  @previous_lesson = Navigation.previous_lesson(@user, level)
+
+  erb :'learnpage'
+end
 
   post '/learnpage' do
     @user = User.find(session[:user_id])
@@ -156,38 +169,7 @@ class App < Sinatra::Application
   end
 
 
-  ################# LECCIONES NIVEL 1 #############################
 
-  post '/actualizar_leccion' do
-    nueva_leccion = params[:nueva_leccion].to_i
-    user = User.find(session[:user_id])
-
-    #variables auxiliares para mejorar la sintaxis
-    #cantidad de preguntas del nivel y preguntas restantes
-    max_lvl1_qnumber = Question.where(level: 1).maximum(:number)
-    remaining_questions = max_lvl1_qnumber - (nueva_leccion)
-
-    #Chequeo de la pregunta que se debe hacer en el momento apropiado
-    if (remaining_questions >=3)
-      session[:current_question] = nueva_leccion-3
-    elsif remaining_questions == 2
-      session[:current_question] = max_lvl1_qnumber - remaining_questions
-    elsif remaining_questions == 1
-      session[:current_question] = max_lvl1_qnumber - remaining_questions
-    elsif remaining_questions == 0
-      session[:current_question] = max_lvl1_qnumber - (remaining_questions + 3)
-    else
-      session[:current_question] = max_lvl1_qnumber
-    end
-
-    # Verifica si pasaron 3 lecciones o si es la leccion actual es la ultima del nivel
-    if (nueva_leccion > user.progress) && ((nueva_leccion % 3 == 1) || (nueva_leccion > max_lvl1_qnumber))
-      redirect '/questions'
-    else
-      user.update(actualLearning: nueva_leccion)
-      redirect '/learnpage'
-    end
-  end
 
   get '/questions' do
     @user = User.find(session[:user_id])
@@ -248,38 +230,7 @@ class App < Sinatra::Application
     end
   end
 
-  ################# LECCIONES NIVEL 2 #############################
 
-  post '/actualizar_leccion2' do
-    nueva_leccion2 = params[:nueva_leccion2].to_i
-    user = User.find(session[:user_id])
-
-    #variables auxiliares para mejorar la sintaxis
-    #cantidad de preguntas del nivel y preguntas restantes
-    max_lvl2_qnumber = Question.where(level: 2).maximum(:number)
-    remaining_questions2 = max_lvl2_qnumber - (nueva_leccion2)
-
-    #Chequeo de la pregunta que se debe hacer en el momento apropiado
-    if (remaining_questions2 >2)
-      session[:current_question2] = nueva_leccion2 - 3
-    elsif remaining_questions2 == 2
-      session[:current_question2] = max_lvl2_qnumber - (remaining_questions2+3)
-    elsif remaining_questions2 == 1
-      session[:current_question2] = max_lvl2_qnumber - (remaining_questions2+2)
-    elsif remaining_questions2 == 0
-      session[:current_question2] = max_lvl2_qnumber - (remaining_questions2+1)
-    else
-      session[:current_question2] = max_lvl2_qnumber - 2
-    end
-
-    # Verifica si pasaron 3 lecciones o si es la leccion actual es la ultima del nivel
-    if (nueva_leccion2 > user.progress2) && ((nueva_leccion2 % 3 == 2) || (nueva_leccion2 > 19 ))
-      redirect '/questions2'
-    else
-      user.update(actualLearningLevel2: nueva_leccion2)
-      redirect '/learnpage2'
-    end
-  end
 
 
   get '/questions2' do

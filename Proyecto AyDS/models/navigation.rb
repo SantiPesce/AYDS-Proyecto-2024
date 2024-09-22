@@ -4,43 +4,58 @@ module Navigation
   end
 
   def self.next_lesson(user, level)
-    # Obtengo la lección actual
-    current_lesson_id = case level
-                          when 1
-                            user.actualLearningLevel1
-                          when 2
-                            user.actualLearningLevel2
-                          else
-                            user.actualLearningLevel1
-                        end
+    find_lesson(user, level, :next)
+  end
 
-    current_lesson = Learning.find_by(id: current_lesson_id)
-
-    # Obtención de la próxima lección en función del id actual ya sea exista o no (nil)
-    next_lesson = if level == 1
-                    Learning.where("id > ? AND id >= 1 AND id <= 14", current_lesson.id).first
-                  else
-                    Learning.where("id > ? AND id >= 15 AND id <= 19", current_lesson.id).first
-                  end
-
-    if next_lesson
-      current_slice = slice_index(current_lesson.id)
-      next_slice = slice_index(next_lesson.id)
-
-      if current_slice == next_slice
-        user.update("actualLearningLevel#{level}" => next_lesson.id)
-        next_lesson
-      else
-        # invocaciob del metodo que llama a las preguntas
-        nil
-      end
-    else
-      nil # no quedan lecciones en el nivel actual
-    end
+  def self.previous_lesson(user, level)
+    find_lesson(user, level,  :previous)
   end
 
   def self.questions_for_lessons(lessons)
     lesson_ids = lessons.map(&:id)
     Question.where(lesson_id: lesson_ids)
+  end
+
+  #defino metodos internos para la busqueda de las lecciones por nivel:
+  private
+
+  def self.find_lesson(user, level, direction)
+    # Obtengo la lección actual
+    current_lesson_id = case level
+                        when 1
+                          user.actualLearningLevel1
+                        when 2
+                          user.actualLearningLevel2
+                        else
+                          user.actualLearningLevel1
+                        end
+
+    current_lesson = Learning.find_by(id: current_lesson_id)
+    lesson_range = if level == 1
+                     Learning.where("id >= 1 AND id <= 14")
+                   else
+                     Learning.where("id >= 15 AND id <= 19")
+                   end
+
+    lesson = if direction == :next
+               lesson_range.where("id > ?", current_lesson_id).first
+             else
+               lesson_range.where("id < ?", current_lesson_id).last
+             end
+
+    if lesson
+      current_slice = slice_index(current_lesson.id)
+      new_slice = slice_index(lesson.id)
+
+      if current_slice == new_slice
+        user.update("actualLearningLevel#{level}" => lesson.id)
+        lesson
+      else
+        #manejar el cambio de slice (PREGUNTAS O NO DEPENDEN DEL PROGRESO)
+        nil
+      end
+    else
+      nil # No hay más lecciones en este nivel
+    end
   end
 end
