@@ -92,7 +92,7 @@ class App < Sinatra::Application
     encrypted_password = BCrypt::Password.create(password)
 
     # Crear el nuevo usuario
-    user = User.new(username: username, email: email, password: encrypted_password, progress: 1, progress2: 15, actualLearning: 1, actualLearningLevel2: 15)
+    user = User.new(username: username, email: email, password: encrypted_password, progress: 1, progress2: 15, actualLearning: 1, actualLearningLevel2: 15, correctAnswerCounter: 0, incorrectAnswerCounter: 0)
 
     if user.save
       @success = "Te registraste correctamente, inicia sesión"
@@ -232,6 +232,7 @@ class App < Sinatra::Application
       if session[:current_question] < max_lvl1_qnumber
       # Incrementa el contador de respuestas correctas
       session[:correct_answers_count] += 1
+      @user.update(correctAnswerCounter: @user.correctAnswerCounter + 1)
       session[:current_question] += 1
       else
         @user.update(actualLearning: @user.actualLearning + 1)
@@ -242,6 +243,7 @@ class App < Sinatra::Application
     else
       # Incrementa el contador de respuestas incorrectas
       session[:incorrect_answers_count] += 1
+      @user.update(incorrectAnswerCounter: @user.incorrectAnswerCounter + 1)
       if session[:incorrect_answers_count] >= 2
         # Redirige a la página de lecciones si hay 2 respuestas incorrectas y reinicia los contadores
         session[:incorrect_answers_count] = 0

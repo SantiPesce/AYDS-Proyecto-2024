@@ -8,6 +8,8 @@ class CreateUsersTable < ActiveRecord::Migration[5.0]
       t.integer :progress2
       t.integer :actualLearning
       t.integer :actualLearningLevel2
+      t.integer :correctAnswerCounter
+      t.integer :incorrectAnswerCounter
 
       t.datetime "created_at"
       t.datetime "updated_at"

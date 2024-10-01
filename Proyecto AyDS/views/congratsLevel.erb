@@ -52,7 +52,7 @@
 <div class="container">
   <h1>Felicitaciones</h1>
   <p>¡Has completado el nivel!</p>
-    <% if @user.actualLearning == 13 %>
+    <% if @user.actualLearning == 15 %>
       <% nueva_leccion = 1 %>
       <form action="/actualizar_valor" method="post">
       <input type="hidden" name="nueva_leccion" value="<%= nueva_leccion %>">

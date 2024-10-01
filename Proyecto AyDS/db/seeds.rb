@@ -3,10 +3,10 @@ require './models/question'
 require './models/option'
 require 'bcrypt'
 users = [
-    {username: 'jondoe', email: 'jon@doe.com', password: BCrypt::Password.create('abc'),progress: 1, progress2: 14, actualLearning: 1, actualLearningLevel2: 15},
-    {username: 'janedoe', email: 'jane@doe.com',password: BCrypt::Password.create('abc'),progress: 1, progress2: 14, actualLearning: 1, actualLearningLevel2: 15},
-    {username: 'babydoe', email: 'baby@doe.com',password: BCrypt::Password.create('abc'), progress: 1, progress2: 14, actualLearning: 1, actualLearningLevel2: 15},
-    {username: 'superadmin', email: 'admin@gmail.com', password: BCrypt::Password.create('superadmin'), progress: 13, progress2: 19, actualLearning: 13, actualLearningLevel2: 19},
+    {username: 'jondoe', email: 'jon@doe.com', password: BCrypt::Password.create('abc'),progress: 1, progress2: 14, actualLearning: 1, actualLearningLevel2: 15, correctAnswerCounter: 0, incorrectAnswerCounter: 0},
+    {username: 'janedoe', email: 'jane@doe.com',password: BCrypt::Password.create('abc'),progress: 1, progress2: 14, actualLearning: 1, actualLearningLevel2: 15,  correctAnswerCounter: 0, incorrectAnswerCounter: 0},
+    {username: 'babydoe', email: 'baby@doe.com',password: BCrypt::Password.create('abc'), progress: 1, progress2: 14, actualLearning: 1, actualLearningLevel2: 15,  correctAnswerCounter: 0, incorrectAnswerCounter: 0},
+    {username: 'superadmin', email: 'admin@gmail.com', password: BCrypt::Password.create('superadmin'), progress: 13, progress2: 19, actualLearning: 12, actualLearningLevel2: 19, correctAnswerCounter: 10, incorrectAnswerCounter: 10},
   ]
 
   users.each do |u|
