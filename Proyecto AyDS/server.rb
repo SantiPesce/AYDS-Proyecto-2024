@@ -417,6 +417,18 @@ class App < Sinatra::Application
     erb :'searchpage'
   end
 
+  get '/answerCounter' do
+    @user = User.find(session[:user_id])
+    erb :'answerCounter'
+  end
+
+  post '/answerCounter' do
+    @user = User.find(session[:user_id])
+    erb :'answerCounter'
+  end
+
+
+
   get '/logout' do
     session.clear
     erb :welcome
