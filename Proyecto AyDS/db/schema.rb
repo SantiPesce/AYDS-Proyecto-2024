@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_30_175530) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_10_122030) do
   create_table "elements", force: :cascade do |t|
     t.string "Symbol"
     t.string "Name"
@@ -22,10 +22,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_175530) do
   end
 
   create_table "learnings", force: :cascade do |t|
-    t.integer "number"
     t.string "lesson"
     t.integer "level"
     t.string "levelImage"
+    t.integer "slice_index"
   end
 
   create_table "options", force: :cascade do |t|
@@ -49,7 +49,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_175530) do
     t.string "password"
     t.integer "progress"
     t.integer "progress2"
-    t.integer "actualLearning"
+    t.integer "actualLearningLevel1"
     t.integer "actualLearningLevel2"
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil

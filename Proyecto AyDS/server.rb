@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'rake'
 require 'bcrypt'
+require 'logger'
 
 set :database_file, './config/database.yml'
 
@@ -122,25 +123,35 @@ class App < Sinatra::Application
   # IDEA: ver la logica del nivel porque hay
   # una vista 'levels' y tal vez esa logica o
   # #gran parte deberia ir en levelselect
-  get '/learnpage' do
-  @user = User.find(session[:user_id])
-  @learnings = Learning.all
-
-  # Llamada al método next_lesson del módulo Navigation
-  level = params[:level].to_i # Suponiendo que el nivel se pasa como parámetro
-  @next_lesson = Navigation.next_lesson(@user, level)
-
-  # Llamada al método previous_lesson del módulo Navigation
-  @previous_lesson = Navigation.previous_lesson(@user, level)
-
-  erb :'learnpage'
-end
+  # (depués de hacer questions empezamos con eso )
 
   post '/learnpage' do
-    @user = User.find(session[:user_id])
-    @learnings = Learning.all
-    erb :'learnpage'
+  @user = User.find(session[:user_id])
+  @learnings = Learning.all
+  @level = params[:level]
+  @direction = params[:direction]
+
+
+  if @direction
+    @current_lesson = Navigation.find_lesson(@user,@level, @direction)
+  else
+    Navigation.navigate(@user,@level,@direction)
   end
+
+  case @level
+  when "1"
+    erb :'learnpage'
+  when "2"
+    erb :'learnpage2'
+  when "3"
+    erb :'learnpage3'
+  end
+
+  #post 'navigation' do
+  #end
+
+end
+
 
 
   get '/learnpage2' do
@@ -169,8 +180,6 @@ end
   end
 
 
-
-
   get '/questions' do
     @user = User.find(session[:user_id])
     @questions = Question.all
@@ -182,121 +191,10 @@ end
     erb :'questions'
   end
 
-  post '/questions' do
-    @user = User.find(session[:user_id])
-    # Obtener el valor de 'respuesta_correcta' desde los parámetros del formulario
-    respuesta_correcta = params[:respuesta_correcta] == "true"
-
-    #control de pregunta actual(en base a la ultima leccion)
-    session[:current_question]
-    # Inicializa los contadores de respuestas correctas e incorrectas desde la sesión
-    session[:correct_answers_count] ||= 0
-    session[:incorrect_answers_count] ||= 0
-    #numero de preguntas de nivel 1
-    max_lvl1_qnumber = Question.where(level: 1).maximum(:number)
-
-    if respuesta_correcta
-      if session[:current_question] < max_lvl1_qnumber
-      # Incrementa el contador de respuestas correctas
-      session[:correct_answers_count] += 1
-      session[:current_question] += 1
-      else
-        @user.update(actualLearning: @user.actualLearning + 1)
-        @user.update(progress: @user.progress + 3)
-        redirect '/congratsLevel'
-        return
-      end
-    else
-      # Incrementa el contador de respuestas incorrectas
-      session[:incorrect_answers_count] += 1
-      if session[:incorrect_answers_count] >= 2
-        # Redirige a la página de lecciones si hay 2 respuestas incorrectas y reinicia los contadores
-        session[:incorrect_answers_count] = 0
-        session[:correct_answers_count] = 0
-        redirect '/learnpage'
-      return
-      end
-    end
-
-    # Redirige según las condiciones después de reiniciar los contadores
-    if session[:correct_answers_count] >= 3
-      session[:incorrect_answers_count] = 0
-      session[:correct_answers_count] = 0
-      @user.update(progress: @user.progress + 3)
-      @user.update(actualLearning: @user.actualLearning + 1)
-      redirect '/learnpage'
-    else
-      redirect '/questions'
-    end
-  end
-
-
-
-
-  get '/questions2' do
-    @user = User.find(session[:user_id])
-    @questions = Question.all
-    @options = Option.all
-    @current_question2 = session[:current_question2]
-    # Inicializo contador de respuestas correctas e incorrectas
-    @correct_answers_count ||= 0
-    @incorrect_answers_count ||=0
-    erb:'questions2'
-  end
-
-
-  post '/questions2' do
-    @user = User.find(session[:user_id])
-    # Obtener el valor de 'respuesta_correcta2' desde los parámetros del formulario
-    respuesta_correcta2 = params[:respuesta_correcta2] == "true"
-
-    #control de pregunta actual(en base a la ultima leccion)
-    session[:current_question2]
-    # Inicializa los contadores de respuestas correctas e incorrectas desde la sesión
-    session[:correct_answers2_count] ||= 0
-    session[:incorrect_answers2_count] ||= 0
-    #numero de preguntas de nivel 1
-    max_lvl2_qnumber = Question.where(level: 2).maximum(:number)
-
-    if respuesta_correcta2
-      if session[:current_question2] < max_lvl2_qnumber
-      # Incrementa el contador de respuestas correctas
-      session[:correct_answers2_count] += 1
-      session[:current_question2] += 1
-      else
-        @user.update(actualLearningLevel2: max_lvl2_qnumber)
-        @user.update(progress2: @user.progress2 + 3)
-        redirect '/congratsLevel'
-        return
-      end
-    else
-      # Incrementa el contador de respuestas incorrectas
-      session[:incorrect_answers2_count] += 1
-      if session[:incorrect_answers2_count] >= 2
-        # Redirige a la página de lecciones si hay 2 respuestas incorrectas
-        redirect '/learnpage2'
-      return
-      end
-    end
-
-    # En caso de responder las 3 preguntas correctamente se actualizan los valores
-    if session[:correct_answers2_count] >= 3
-      session[:correct_answers2_count] = 0
-      @user.update(progress2: @user.progress2 + 3)
-      @user.update(actualLearningLevel2: @user.actualLearningLevel2 + 1)
-      redirect '/learnpage2'
-    else
-      redirect '/questions2'
-    end
-  end
-
-
-
   get '/congratsLevel' do
     @user = User.find(session[:user_id])
     erb:'congratsLevel'
   end
-
 
   post '/actualizar_valor' do
     nueva_leccion = params[:nueva_leccion]

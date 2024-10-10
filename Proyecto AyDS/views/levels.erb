@@ -1,106 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/x-icon" href="images/favicon.png" >
-<title>Seleccionar Nivel</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="images/favicon.png" >
+  <title>Seleccionar Nivel</title>
+  <style>
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;    
-    background-image: url('images/fondo.jpg'); /* Añadir la imagen de fondo */
-    background-size: cover; /* Ajustar el tamaño de la imagen de fondo */
-}
+      body {
+          font-family: 'Montserrat', sans-serif;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+          background-color: #f0f0f0;
+          background-image: url('//home/juan/Escritorio/AYDS-Proyecto-2024/Proyecto AyDS/public/images/fondo.jpg'); /* Añadir la imagen de fondo */
+          background-size: cover; /* Ajustar el tamaño de la imagen de fondo */
+      }
 
-form {
-    background-color: #475253;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+      form {
+          background-color: #475253;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+      }
 
-h2 {
-    margin-top: 0;
-}
-    
-label {
-    display: block;
-    margin-bottom: 10px;
-}
+      h2 {
+          margin-top: 0;
+      }
 
-select {
-    width: 200px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    margin-bottom: 15px;
-}
+      label {
+          display: block;
+          margin-bottom: 10px;
+      }
 
-.bloqueado {
-    color: gray;
-    font-style: italic;
-}
+      select {
+          width: 200px;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 16px;
+          margin-bottom: 15px;
+      }
 
-button {
-    padding: 10px 20px;
-    width: 100%;
-    padding: 10px;
-    background-color: rgba(53,164,247,0.75);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+      .bloqueado {
+          color: gray;
+          font-style: italic;
+      }
 
-button:hover {
-    background-color: #0056b3;
-}
+      button {
+          padding: 10px 20px;
+          width: 100%;
+          padding: 10px;
+          background-color: rgba(53,164,247,0.75);
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+      }
 
-</style>
+      button:hover {
+          background-color: #0056b3;
+      }
+
+  </style>
 </head>
 <body>
 
-<form id="nivelForm" action="/learnpage" method="get">
-    <h2>Selecciona un nivel</h2>
-    <label for="nivel">Nivel:</label>
-    <select id="nivel" name="nivel">
-        <option value="tabla">Nivel 1 - Tabla</option>
-        <option value="elementos">Nivel 2 - Elementos</option>
-        <% if @user.progress + @user.progress2 > 16 then %>
-            <option value="level3">Nivel 3</option>
-        <% else  %>
-            <option value="level3" disabled class="level3">Nivel 3</option>
-        <% end %>
-    </select>
-    <button type="submit" id="aceptar">Aceptar</button>
-    <br>
-    <button type="button" onclick="window.location.href='/menu'">Volver al Menú</button>
+<form id="nivelForm" action="/learnpage" method="post">
+  <h2>Selecciona un nivel</h2>
+  <label for="level">Nivel:</label>
+  <select id="level" name="level">
+    <option value= 1 >Nivel 1 - Tabla</option>
+    <option value= 2 >Nivel 2 - Elementos</option>
+    <% if @user.progress + @user.progress2 > 16 then %>
+      <option value= 3>Nivel 3</option>
+    <% else  %>
+      <option value="level3" disabled class="level3">Nivel 3</option>
+    <% end %>
+  </select>
+  <button type="submit" id="aceptar">Aceptar</button>
+  <br>
+  <button type="button" onclick="window.location.href='/menu'">Volver al Menú</button>
 </form>
-
-
-<script>
-    document.getElementById('nivelForm').addEventListener('submit', function(event) {
-        var nivelSeleccionado = document.getElementById('nivel').value;
-        if (nivelSeleccionado === 'tabla') {
-            this.action = '/learnpage';
-        } else if (nivelSeleccionado === 'elementos') {
-            this.action = '/learnpage2';
-        } else {
-            this.action = '/learnpage3';
-        }
-    });
-</script>
 
 </body>
 </html>

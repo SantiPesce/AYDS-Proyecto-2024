@@ -3,9 +3,9 @@ require './models/question'
 require './models/option'
 require 'bcrypt'
 users = [
-    {username: 'jondoe', email: 'jon@doe.com', password: BCrypt::Password.create('abc'),progress: 1, progress2: 14, actualLearning: 1, actualLearningLevel2: 15},
-    {username: 'janedoe', email: 'jane@doe.com',password: BCrypt::Password.create('abc'),progress: 1, progress2: 14, actualLearning: 1, actualLearningLevel2: 15},
-    {username: 'babydoe', email: 'baby@doe.com',password: BCrypt::Password.create('abc'), progress: 1, progress2: 14, actualLearning: 1, actualLearningLevel2: 15},
+    {username: 'jondoe', email: 'jon@doe.com', password: BCrypt::Password.create('abc'),progress: 1, progress2: 15, actualLearningLevel1: 1, actualLearningLevel2: 15},
+    {username: 'janedoe', email: 'jane@doe.com',password: BCrypt::Password.create('abc'),progress: 1, progress2: 15, actualLearningLevel1: 1, actualLearningLevel2: 15},
+    {username: 'babydoe', email: 'baby@doe.com',password: BCrypt::Password.create('abc'), progress: 1, progress2: 15, actualLearningLevel1: 1, actualLearningLevel2: 15},
   ]
 
   users.each do |u|
@@ -34,13 +34,13 @@ learnings = [
   { lesson: "Algunos elementos son naturales, otros son sintéticos y se han creado artificialmente.", levelImage: "elemento"},
   { lesson: "El descubrimiento de algunos elementos ha sido revocado o cuestionado debido a la dificultad de reproducir los experimentos.", levelImage: "elemento"},
   { lesson: "Los elementos reciben nombres basados en griego, latín, inglés, descubridores o lugares de descubrimiento.", levelImage: "elemento"},
-  { lesson:z "Los elementos son sustancias puras que consisten en átomos con el mismo número atómico y propiedades únicas.", levelImage: "elemento"}
+  { lesson: "Los elementos son sustancias puras que consisten en átomos con el mismo número atómico y propiedades únicas.", levelImage: "elemento"}
 ]
 
 learnings.each_slice(3).with_index do |slice, index|
   unless Learning.exists?(lesson: slice.first[:lesson])
     slice.each do |learning|
-      Learning.create(learning.merge(class_number: index + 1))
+      Learning.create(learning.merge(slice_index: index))
     end
   end
 end
@@ -68,9 +68,9 @@ questions = [
 ]
 
 questions.each_slice(3).with_index do |slice, index|
-  unless Question.exists?(enunciation: slice.first [:enunciation])
+  unless Question.exists?(enunciation: slice.first[:enunciation])
     slice.each do |question|
-      Question.create(question.merge(class_number: index +1))
+      Question.create(question.merge(number: index +1))
     end
   end
 end
