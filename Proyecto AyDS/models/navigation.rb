@@ -1,73 +1,66 @@
 module Navigation
-  def self.slice_index(lesson_number)
-    (lesson_number - 1) / 3
+  SLICE_SIZE = 3
+
+  def self.slice_index(lesson_id)
+    lesson_id / SLICE_SIZE
   end
 
   def self.navigate(user, level, direction)
-    case direction
-    when "next"
-      next_lesson(user, level)
-    when "previous"
-      previous_lesson(user, level)
-    else
-      nil
-    end
-  end
+    current_lesson = find_current_lesson(user, level)
+    return nil unless current_lesson
 
-  def self.next_lesson(user, level)
-    find_lesson(user, level, :next)
-  end
+    lesson_range = lesson_range_by_level(level)
+    next_lesson = case direction
+                  when "next"
+                    lesson_range.where("id > ?", current_lesson.id).first
+                  when "previous"
+                    lesson_range.where("id < ?", current_lesson.id).last
+                  else
+                    current_lesson # Si no hay dirección, se mantiene la lección actual
+                  end
 
-  def self.previous_lesson(user, level)
-    find_lesson(user, level, :previous)
+    update_learning_progress(user, level, next_lesson) if next_lesson
+    next_lesson
   end
 
   def self.questions_for_lessons(lessons)
-    lesson_numbers = lessons.map(&:number)
-    Question.where(lesson_number: lesson_numbers)
+    lesson_ids = lessons.map(&:id)
+    Question.where(lesson_id: lesson_ids)
   end
 
   private
 
-  def self.find_lesson(user, level, direction)
-    current_lesson_number = case level
-                            when "1"
-                              user.actualLearningLevel1
-                            when "2"
-                              user.actualLearningLevel2
-                            when "3"
-                              user.actualLearningLevel3
-                            else
-                              nil
-                            end
+  def self.find_current_lesson(user, level)
+    field = "actualLearningLevel#{level}"
+    lesson_id = user.send(field)
+    Learning.find_by(id: lesson_id)
+  end
 
-    current_lesson = Learning.find_by(number: current_lesson_number)
-    lesson_range = if level == "1"
-                     Learning.where("number >= 1 AND number <= 14")
-                   else
-                     Learning.where("number >= 15 AND number <= 19")
-                   end
-
-    lesson = if direction == "next"
-               lesson_range.where("number > ?", current_lesson_number).first
-             elsif direction == "previous"
-               lesson_range.where("number < ?", current_lesson_number).last
-             else
-               current_lesson
-             end
-
-    if lesson
-      current_slice = slice_index(current_lesson.number)
-      new_slice = slice_index(lesson.number)
-
-      if current_slice == new_slice
-        user.update("actualLearningLevel#{level}" => lesson.number)
-        lesson.number
-      else
-        nil
-      end
+  def self.lesson_range_by_level(level)
+    if level == "1"
+      Learning.where("id >= 1 AND id <= 14")
     else
-      nil
+      Learning.where("id >= 15 AND id <= 19")
     end
   end
-end
+
+  def self.update_learning_progress(user, level, next_lesson)
+    field = "actualLearningLevel#{level}"
+    user.update(field => next_lesson.id)
+  end
+
+
+  #if lesson
+  #    current_slice = slice_index(current_lesson.id)
+  #    new_slice = slice_index(lesson.id)
+
+  #      if current_slice == new_slice
+  #      user.update("actualLearningLevel#{level}" => lesson.id)
+  #      lesson.id
+  #    else
+  #      nil
+  #    end
+  #  else
+  #    nil
+  #  end
+  end

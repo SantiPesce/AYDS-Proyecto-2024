@@ -130,13 +130,9 @@ class App < Sinatra::Application
   @learnings = Learning.all
   @level = params[:level]
   @direction = params[:direction]
+  @current_lesson = Navigation.navigate(@user, @level, @direction)
 
 
-  if @direction
-    @current_lesson = Navigation.find_lesson(@user,@level, @direction)
-  else
-    Navigation.navigate(@user,@level,@direction)
-  end
 
   case @level
   when "1"
@@ -193,7 +189,7 @@ end
 
   get '/congratsLevel' do
     @user = User.find(session[:user_id])
-    erb:'congratsLevel'
+    erb :'congratsLevel'
   end
 
   post '/actualizar_valor' do
@@ -213,7 +209,7 @@ end
 
   get '/table' do
     @elements = Element.all
-    erb:'table'
+    erb :'table'
   end
 
 

@@ -78,6 +78,7 @@ img{
 
 <div id="botones">
   <form action="/learnpage" method="post">
+    <input type="hidden" name="level" value="<%= @level %>">
     <input type="hidden" name="direction" value="<%="previous"%>">
     <button class="boton">Atrás</button>
   </form>
@@ -86,15 +87,11 @@ img{
     <button class="boton">Menú</button>
   </form>
 
-  <% nueva_leccion = @current_lesson %>
-  <% if nueva_leccion > 15 %>
-  <button onclick="window.location.href='/congratsLevel'" class="boton">Terminar</button>
-  <% else %>
     <form action="/learnpage" method="post">
+      <input type="hidden" name="level" value="<%= @level %>">
       <input type="hidden" name="direction" value="<%="next" %>">
       <button class="boton">Adelante</button>
     </form>
-  <% end %>
 </div>
 </body>
 </html>
