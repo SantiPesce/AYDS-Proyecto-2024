@@ -126,27 +126,14 @@ class App < Sinatra::Application
   # (depués de hacer questions empezamos con eso )
 
   post '/learnpage' do
-  @user = User.find(session[:user_id])
-  @learnings = Learning.all
-  @level = params[:level]
-  @direction = params[:direction]
-  @current_lesson = Navigation.navigate(@user, @level, @direction)
+    @user = User.find(session[:user_id])
+    @learnings = Learning.all
+    @level = params[:level]
+    @direction = params[:direction]
+    @current_lesson = Navigation.navigate(@user, @level, @direction)
 
-
-
-  case @level
-  when "1"
     erb :'learnpage'
-  when "2"
-    erb :'learnpage2'
-  when "3"
-    erb :'learnpage3'
   end
-
-  #post 'navigation' do
-  #end
-
-end
 
 
 

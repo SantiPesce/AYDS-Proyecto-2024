@@ -8,6 +8,8 @@ module Navigation
   def self.navigate(user, level, direction)
     current_lesson = find_current_lesson(user, level)
     return nil unless current_lesson
+    #considerar lo que hay que devolver en lugar de retornar nil
+    # cuando no hay leccionn para navegar
 
     lesson_range = lesson_range_by_level(level)
     next_lesson = case direction
