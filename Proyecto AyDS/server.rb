@@ -411,6 +411,7 @@ class App < Sinatra::Application
     erb :searchpage
   end
 
+<<<<<<< HEAD
   get '/answerCounter' do
     @user = User.find(session[:user_id])
     erb :answerCounter
@@ -421,6 +422,8 @@ class App < Sinatra::Application
     erb :answerCounter
   end
 
+=======
+>>>>>>> parent of a612250 (Agregada vista para indicador de rendimiento [#188396345])
   get '/logout' do
     session.clear
     erb :welcome
