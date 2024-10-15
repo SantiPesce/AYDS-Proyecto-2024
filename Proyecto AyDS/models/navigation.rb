@@ -8,20 +8,19 @@ module Navigation
   def self.navigate(user, level, direction)
     current_lesson = find_current_lesson(user, level)
     return nil unless current_lesson
+
     #considerar lo que hay que devolver en lugar de retornar nil
     # cuando no hay leccionn para navegar
 
     lesson_range = lesson_range_by_level(level)
-    next_lesson = case direction
-                  when "next"
+    next_lesson = if direction == "next" && current_lesson.id < lesson_range.last.id
                     lesson_range.where("id > ?", current_lesson.id).first
-                  when "previous"
-                    lesson_range.where("id < ?", current_lesson.id).last
-                  else
-                    current_lesson # Si no hay dirección, se mantiene la lección actual
+                    else if direction ==  "previous" && current_lesson.id > lesson_range.first.id
+                         else
+                           current_lesson # Si no hay dirección, se mantiene la lección actual
+                         end
                   end
-
-    update_learning_progress(user, level, next_lesson) if next_lesson
+    update_learning_progress(user, level, next_lesson) if next_lesson && lesson_range.include?(next_lesson)
     next_lesson
   end
 
@@ -51,7 +50,7 @@ module Navigation
     user.update(field => next_lesson.id)
   end
 
-
+  #TODO ESTA ES LA LOGICA QUE DEBERIA LLEVAR A QUESTIONS
   #if lesson
   #    current_slice = slice_index(current_lesson.id)
   #    new_slice = slice_index(lesson.id)

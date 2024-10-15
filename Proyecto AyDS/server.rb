@@ -8,6 +8,7 @@ set :database_file, './config/database.yml'
 
 enable :sessions
 
+#MODELS REQUIRED:
 require './models/user'
 require './models/element'
 require './models/learning'
@@ -79,7 +80,6 @@ class App < Sinatra::Application
       redirect '/register'
     end
 
-
     if User.exists?(email: email)
       session[:error] = "El email ya está registrado"
       redirect '/register' # Redirigir si el correo electrónico ya existe
@@ -119,11 +119,12 @@ class App < Sinatra::Application
     erb :'levels'
   end
 
-  #TODO
-  # IDEA: ver la logica del nivel porque hay
-  # una vista 'levels' y tal vez esa logica o
-  # #gran parte deberia ir en levelselect
-  # (depués de hacer questions empezamos con eso )
+
+
+  #TODO terminar la logica de questions
+  # para que cuando navigate lo precise
+  # esta sea invocada.
+
 
   post '/learnpage' do
     @user = User.find(session[:user_id])
@@ -133,20 +134,7 @@ class App < Sinatra::Application
     @current_lesson = Navigation.navigate(@user, @level, @direction)
 
     erb :'learnpage'
-  end
 
-
-
-  get '/learnpage2' do
-    @user = User.find(session[:user_id])
-    @learnings = Learning.all
-    erb :'learnpage2'
-  end
-
-  post '/learnpage2' do
-    @user = User.find(session[:user_id])
-    @learnings = Learning.all
-    erb :'learnpage2'
   end
 
   get '/learnpage3' do
@@ -161,7 +149,6 @@ class App < Sinatra::Application
     @random_attribute = random_attributes.sample.to_s  # Convertido a cadena explícitamente
     erb :'evaluacionl3'
   end
-
 
   get '/questions' do
     @user = User.find(session[:user_id])
@@ -179,26 +166,10 @@ class App < Sinatra::Application
     erb :'congratsLevel'
   end
 
-  post '/actualizar_valor' do
-    nueva_leccion = params[:nueva_leccion]
-    user = User.find(session[:user_id])
-    user.update(actualLearning: nueva_leccion)
-    redirect'/menu'
-  end
-
-
-  post '/actualizar_valor2' do
-    nueva_leccion2 = params[:nueva_leccion2]
-    user = User.find(session[:user_id])
-    user.update(actualLearningLevel2: nueva_leccion2)
-    redirect'/menu'
-  end
-
   get '/table' do
     @elements = Element.all
     erb :'table'
   end
-
 
   get '/searchpage' do
     @searchbarfilter = params[:searchbarfilter]
