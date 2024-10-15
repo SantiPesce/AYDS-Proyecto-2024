@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'rake'
@@ -12,15 +14,14 @@ require './models/element'
 require './models/learning'
 require './models/question'
 require './models/option'
-
+# App que define aplicacion de tabla periodica
 class App < Sinatra::Application
-
-  def initialize(app = nil)
+  def initialize(_app = nil)
     super()
   end
 
   get '/' do
-    erb :'welcome'
+    erb :welcome
   end
 
   get '/users' do
@@ -35,56 +36,55 @@ class App < Sinatra::Application
 
   get '/login' do
     @error = session.delete(:error)
-    erb :'login'
+    erb :login
   end
 
   post '/login' do
     name = params[:usuario]
     password = params[:password]
-    user = User.find_by(username: name) #busco por usuario y contrase;a
-
-    if user && BCrypt::Password.new(user.password) == password # Si se encuentra el usuario y la contraseña coincide guardo su ID en la sesion
+    user = User.find_by(username: name) # busco por usuario y contrase;a
+    # Si se encuentra el usuario y la contraseña coincide guardo su ID en la sesion
+    if user && BCrypt::Password.new(user.password) == password
       session[:user_id] = user.id
-      redirect '/menu' #redirijo al inicio
+      redirect '/menu' # redirijo al inicio
     else
-      @error = "Contraseña o usuario incorrecto"
+      @error = 'Contraseña o usuario incorrecto'
       erb :login # Sino tiro a una pagina fallida o login nuevamente
     end
   end
 
   get '/register' do
     @error = session.delete(:error)
-    erb :'register'
+    erb :register
   end
 
   post '/register' do
     # Obtengo valores
-    names = params[:names]
+    params[:names]
     username = params[:username]
     email = params[:email]
-    password = params[:password]
-    password = params[:password]  # Suponiendo que obtienes la contraseña desde los parámetros
+    params[:password]
+    password = params[:password] # Suponiendo que obtienes la contraseña desde los parámetros
 
     # Verificar si la contraseña cumple con los requisitos de seguridad
     if password.length < 12 ||
-      password == password.upcase ||
-      password == password.downcase ||
-      password == 'Zendesk' ||
-      password == email ||
-      !password.match(/[0-9]/) ||
-      !password.match(/[^a-zA-Z0-9]/)
-      session[:error] = "La contraseña no cumple con los requisitos de seguridad"
+       password == password.upcase ||
+       password == password.downcase ||
+       password == 'Zendesk' ||
+       password == email ||
+       !password.match(/[0-9]/) ||
+       !password.match(/[^a-zA-Z0-9]/)
+      session[:error] = 'La contraseña no cumple con los requisitos de seguridad'
       redirect '/register'
     end
 
-
     if User.exists?(email: email)
-      session[:error] = "El email ya está registrado"
+      session[:error] = 'El email ya está registrado'
       redirect '/register' # Redirigir si el correo electrónico ya existe
     end
 
     if User.exists?(username: username)
-      session[:error] = "El nombre de usuario ya está registrado"
+      session[:error] = 'El nombre de usuario ya está registrado'
       redirect '/register' # Redirigir si el nombre de usuario ya existe
     end
 
@@ -92,84 +92,83 @@ class App < Sinatra::Application
     encrypted_password = BCrypt::Password.create(password)
 
     # Crear el nuevo usuario
-    user = User.new(username: username, email: email, password: encrypted_password, progress: 1, progress2: 15, actualLearning: 1, actualLearningLevel2: 15, correctAnswerCounter: 0, incorrectAnswerCounter: 0)
+    user = User.new(username: username, email: email, password: encrypted_password, progress: 1, progress2: 15,
+                    actualLearning: 1, actualLearningLevel2: 15, correctAnswerCounter: 0, incorrectAnswerCounter: 0)
 
     if user.save
-      @success = "Te registraste correctamente, inicia sesión"
+      @success = 'Te registraste correctamente, inicia sesión'
       erb :login
     else
-      session[:error] = "Ocurrió un error al registrarte, inténtalo de nuevo"
+      session[:error] = 'Ocurrió un error al registrarte, inténtalo de nuevo'
       redirect '/register'
     end
   end
 
   get '/menu' do
     @user = User.find(session[:user_id])
-    erb :'menu'
+    erb :menu
   end
 
   get '/menuGuest' do
-    erb :'menuGuest'
+    erb :menuGuest
   end
 
   get '/levelSelect' do
     @user = User.find(session[:user_id])
-    erb :'levels'
+    erb :levels
   end
 
   get '/learnpage' do
     @user = User.find(session[:user_id])
     @learnings = Learning.all
-    erb :'learnpage'
+    erb :learnpage
   end
 
   post '/learnpage' do
     @user = User.find(session[:user_id])
     @learnings = Learning.all
-    erb :'learnpage'
+    erb :learnpage
   end
-
 
   get '/learnpage2' do
     @user = User.find(session[:user_id])
     @learnings = Learning.all
-    erb :'learnpage2'
+    erb :learnpage2
   end
 
   post '/learnpage2' do
     @user = User.find(session[:user_id])
     @learnings = Learning.all
-    erb :'learnpage2'
+    erb :learnpage2
   end
 
   get '/learnpage3' do
     @user = User.find(session[:user_id])
-    erb  :'learnpage3'
+    erb :learnpage3
   end
 
   get '/evaluacionl3' do
     @user = User.find(session[:user_id])
-    @random_element = Element.order("RANDOM()").first
-    random_attributes = [:Symbol, :AtomicMass, :Group_, :Period, :Classification]
+    @random_element = Element.order('RANDOM()').first
+    random_attributes = %i[Symbol AtomicMass Group_ Period Classification]
     @random_attribute = random_attributes.sample.to_s
 
     # Hash de traducciones definido aquí mismo
     attribute_translations = {
-      "Symbol" => "Símbolo",
-      "Name" => "Nombre",
-      "AtomicMass" => "Masa Atómica",
-      "Number" => "Número Atómico",
-      "Group_" => "Grupo",
-      "Period" => "Período",
-      "Classification" => "Clasificación"
+      'Symbol' => 'Símbolo',
+      'Name' => 'Nombre',
+      'AtomicMass' => 'Masa Atómica',
+      'Number' => 'Número Atómico',
+      'Group_' => 'Grupo',
+      'Period' => 'Período',
+      'Classification' => 'Clasificación'
     }
 
     # Usar la traducción
     @translated_attribute = attribute_translations[@random_attribute]
 
-    erb :'evaluacionl3'
+    erb :evaluacionl3
   end
-
 
   ################# LECCIONES NIVEL 1 #############################
 
@@ -177,23 +176,23 @@ class App < Sinatra::Application
     nueva_leccion = params[:nueva_leccion].to_i
     user = User.find(session[:user_id])
 
-    #variables auxiliares para mejorar la sintaxis
-    #cantidad de preguntas del nivel y preguntas restantes
+    # variables auxiliares para mejorar la sintaxis
+    # cantidad de preguntas del nivel y preguntas restantes
     max_lvl1_qnumber = Question.where(level: 1).maximum(:number)
-    remaining_questions = max_lvl1_qnumber - (nueva_leccion)
+    remaining_questions = max_lvl1_qnumber - nueva_leccion
 
-    #Chequeo de la pregunta que se debe hacer en el momento apropiado
-    if (remaining_questions >=3)
-      session[:current_question] = nueva_leccion-3
-    elsif remaining_questions == 2
-      session[:current_question] = max_lvl1_qnumber - remaining_questions
-    elsif remaining_questions == 1
-      session[:current_question] = max_lvl1_qnumber - remaining_questions
-    elsif remaining_questions == 0
-      session[:current_question] = max_lvl1_qnumber - (remaining_questions + 3)
-    else
-      session[:current_question] = max_lvl1_qnumber
-    end
+    # Chequeo de la pregunta que se debe hacer en el momento apropiado
+    session[:current_question] = if remaining_questions >= 3
+                                   nueva_leccion - 3
+                                 elsif remaining_questions == 2
+                                   max_lvl1_qnumber - remaining_questions
+                                 elsif remaining_questions == 1
+                                   max_lvl1_qnumber - remaining_questions
+                                 elsif remaining_questions.zero?
+                                   max_lvl1_qnumber - (remaining_questions + 3)
+                                 else
+                                   max_lvl1_qnumber
+                                 end
 
     # Verifica si pasaron 3 lecciones o si es la leccion actual es la ultima del nivel
     if (nueva_leccion > user.progress) && ((nueva_leccion % 3 == 1) || (nueva_leccion > max_lvl1_qnumber))
@@ -211,29 +210,29 @@ class App < Sinatra::Application
     @current_question = session[:current_question]
     # Inicializo contador de respuestas correctas e incorrectas
     @correct_answers_count ||= 0
-    @incorrect_answers_count ||=0
-    erb :'questions'
+    @incorrect_answers_count ||= 0
+    erb :questions
   end
 
   post '/questions' do
     @user = User.find(session[:user_id])
     # Obtener el valor de 'respuesta_correcta' desde los parámetros del formulario
-    respuesta_correcta = params[:respuesta_correcta] == "true"
+    respuesta_correcta = params[:respuesta_correcta] == 'true'
 
-    #control de pregunta actual(en base a la ultima leccion)
+    # control de pregunta actual(en base a la ultima leccion)
     session[:current_question]
     # Inicializa los contadores de respuestas correctas e incorrectas desde la sesión
     session[:correct_answers_count] ||= 0
     session[:incorrect_answers_count] ||= 0
-    #numero de preguntas de nivel 1
+    # numero de preguntas de nivel 1
     max_lvl1_qnumber = Question.where(level: 1).maximum(:number)
 
     if respuesta_correcta
       if session[:current_question] < max_lvl1_qnumber
-      # Incrementa el contador de respuestas correctas
-      session[:correct_answers_count] += 1
-      @user.update(correctAnswerCounter: @user.correctAnswerCounter + 1)
-      session[:current_question] += 1
+        # Incrementa el contador de respuestas correctas
+        session[:correct_answers_count] += 1
+        @user.update(correctAnswerCounter: @user.correctAnswerCounter + 1)
+        session[:current_question] += 1
       else
         @user.update(actualLearning: @user.actualLearning + 1)
         @user.update(progress: @user.progress + 3)
@@ -249,7 +248,7 @@ class App < Sinatra::Application
         session[:incorrect_answers_count] = 0
         session[:correct_answers_count] = 0
         redirect '/learnpage'
-      return
+        return
       end
     end
 
@@ -271,33 +270,32 @@ class App < Sinatra::Application
     nueva_leccion2 = params[:nueva_leccion2].to_i
     user = User.find(session[:user_id])
 
-    #variables auxiliares para mejorar la sintaxis
-    #cantidad de preguntas del nivel y preguntas restantes
+    # variables auxiliares para mejorar la sintaxis
+    # cantidad de preguntas del nivel y preguntas restantes
     max_lvl2_qnumber = Question.where(level: 2).maximum(:number)
-    remaining_questions2 = max_lvl2_qnumber - (nueva_leccion2)
+    remaining_questions2 = max_lvl2_qnumber - nueva_leccion2
 
-    #Chequeo de la pregunta que se debe hacer en el momento apropiado
-    if (remaining_questions2 >2)
-      session[:current_question2] = nueva_leccion2 - 3
-    elsif remaining_questions2 == 2
-      session[:current_question2] = max_lvl2_qnumber - (remaining_questions2+3)
-    elsif remaining_questions2 == 1
-      session[:current_question2] = max_lvl2_qnumber - (remaining_questions2+2)
-    elsif remaining_questions2 == 0
-      session[:current_question2] = max_lvl2_qnumber - (remaining_questions2+1)
-    else
-      session[:current_question2] = max_lvl2_qnumber - 2
-    end
+    # Chequeo de la pregunta que se debe hacer en el momento apropiado
+    session[:current_question2] = if remaining_questions2 > 2
+                                    nueva_leccion2 - 3
+                                  elsif remaining_questions2 == 2
+                                    max_lvl2_qnumber - (remaining_questions2 + 3)
+                                  elsif remaining_questions2 == 1
+                                    max_lvl2_qnumber - (remaining_questions2 + 2)
+                                  elsif remaining_questions2.zero?
+                                    max_lvl2_qnumber - (remaining_questions2 + 1)
+                                  else
+                                    max_lvl2_qnumber - 2
+                                  end
 
     # Verifica si pasaron 3 lecciones o si es la leccion actual es la ultima del nivel
-    if (nueva_leccion2 > user.progress2) && ((nueva_leccion2 % 3 == 2) || (nueva_leccion2 > 19 ))
+    if (nueva_leccion2 > user.progress2) && ((nueva_leccion2 % 3 == 2) || (nueva_leccion2 > 19))
       redirect '/questions2'
     else
       user.update(actualLearningLevel2: nueva_leccion2)
       redirect '/learnpage2'
     end
   end
-
 
   get '/questions2' do
     @user = User.find(session[:user_id])
@@ -306,29 +304,28 @@ class App < Sinatra::Application
     @current_question2 = session[:current_question2]
     # Inicializo contador de respuestas correctas e incorrectas
     @correct_answers_count ||= 0
-    @incorrect_answers_count ||=0
-    erb :'questions2'
+    @incorrect_answers_count ||= 0
+    erb :questions2
   end
-
 
   post '/questions2' do
     @user = User.find(session[:user_id])
     # Obtener el valor de 'respuesta_correcta2' desde los parámetros del formulario
-    respuesta_correcta2 = params[:respuesta_correcta2] == "true"
+    respuesta_correcta2 = params[:respuesta_correcta2] == 'true'
 
-    #control de pregunta actual(en base a la ultima leccion)
+    # control de pregunta actual(en base a la ultima leccion)
     session[:current_question2]
     # Inicializa los contadores de respuestas correctas e incorrectas desde la sesión
     session[:correct_answers2_count] ||= 0
     session[:incorrect_answers2_count] ||= 0
-    #numero de preguntas de nivel 1
+    # numero de preguntas de nivel 1
     max_lvl2_qnumber = Question.where(level: 2).maximum(:number)
 
     if respuesta_correcta2
       if session[:current_question2] < max_lvl2_qnumber
-      # Incrementa el contador de respuestas correctas
-      session[:correct_answers2_count] += 1
-      session[:current_question2] += 1
+        # Incrementa el contador de respuestas correctas
+        session[:correct_answers2_count] += 1
+        session[:current_question2] += 1
       else
         @user.update(actualLearningLevel2: max_lvl2_qnumber)
         @user.update(progress2: @user.progress2 + 3)
@@ -341,7 +338,7 @@ class App < Sinatra::Application
       if session[:incorrect_answers2_count] >= 2
         # Redirige a la página de lecciones si hay 2 respuestas incorrectas
         redirect '/learnpage2'
-      return
+        return
       end
     end
 
@@ -356,82 +353,76 @@ class App < Sinatra::Application
     end
   end
 
-
-
   get '/congratsLevel' do
     @user = User.find(session[:user_id])
-    erb :'congratsLevel'
+    erb :congratsLevel
   end
-
 
   post '/actualizar_valor' do
     nueva_leccion = params[:nueva_leccion]
     user = User.find(session[:user_id])
     user.update(actualLearning: nueva_leccion)
-    redirect'/menu'
+    redirect '/menu'
   end
-
 
   post '/actualizar_valor2' do
     nueva_leccion2 = params[:nueva_leccion2]
     user = User.find(session[:user_id])
     user.update(actualLearningLevel2: nueva_leccion2)
-    redirect'/menu'
+    redirect '/menu'
   end
 
   get '/table' do
     @elements = Element.all
-    erb :'table'
+    erb :table
   end
-
 
   get '/searchpage' do
     @searchbarfilter = params[:searchbarfilter]
     @searchbar = params[:searchbar]
     @results = []
 
-    if @searchbarfilter == "Symbol"
-      @results = Element.where("Symbol LIKE ?", "%#{@searchbar}%")
-    elsif @searchbarfilter == "Name"
-      @results = Element.where("Name LIKE ?", "%#{@searchbar}%")
-    elsif @searchbarfilter == "AtomicMass"
+    case @searchbarfilter
+    when 'Symbol'
+      @results = Element.where('Symbol LIKE ?', "%#{@searchbar}%")
+    when 'Name'
+      @results = Element.where('Name LIKE ?', "%#{@searchbar}%")
+    when 'AtomicMass'
       search_atomic_mass = @searchbar.to_f
       variacion = 0.3
-      @results = Element.where("AtomicMass BETWEEN ? AND ?", search_atomic_mass - variacion, search_atomic_mass + variacion)
-    elsif @searchbarfilter == "Number"
+      @results = Element.where('AtomicMass BETWEEN ? AND ?', search_atomic_mass - variacion,
+                               search_atomic_mass + variacion)
+    when 'Number'
       search_number = @searchbar.to_i
-      @results = Element.where("Number = ?", search_number)
-    elsif @searchbarfilter == "Group"
+      @results = Element.where('Number = ?', search_number)
+    when 'Group'
       search_group = @searchbar.to_i
-      @results = Element.where("Group_ = ?", search_group)
-    elsif @searchbarfilter == "Period"
+      @results = Element.where('Group_ = ?', search_group)
+    when 'Period'
       search_period = @searchbar.to_i
-      @results = Element.where("Period = ?", search_period)
-    elsif @searchbarfilter == "Classification"
-      @results = Element.where("Classification LIKE ?", "%#{@searchbar}%")
+      @results = Element.where('Period = ?', search_period)
+    when 'Classification'
+      @results = Element.where('Classification LIKE ?', "%#{@searchbar}%")
     end
-    erb :'searchpage'
+    erb :searchpage
   end
 
   post '/searchpage' do
-    erb :'searchpage'
+    erb :searchpage
   end
 
   get '/answerCounter' do
     @user = User.find(session[:user_id])
-    erb :'answerCounter'
+    erb :answerCounter
   end
 
   post '/answerCounter' do
     @user = User.find(session[:user_id])
-    erb :'answerCounter'
+    erb :answerCounter
   end
-
-
 
   get '/logout' do
     session.clear
     erb :welcome
   end
-
 end
