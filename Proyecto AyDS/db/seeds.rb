@@ -3,9 +3,9 @@ require './models/question'
 require './models/option'
 require 'bcrypt'
 users = [
-    {username: 'jondoe', email: 'jon@doe.com', password: BCrypt::Password.create('abc'),progress: 1, progress2: 15, actualLearningLevel1: 1, actualLearningLevel2: 15},
-    {username: 'janedoe', email: 'jane@doe.com',password: BCrypt::Password.create('abc'),progress: 1, progress2: 15, actualLearningLevel1: 1, actualLearningLevel2: 15},
-    {username: 'babydoe', email: 'baby@doe.com',password: BCrypt::Password.create('abc'), progress: 1, progress2: 15, actualLearningLevel1: 1, actualLearningLevel2: 15},
+    {username: 'jondoe', email: 'jon@doe.com', password: BCrypt::Password.create('abc'),progress: 1, progress2: 15, actualLearningLevel1: 1, actualLearningLevel2: 16},
+    {username: 'janedoe', email: 'jane@doe.com',password: BCrypt::Password.create('abc'),progress: 1, progress2: 15, actualLearningLevel1: 1, actualLearningLevel2: 16},
+    {username: 'babydoe', email: 'baby@doe.com',password: BCrypt::Password.create('abc'), progress: 1, progress2: 15, actualLearningLevel1: 1, actualLearningLevel2: 16},
   ]
 
   users.each do |u|
@@ -25,6 +25,7 @@ learnings = [
   { lesson: "Los períodos de la tabla periódica representan los niveles energéticos de los átomos.", levelImage: "periodos"},
   { lesson: "Los elementos en el mismo período muestran tendencias similares en sus propiedades.", levelImage: "periodos"},
   { lesson: "La tabla periódica se divide en bloques según la secuencia en la que se llenan los orbitales de electrones.", levelImage: "bloques"},
+  { lesson: "La electronegatividad de los elementos varía, siendo mayor en los elementos situados hacia la esquina superior derecha y menor en la esquina inferior izquierda.", levelImage: "tabla"},
   { lesson: "Los bloques s, p, d y f de la tabla periódica contienen diferentes tipos de elementos.", levelImage: "bloques"},
   { lesson: "Los elementos se clasifican en metales, metaloides y no metales según sus propiedades físicas y químicas.", levelImage: "clasificacion"},
   { lesson:"Los metales y no metales pueden subdividirse en categorías que muestran una gradación en sus propiedades.", levelImage: "clasificacion"},
@@ -55,6 +56,7 @@ questions = [
   {enunciation:"¿Qué determina el periodo al que pertenece un átomo en la tabla periódica?"},
   {enunciation:"¿Qué se puede observar de los elementos en el mismo período de la tabla periódica?"},
   {enunciation:"¿Según qué criterio se divide la tabla periódica en bloques?"},
+  {enunciation:"¿Cómo varía la electronegatividad de los elementos en la tabla periódica?"},
   {enunciation:"¿Con que letras de denominan los distintos bloques a los que pertenecen los elementos de la tabla periodica?"},
   {enunciation:"¿Cómo se clasifican los elementos en la tabla periódica según sus propiedades físicas y químicas?"},
   {enunciation:"¿Qué se puede decir sobre los metales y no metales en términos de su clasificación y propiedades?"},
@@ -133,65 +135,73 @@ options = [
   {question_id: 9,correct: false, enunciation:"Según la densidad de los elementos."},
   {question_id: 9,correct: false, enunciation:"Según el punto de fusión de los elementos."},
 
-# -- Opciones de la pregunta 10 -- #
-  {question_id: 10,correct: true, enunciation:"s, p, d, f"},
-  {question_id: 10,correct: false, enunciation:"s, p, t, f"},
-  {question_id: 10,correct: false, enunciation:"a, p, d, q"},
-  {question_id: 10,correct: false, enunciation:"k, l, m, n"},
+  # -- Opciones de la pregunta 10 -- #
+  {question_id: 10,correct: true, enunciation:"La electronegatividad aumenta de abajo hacia arriba y de izquerda a derecha ."},
+  {question_id: 10,correct: false, enunciation:"La electronegatividad disminuye de arriba hacia abajo y de derecha a izquierda"},
+  {question_id: 10,correct: false, enunciation:"La electronegatividad aumenta en los metales y disminuye en los no metales."},
+  {question_id: 10,correct: false, enunciation:"La electronegatividad es constante en cada grupo de la tabla periódica.
+
+"},
 
 # -- Opciones de la pregunta 11 -- #
-  {question_id: 11,correct: true, enunciation:"Metales, metaloides y no metales."},
-  {question_id: 11,correct: false, enunciation:"Metales, gases nobles y no metales."},
-  {question_id: 11,correct: false, enunciation:"Metaloides, gases nobles y no metales."},
-  {question_id: 11,correct: false, enunciation:"Metales, gases nobles y metaloides."},
+  {question_id: 11,correct: true, enunciation:"s, p, d, f"},
+  {question_id: 11,correct: false, enunciation:"s, p, t, f"},
+  {question_id: 11,correct: false, enunciation:"a, p, d, q"},
+  {question_id: 11,correct: false, enunciation:"k, l, m, n"},
 
 # -- Opciones de la pregunta 12 -- #
-  {question_id: 12,correct: true, enunciation:"Los metales y no metales pueden subdividirse en categorías."},
-  {question_id: 12,correct: false, enunciation:"Los metales y no metales forman dos grandes grupos de elementos con las mismas propiedades."},
-  {question_id: 12,correct: false, enunciation:"Los metales y no metales son parte de un mismo grupo."},
-  {question_id: 12,correct: false, enunciation:"Los metales y no metales se comportan químicamente de la misma manera."},
+  {question_id: 12,correct: true, enunciation:"Metales, metaloides y no metales."},
+  {question_id: 12,correct: false, enunciation:"Metales, gases nobles y no metales."},
+  {question_id: 12,correct: false, enunciation:"Metaloides, gases nobles y no metales."},
+  {question_id: 12,correct: false, enunciation:"Metales, gases nobles y metaloides."},
 
 # -- Opciones de la pregunta 13 -- #
-  {question_id: 13,correct: true, enunciation:"No metales poliatómicos, no metales diatómicos y gases nobles."},
-  {question_id: 13,correct: false, enunciation:"No metales poliatómicos, no metales monoatómicos y gases nobles."},
-  {question_id: 13,correct: false, enunciation:"No metales diatómicos, no metales monoatómicos y gases nobles."},
-  {question_id: 13,correct: false, enunciation:"No metales poliatómicos, no metales triatómicos y gases nobles"},
+  {question_id: 13,correct: true, enunciation:"Los metales y no metales pueden subdividirse en categorías."},
+  {question_id: 13,correct: false, enunciation:"Los metales y no metales forman dos grandes grupos de elementos con las mismas propiedades."},
+  {question_id: 13,correct: false, enunciation:"Los metales y no metales son parte de un mismo grupo."},
+  {question_id: 13,correct: false, enunciation:"Los metales y no metales se comportan químicamente de la misma manera."},
 
 # -- Opciones de la pregunta 14 -- #
-  {question_id: 14,correct: true, enunciation:"Gases nobles y halógenos - clasificados por su reactividad y posición en la tabla periódica."},
-  {question_id: 14,correct: false, enunciation:"Elementos metálicos y no metálicos - clasificados por sus propiedades físicas y químicas."},
-  {question_id: 14,correct: false, enunciation:"Líquidos y sólidos - clasificados únicamente por su estado de agregación."},
-  {question_id: 14,correct: false, enunciation:"Metales de transición y lantánidos - clasificados por su configuración electrónica y uso en la industria."},
+  {question_id: 14,correct: true, enunciation:"No metales poliatómicos, no metales diatómicos y gases nobles."},
+  {question_id: 14,correct: false, enunciation:"No metales poliatómicos, no metales monoatómicos y gases nobles."},
+  {question_id: 14,correct: false, enunciation:"No metales diatómicos, no metales monoatómicos y gases nobles."},
+  {question_id: 14,correct: false, enunciation:"No metales poliatómicos, no metales triatómicos y gases nobles"},
 
 # -- Opciones de la pregunta 15 -- #
-  {question_id: 15,correct: true, enunciation:"Número atómico - El total de protones en el núcleo de un átomo."},
-  {question_id: 15,correct: false, enunciation:"Número de masa - La suma del número de protones y neutrones en el núcleo."},
-  {question_id: 15,correct: false, enunciation:"Número de electrones - El total de electrones que orbitan alrededor del núcleo."},
-  {question_id: 15,correct: false, enunciation:"Número de isotopos - Las variantes de un elemento con diferente número de neutrones."},
+  {question_id: 15,correct: true, enunciation:"Gases nobles y halógenos - clasificados por su reactividad y posición en la tabla periódica."},
+  {question_id: 15,correct: false, enunciation:"Elementos metálicos y no metálicos - clasificados por sus propiedades físicas y químicas."},
+  {question_id: 15,correct: false, enunciation:"Líquidos y sólidos - clasificados únicamente por su estado de agregación."},
+  {question_id: 15,correct: false, enunciation:"Metales de transición y lantánidos - clasificados por su configuración electrónica y uso en la industria."},
 
 # -- Opciones de la pregunta 16 -- #
-  {question_id: 16,correct: true, enunciation:"Algunos elementos son naturales y otros son sintéticos, creados artificialmente."},
-  {question_id: 16,correct: false, enunciation:"Todos los elementos químicos son sintéticos."},
-  {question_id: 16,correct: false, enunciation:"Los elementos químicos no pueden ser creados artificialmente."},
-  {question_id: 16,correct: false, enunciation:"Los elementos naturales no existen en la naturaleza."},
+  {question_id: 16,correct: true, enunciation:"Número atómico - El total de protones en el núcleo de un átomo."},
+  {question_id: 16,correct: false, enunciation:"Número de masa - La suma del número de protones y neutrones en el núcleo."},
+  {question_id: 16,correct: false, enunciation:"Número de electrones - El total de electrones que orbitan alrededor del núcleo."},
+  {question_id: 16,correct: false, enunciation:"Número de isotopos - Las variantes de un elemento con diferente número de neutrones."},
 
 # -- Opciones de la pregunta 17 -- #
-  {question_id: 17,correct: true, enunciation:"Porque ha habido dificultades para reproducir los experimentos que afirman su descubrimiento."},
-  {question_id: 17,correct: false, enunciation:"Porque los elementos químicos son inestables por naturaleza."},
-  {question_id: 17,correct: false, enunciation:"Porque los elementos fueron descubiertos accidentalmente.."},
-  {question_id: 17,correct: false, enunciation:"Porque los elementos descubiertos no tienen aplicaciones prácticas."},
+  {question_id: 17,correct: true, enunciation:"Algunos elementos son naturales y otros son sintéticos, creados artificialmente."},
+  {question_id: 17,correct: false, enunciation:"Todos los elementos químicos son sintéticos."},
+  {question_id: 17,correct: false, enunciation:"Los elementos químicos no pueden ser creados artificialmente."},
+  {question_id: 17,correct: false, enunciation:"Los elementos naturales no existen en la naturaleza."},
 
 # -- Opciones de la pregunta 18 -- #
-  {question_id: 18,correct: true, enunciation:"En idiomas como el griego, latín, inglés, en los descubridores o en los lugares de descubrimiento."},
-  {question_id: 18,correct: false, enunciation:"En una combinación de colores y propiedades físicas."},
-  {question_id: 18,correct: false, enunciation:"Solo en el nombre de sus descubridores."},
-  {question_id: 18,correct: false, enunciation:"En mitos y leyendas exclusivamente."},
+  {question_id: 18,correct: true, enunciation:"Porque ha habido dificultades para reproducir los experimentos que afirman su descubrimiento."},
+  {question_id: 18,correct: false, enunciation:"Porque los elementos químicos son inestables por naturaleza."},
+  {question_id: 18,correct: false, enunciation:"Porque los elementos fueron descubiertos accidentalmente.."},
+  {question_id: 18,correct: false, enunciation:"Porque los elementos descubiertos no tienen aplicaciones prácticas."},
 
 # -- Opciones de la pregunta 19 -- #
-  {question_id: 19,correct: true, enunciation:"Que consiste en átomos con el mismo número atómico y propiedades únicas."},
-  {question_id: 19,correct: false, enunciation:"Que está compuesto por moléculas con diferentes números atómicos."},
-  {question_id: 19,correct: false, enunciation:"Que tiene propiedades que cambian constantemente."},
-  {question_id: 19,correct: false, enunciation:"Que se puede descomponer en sustancias más simples mediante reacciones químicas."},
+  {question_id: 19,correct: true, enunciation:"En idiomas como el griego, latín, inglés, en los descubridores o en los lugares de descubrimiento."},
+  {question_id: 19,correct: false, enunciation:"En una combinación de colores y propiedades físicas."},
+  {question_id: 19,correct: false, enunciation:"Solo en el nombre de sus descubridores."},
+  {question_id: 19,correct: false, enunciation:"En mitos y leyendas exclusivamente."},
+
+# -- Opciones de la pregunta 20 -- #
+  {question_id: 20,correct: true, enunciation:"Que consiste en átomos con el mismo número atómico y propiedades únicas."},
+  {question_id: 20,correct: false, enunciation:"Que está compuesto por moléculas con diferentes números atómicos."},
+  {question_id: 20,correct: false, enunciation:"Que tiene propiedades que cambian constantemente."},
+  {question_id: 20,correct: false, enunciation:"Que se puede descomponer en sustancias más simples mediante reacciones químicas."},
 
 ]
 

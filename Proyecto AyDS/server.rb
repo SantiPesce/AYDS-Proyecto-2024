@@ -132,26 +132,27 @@ class App < Sinatra::Application
     @level = params[:level]
     @direction = params[:direction]
     @current_lesson = Navigation.navigate(@user, @level, @direction)
+
     if !@current_lesson
-      @current_lesson = Navigation.find_current_lesson(@user, @level)
+       @current_lesson = Navigation.find_current_lesson(@user, @level)
+    elsif @current_lesson == :redirect_to_questions
+        erb :'questions'
+      else
+        Navigation.update_actualLearning(@user, @level, @current_lesson)
+        erb :'learnpage'
     end
 
-    # Obtén el slice_index de la lección actual
-    current_slice_index = @current_lesson.slice_index
-
-    # Navega hacia la próxima lección
-    @next_lesson = Navigation.navigate(@user, @level, 'next')
-
-    # Obtén el slice_index de la próxima lección
-    next_slice_index = @next_lesson.slice_index if @next_lesson
-
-    # Verifica si el siguiente slice_index es diferente al actual
-    if !next_slice_index || next_slice_index != current_slice_index
-      redirect '/questions'
-      end
-
-    erb :'learnpage'
   end
+
+
+    #if next_lesson && lesson_range.include?(next_lesson)
+    #  slice_check
+    #  #ACTUALIZAR LUEGO EN EL SERVER, DESPUES
+    #  #DE PEDIR LA SIGUIENTE(next_lesson, previous o next)
+    #  #update_actualLearning(user, level, next_lesson)
+    #else
+    #  return nil
+    #end
 
 
   get '/learnpage3' do
@@ -226,3 +227,4 @@ class App < Sinatra::Application
   end
 
 end
+
