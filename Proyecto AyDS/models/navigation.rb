@@ -15,12 +15,12 @@ module Navigation
                   end
 
     if next_lesson && lesson_range.include?(next_lesson) #si hay next_lesson y esta en el rango
-      #current_lesson_slice = current_lesson.slice_index
-      #next_lesson_slice = next_lesson.slice_index
-      if current_lesson.slice_index == next_lesson.slice_index #si las lecciones estan en el mismo slice
+      current_lesson_slice = current_lesson.slice_index
+      next_lesson_slice = next_lesson.slice_index
+      if current_lesson_slice == next_lesson_slice #si las lecciones estan en el mismo slice
         next_lesson
       else
-        if direction == "next" && user.progress < next_lesson_slice #si estan en el mismo slice y el progreso es menor que el siguiente
+        if direction == "next" #&& user.progress < next_lesson_slice #si estan en el mismo slice y el progreso es menor que el siguiente
         :redirect_to_questions #si no estan en el mismo slice
         end
       end

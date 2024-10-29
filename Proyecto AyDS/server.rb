@@ -144,15 +144,6 @@ class App < Sinatra::Application
   end
 
 
-    #if next_lesson && lesson_range.include?(next_lesson)
-    #  slice_check
-    #  #ACTUALIZAR LUEGO EN EL SERVER, DESPUES
-    #  #DE PEDIR LA SIGUIENTE(next_lesson, previous o next)
-    #  #update_actualLearning(user, level, next_lesson)
-    #else
-    #  return nil
-    #end
-
 
   get '/learnpage3' do
     @user = User.find(session[:user_id])
