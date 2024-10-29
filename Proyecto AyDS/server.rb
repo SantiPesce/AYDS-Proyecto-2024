@@ -141,7 +141,6 @@ class App < Sinatra::Application
         Navigation.update_actualLearning(@user, @level, @current_lesson)
         erb :'learnpage'
     end
-
   end
 
 
@@ -168,14 +167,13 @@ class App < Sinatra::Application
     erb :'evaluacionl3'
   end
 
-  get '/questions' do
+  post '/questions' do
     @user = User.find(session[:user_id])
     @questions = Question.all
     @options = Option.all
     @current_question = session[:current_question]
-    # Inicializo contador de respuestas correctas e incorrectas
+    # Inicializo contador de respuestas correctas
     @correct_answers_count ||= 0
-    @incorrect_answers_count ||=0
     erb :'questions'
   end
 
