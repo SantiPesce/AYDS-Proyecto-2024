@@ -16,7 +16,11 @@ require './models/question'
 require './models/option'
 require './models/navigation'
 
+#CONTROLLERS REQUIRED:
+require './controllers/questions_controller'
+
 class App < Sinatra::Application
+
 
   def initialize(app = nil)
     super()
@@ -132,11 +136,12 @@ class App < Sinatra::Application
     @level = params[:level]
     @direction = params[:direction]
     @current_lesson = Navigation.navigate(@user, @level, @direction)
+    session[:level] = @level
 
     if !@current_lesson
        @current_lesson = Navigation.find_current_lesson(@user, @level)
     elsif @current_lesson == :redirect_to_questions
-        erb :'questions'
+      redirect '/questions'
       else
         Navigation.update_actualLearning(@user, @level, @current_lesson)
         erb :'learnpage'
@@ -158,15 +163,7 @@ class App < Sinatra::Application
     erb :'evaluacionl3'
   end
 
-  post '/questions' do
-    @user = User.find(session[:user_id])
-    @questions = Question.all
-    @options = Option.all
-    @current_question = session[:current_question]
-    # Inicializo contador de respuestas correctas
-    @correct_answers_count ||= 0
-    erb :'questions'
-  end
+
 
   get '/congratsLevel' do
     @user = User.find(session[:user_id])
@@ -214,6 +211,7 @@ class App < Sinatra::Application
     session.clear
     erb :welcome
   end
-
+  #mount QuestionsController
+  use QuestionsController
 end
 

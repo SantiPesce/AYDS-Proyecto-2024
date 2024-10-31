@@ -20,7 +20,7 @@ module Navigation
       if current_lesson_slice == next_lesson_slice #si las lecciones estan en el mismo slice
         next_lesson
       else
-        if direction == "next" #&& user.progress < next_lesson_slice #si estan en el mismo slice y el progreso es menor que el siguiente
+        if direction == "next" #TODO: && user.progress < next_lesson_slice #si estan en el mismo slice y el progreso es menor que el siguiente
         :redirect_to_questions #si no estan en el mismo slice
         end
       end
