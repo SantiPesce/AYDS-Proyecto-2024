@@ -1,41 +1,5 @@
 module Navigation
 
-  def self.navigate(user, level, direction)
-    current_lesson = find_current_lesson(user, level)
-    return nil unless current_lesson
-
-    lesson_range = lesson_range_by_level(level)
-    next_lesson = case direction
-                  when "next"
-                    lesson_range.where("id > ?", current_lesson.id).first
-                  when "previous"
-                    lesson_range.where("id < ?", current_lesson.id).last
-                  else
-                    current_lesson
-                  end
-
-    if next_lesson && lesson_range.include?(next_lesson) #si hay next_lesson y esta en el rango
-      current_lesson_slice = current_lesson.slice_index
-      next_lesson_slice = next_lesson.slice_index
-      if current_lesson_slice == next_lesson_slice #si las lecciones estan en el mismo slice
-        next_lesson
-      else
-        if direction == "next" #TODO: && user.progress < next_lesson_slice #si estan en el mismo slice y el progreso es menor que el siguiente
-        :redirect_to_questions #si no estan en el mismo slice
-        end
-      end
-      #si se terminaron las lecciones, por rango o porque es la ultima del ultimo nivel
-      # se redirige a questions, TODO: AGREGAR LA CONDICION DEL PROGRESO
-    elsif direction == "next" #TODO: && user.progress == max_progress(igual a la cantidad de lecciones /3)
-      :redirect_to_questions
-    else
-      current_lesson
-    end
-  end
-
-
-  private
-
   def self.find_current_lesson(user, level)
     field = "actualLearningLevel#{level}"
     lesson_id = user.send(field)
