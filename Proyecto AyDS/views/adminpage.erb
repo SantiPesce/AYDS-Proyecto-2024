@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="images/favicon.png">
+  <title>Agregar Lecciones</title>
+  <style>
+      body {
+          font-family: 'Montserrat', sans-serif;
+          margin: 0;
+          padding: 0;
+          background-image: url('images/fondo.jpg');
+          background-size: cover;
+      }
+
+      .container {
+          width: 100%;
+          padding: 10px;
+          box-sizing: border-box;
+      }
+
+      .container2 {
+          background-color: rgba(71,82,83,0.9);
+          padding: 10px;
+          border-radius: 5px;
+      }
+
+      h1 {
+          color: black;
+          text-align: center;
+          background-color: rgba(71,82,83,0.9);
+          border-radius: 5px;
+          padding: 20px;
+      }
+
+      form {
+          background-color: rgba(71,82,83,0.9);
+          padding: 20px;
+          border-radius: 5px;
+          color: #fff;
+          max-width: 600px;
+          margin: auto;
+      }
+
+      fieldset {
+          border: 1px solid #fff;
+          border-radius: 5px;
+          padding: 10px;
+          margin-bottom: 15px;
+      }
+
+      legend {
+          font-weight: bold;
+          color: #fff;
+      }
+
+      label {
+          display: block;
+          margin: 10px 0 5px;
+          color: #fff;
+      }
+
+      input[type="text"],
+      input[type="file"] {
+          width: 100%;
+          padding: 8px;
+          border: none;
+          border-radius: 5px;
+      }
+
+      button {
+          display: block;
+          width: 100%;
+          padding: 10px;
+          background-color: seagreen;
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 16px;
+      }
+
+      button:hover {
+          background-color: #475253;
+      }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Agregar Lecciones</h1>
+  <form action="/learning/create" method="post" enctype="multipart/form-data">
+    <% 3.times do |i| %>
+      <fieldset>
+        <legend>Lección <%= i + 1 %></legend>
+
+        <label for="learning_<%= i %>">Lección:</label>
+        <input type="text" name="learnings[<%= i %>][learning]" id="learning_<%= i %>" required>
+
+        <label for="image_<%= i %>">Imagen de Nivel:</label>
+        <input type="file" name="learnings[<%= i %>][level_image]" id="image_<%= i %>" accept="image/*" required>
+      </fieldset>
+    <% end %>
+
+    <button type="submit">Guardar Lecciones</button>
+  </form>
+  <form action="/menu" method="get">
+    <button class="boton">Volver al <Menu></Menu></button>
+  </form>
+</div>
+</body>
+</html>

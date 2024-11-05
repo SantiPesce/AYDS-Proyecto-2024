@@ -1,145 +1,152 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/x-icon" href="images/favicon.png" >
-<title>Menú con Usuario y Barra de Progreso - Adaptativo</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="images/favicon.png" >
+  <title>Menú con Usuario y Barra de Progreso - Adaptativo</title>
+  <style>
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url('images/fondo.jpg');
-    background-size: cover;
-}
+      body {
+          font-family: 'Montserrat', sans-serif;
+          margin: 0;
+          padding: 0;
+          background-image: url('images/fondo.jpg');
+          background-size: cover;
+      }
 
-ul{
-    padding-inline-start: 15px;
-    padding-inline-end: 15px;
-}
+      ul{
+          padding-inline-start: 15px;
+          padding-inline-end: 15px;
+      }
 
-.container {
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-}
+      .container {
+          width: 100%;
+          padding: 10px;
+          box-sizing: border-box;
+      }
 
-.container2{
-    background-color: rgba(71,82,83,0.9);
-    padding: 10px;
-    border-radius: 5px;
-}
+      .container2{
+          background-color: rgba(71,82,83,0.9);
+          padding: 10px;
+          border-radius: 5px;
+      }
 
-.menu li {
-    width: 100%;
-    display: inline-block;
-    margin-right: 4.5%; 
-    text-align: center; 
-    width: 30%; 
-}
+      .menu li {
+          width: 100%;
+          display: inline-block;
+          margin-right: 4.5%;
+          text-align: center;
+          width: 30%;
+      }
 
-.menu li:last-child {
-    margin-right: 0; 
-}
+      .menu li:last-child {
+          margin-right: 0;
+      }
 
-.menu li a {
-    display: block; 
-    text-decoration: none;
-    color: #fff;
-    background-color: rgba(71,82,83,0.9);
-    transition: background-color 0.3s ease; 
-    border-radius: 5px; 
-    overflow: hidden;
-}
+      .menu li a {
+          display: block;
+          text-decoration: none;
+          color: #fff;
+          background-color: rgba(71,82,83,0.9);
+          transition: background-color 0.3s ease;
+          border-radius: 5px;
+          overflow: hidden;
+      }
 
-.menu li a img {
-    width: 100%;
-    height: auto; 
-    transition: transform 0.3s ease;
-}
+      .menu li a img {
+          width: 100%;
+          height: auto;
+          transition: transform 0.3s ease;
+      }
 
-.menu li a:hover img {
-    transform: scale(1.1);
-}
+      .menu li a:hover img {
+          transform: scale(1.1);
+      }
 
 
-.menu li a:hover {
-    background-color: #475253;
-}
+      .menu li a:hover {
+          background-color: #475253;
+      }
 
-.header {
-    background-color: #475253;
-    color: #fff;
-    padding: 20px; 
-    text-align: right;
-    font-family: 'Montserrat', sans-serif;
-}
+      .header {
+          background-color: #475253;
+          color: #fff;
+          padding: 20px;
+          text-align: right;
+          font-family: 'Montserrat', sans-serif;
+      }
 
-.header a{
-    text-decoration: none;
-    color: black;
-}
+      .header a{
+          text-decoration: none;
+          color: black;
+      }
 
-.progress {
-    height: 20px;
-    background-color: #f0f0f0;
-    border-radius: 0px;
-    overflow: hidden;
-    margin-bottom: 20px;
-}
+      .progress {
+          height: 20px;
+          background-color: #f0f0f0;
+          border-radius: 0px;
+          overflow: hidden;
+          margin-bottom: 20px;
+      }
 
-.progress-bar {
-    height: 100%;
-    background-color: seagreen;
-    width: <%= (@user.progress + @user.progress2 - 15) * 6.5 %>%; 
-}
+      .progress-bar {
+          height: 100%;
+          background-color: seagreen;
+          width: <%= (@user.progress + @user.progress2 - 15) * 6.5 %>%;
+      }
 
-.botonnivel{
-    text-align: center;
-    color: black;
-    font-family: system-ui;
-    text-decoration: none;
-}
+      .botonnivel{
+          text-align: center;
+          color: black;
+          font-family: system-ui;
+          text-decoration: none;
+      }
 
-</style>
+  </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- Encabezado con nombre de usuario -->
-    
-    <div class="header">
-        <a href="/logout" alt="Botón 1"><strong>logout</strong></a>
-        <strong>|</strong>
-        <strong><%= @user.username %></strong>
-    </div>
+  <!-- Encabezado con nombre de usuario -->
 
-    <!-- Barra de progreso -->
-    <div class="progress">
-        <div class="progress-bar"></div>
-    </div>
+  <div class="header">
+    <%if @user.username == "superadmin" %>
+      <a href="/adminpage" alt="Boton 1"><strong>Pagina del administrador</strong></a>
+      <strong>|</strong>
+    <% end %>
+    <a href="/answerCounter" alt="Boton 1"><strong>Rendimiento</strong></a>
+    <strong>|</strong>
+    <a href="/logout" alt="Botón 1"><strong>logout</strong></a>
+    <strong>|</strong>
+    <strong><%= @user.username %></strong>
+  </div>
 
-  
-    <!-- Menú -->
-    <ul class="menu">
+  <!-- Barra de progreso -->
+  <div class="progress">
+    <div class="progress-bar"></div>
+  </div>
+
+
+  <!-- Menú -->
+  <ul class="menu">
     <li><a href="/levelSelect"><img src="images/1.png" alt="Botón 1"></a></li>
     <li><a href="/searchpage"><img src="images/3.png" alt="Botón 3"></a></li>
     <li><a href="/table"><img src="images/4.png" alt="Botón 4"></a></li>
 
-    </ul>
-        <br>
-        <br>
-        <br>
-        <br>
-        <h1> <%@user.progress + @user.progress2%> </h1>
-        <div class="container2">    
-            <% if (@user.progress + @user.progress2 - 15) * 6.5 >=  100 %>
-                <a href="/evaluacionl3" class="botonnivel"><h1>Evaluacion nivel 3</h1></a>
-            <% end %>
-        </div>
-    </ul>
+  </ul>
+  <br>
+  <br>
+  <br>
+  <br>
+  <h1> <%@user.progress + @user.progress2%> </h1>
+  <div class="container2">
+    <% if (@user.progress + @user.progress2 - 15) * 6.5 >=  100 %>
+      <a href="/evaluacionl3" class="botonnivel"><h1>Evaluacion nivel 3</h1></a>
+    <% end %>
+  </div>
+  </ul>
+</div>
 </body>
 
 </html>

@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 # controllers/navigation_controller.rb
 require 'sinatra/base'
 require 'sinatra/activerecord'
-
+# controlador de navegacion
 class NavigationController < Sinatra::Base
-  set :views, File.expand_path('../../views', __FILE__)
+  set :views, File.expand_path('../views', __dir__)
   enable :sessions
 
   get '/learnpage' do
@@ -11,7 +13,7 @@ class NavigationController < Sinatra::Base
     @current_lesson ||= session[:current_lesson]
     @level = session[:level]
 
-    erb :'learnpage'
+    erb :learnpage
   end
 
   post '/learnpage' do
@@ -27,11 +29,11 @@ class NavigationController < Sinatra::Base
       Navigation.update_actualLearning(@user, @level, @current_lesson)
       session[:level] = @level
       session[:current_lesson] = @current_lesson
-      erb :'learnpage'
+      erb :learnpage
     else
       # si no hay leccion cargada, o me pase de rango(cargo la ultima valida)
       @current_lesson = Navigation.find_current_lesson(@user, @level)
-      erb :'learnpage'
+      erb :learnpage
     end
   end
 
@@ -43,15 +45,15 @@ class NavigationController < Sinatra::Base
 
     lesson_range = Navigation.lesson_range_by_level(level)
     next_lesson = case direction
-                  when "next"
-                    lesson_range.where("id > ?", current_lesson.id).first
-                  when "previous"
-                    lesson_range.where("id < ?", current_lesson.id).last
+                  when 'next'
+                    lesson_range.where('id > ?', current_lesson.id).first
+                  when 'previous'
+                    lesson_range.where('id < ?', current_lesson.id).last
                   else
                     current_lesson
                   end
 
-    if next_lesson && lesson_range.include?(next_lesson) #si hay siguiente leccion y pertenece al nivel
+    if next_lesson && lesson_range.include?(next_lesson) # si hay siguiente leccion y pertenece al nivel
       current_lesson_slice = current_lesson.slice_index
       next_lesson_slice = next_lesson.slice_index
       if current_lesson_slice == next_lesson_slice
@@ -59,7 +61,7 @@ class NavigationController < Sinatra::Base
       else
         :redirect_to_questions
       end
-    elsif direction == "next"
+    elsif direction == 'next'
       :redirect_to_questions
     else
       current_lesson

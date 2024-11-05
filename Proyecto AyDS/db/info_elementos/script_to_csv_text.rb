@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 require 'json'
 
@@ -16,7 +18,6 @@ end
 file_name = '/home/juan/Escritorio/Periodic_Table_of_Elements.csv' # reemplaza esto con el nombre de tu archivo
 hashes = csv_to_hash(file_name)
 
-File.open("elementos.txt", "w") do |f|
+File.open('elementos.txt', 'w') do |f|
   f.write(JSON.pretty_generate(hashes))
 end
-
