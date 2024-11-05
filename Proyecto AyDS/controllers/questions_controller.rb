@@ -16,13 +16,28 @@ class QuestionsController < Sinatra::Base
     @questions = Question.where(slice_index: @slice_index).to_a # Fetch questions by slice index
     session[:questions] = @questions.map(&:id) # Store question IDs in session
     @current_question = @questions[session[:current_question] || 0]  # Get the current question
-    erb :'questions'
+
+    if @current_question.nil?
+      # Contabilizar resultado de las respuestas
+      if session[:correct_answers_count] < 2
+        @current_lesson = Learning.find_by(id: @current_lesson.id - 2)
+        session[:current_lesson] = @current_lesson
+        Navigation.update_actualLearning(@user, session[:level], @current_lesson)
+      else
+        @current_lesson = Learning.find_by(id: @current_lesson.id + 1)
+        session[:current_lesson] = @current_lesson
+        Navigation.update_actualLearning(@user, session[:level], @current_lesson)
+      end
+      # Redirigir a la página de aprendizaje después de actualizar actualLearning
+      redirect '/learnpage'
+    else
+      erb :'questions'
+    end
   end
 
-  #TODO: EN EL METODO POST QUESTIONS, SE DEBE LLEVAR LA CUENTA DE LAS PREGUNTAS CORRECTAS
-  # EN LAS VARIABLES DE INSTANCIA DE LA MANERA NECESARIA DE PODER LLEVAR LA CUENTA
-  # Y NAVEGAR SOBRE ELLAS DE MANERA CORRECTA
 
+
+  # controllers/questions_controller.rb
   post '/questions' do
     @user = User.find(session[:user_id])
     @slice_index = session[:slice_index]
@@ -30,12 +45,14 @@ class QuestionsController < Sinatra::Base
     @current_question_index = session[:current_question] || 0
     @current_question = @questions[@current_question_index]  # Get the current question
 
+    #correct anserws count Initialization
+    session[:correct_answers_count] ||= 0
+
     # Check the user's answer
     selected_option = params[:respuesta]
     correct_option = Option.find(selected_option).correct
 
     if correct_option
-      session[:correct_answers_count] ||= 0
       session[:correct_answers_count] += 1
       message = "¡Correcto! ¡Buena elección!"
     else
@@ -45,7 +62,12 @@ class QuestionsController < Sinatra::Base
     # Move to the next question
     session[:current_question] = @current_question_index + 1
 
-    content_type :json
-    { correct: correct_option, message: message }.to_json
+    if session[:current_question] >= @questions.size - 1
+      content_type :json
+      { correct: correct_option, message: message, finished: true }.to_json
+    else
+      content_type :json
+      { correct: correct_option, message: message, finished: false }.to_json
+    end
   end
 end

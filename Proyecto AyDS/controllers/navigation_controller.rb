@@ -4,7 +4,15 @@ require 'sinatra/activerecord'
 
 class NavigationController < Sinatra::Base
   set :views, File.expand_path('../../views', __FILE__)
+  enable :sessions
 
+  get '/learnpage' do
+    @user = User.find(session[:user_id])
+    @current_lesson ||= session[:current_lesson]
+    @level = session[:level]
+
+    erb :'learnpage'
+  end
 
   post '/learnpage' do
     @user = User.find(session[:user_id])
@@ -12,14 +20,17 @@ class NavigationController < Sinatra::Base
     @level = params[:level]
     @direction = params[:direction]
     @current_lesson = get_next_lesson(@user, @level, @direction)
-    session[:level] = @level
-    if !@current_lesson
-      @current_lesson = Navigation.find_current_lesson(@user, @level)
-      #elsif @current_lesson == :redirect_to_questions
-      #session[:current_lesson] = @current_lesson
-      #redirect '/questions'
-    else
+
+    if @current_lesson == :redirect_to_questions
+      redirect '/questions'
+    elsif @current_lesson
       Navigation.update_actualLearning(@user, @level, @current_lesson)
+      session[:level] = @level
+      session[:current_lesson] = @current_lesson
+      erb :'learnpage'
+    else
+      # si no hay leccion cargada, o me pase de rango(cargo la ultima valida)
+      @current_lesson = Navigation.find_current_lesson(@user, @level)
       erb :'learnpage'
     end
   end
@@ -40,16 +51,16 @@ class NavigationController < Sinatra::Base
                     current_lesson
                   end
 
-    if next_lesson && lesson_range.include?(next_lesson)
+    if next_lesson && lesson_range.include?(next_lesson) #si hay siguiente leccion y pertenece al nivel
       current_lesson_slice = current_lesson.slice_index
       next_lesson_slice = next_lesson.slice_index
       if current_lesson_slice == next_lesson_slice
         next_lesson
       else
-        redirect '/questions' if direction == "next"
+        :redirect_to_questions
       end
     elsif direction == "next"
-      redirect '/questions'
+      :redirect_to_questions
     else
       current_lesson
     end

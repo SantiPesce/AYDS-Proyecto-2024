@@ -72,12 +72,10 @@ questions = [
 questions.each_slice(3).with_index do |slice, index|
   unless Question.exists?(enunciation: slice.first[:enunciation])
     slice.each do |question|
-      Question.create(question.merge(number: index +1
-      ))
+      Question.create(question.merge(slice_index: index))
     end
   end
 end
-
 
 options = [
 ############################# --- NIVEL 1 --- ##############################

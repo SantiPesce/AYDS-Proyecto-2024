@@ -18,9 +18,12 @@ require './models/navigation'
 
 #CONTROLLERS REQUIRED:
 require './controllers/questions_controller'
-
+require './controllers/navigation_controller'
 class App < Sinatra::Application
 
+  #mount controllers
+  use QuestionsController
+  use NavigationController
 
   def initialize(app = nil)
     super()
@@ -124,32 +127,6 @@ class App < Sinatra::Application
   end
 
 
-
-  #TODO terminar la logica de questions
-  # para que cuando navigate lo precise
-  # esta sea invocada.
-
-
-  post '/learnpage' do
-    @user = User.find(session[:user_id])
-    @learnings = Learning.all
-    @level = params[:level]
-    @direction = params[:direction]
-    @current_lesson = Navigation.navigate(@user, @level, @direction)
-    session[:level] = @level
-
-    if !@current_lesson
-       @current_lesson = Navigation.find_current_lesson(@user, @level)
-    elsif @current_lesson == :redirect_to_questions
-      redirect '/questions'
-      else
-        Navigation.update_actualLearning(@user, @level, @current_lesson)
-        erb :'learnpage'
-    end
-  end
-
-
-
   get '/learnpage3' do
     @user = User.find(session[:user_id])
     erb  :'learnpage3'
@@ -162,8 +139,6 @@ class App < Sinatra::Application
     @random_attribute = random_attributes.sample.to_s  # Convertido a cadena explícitamente
     erb :'evaluacionl3'
   end
-
-
 
   get '/congratsLevel' do
     @user = User.find(session[:user_id])
@@ -179,7 +154,6 @@ class App < Sinatra::Application
     @searchbarfilter = params[:searchbarfilter]
     @searchbar = params[:searchbar]
     @results = []
-
     if @searchbarfilter == "Symbol"
       @results = Element.where("Symbol LIKE ?", "%#{@searchbar}%")
     elsif @searchbarfilter == "Name"
@@ -211,7 +185,5 @@ class App < Sinatra::Application
     session.clear
     erb :welcome
   end
-  #mount QuestionsController
-  use QuestionsController
 end
 
