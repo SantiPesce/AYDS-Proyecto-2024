@@ -111,7 +111,8 @@ class App < Sinatra::Application
 
     # Crear el nuevo usuario
     user = User.new(username: username, email: email, password: encrypted_password, progress: 1, progress2: 15,
-                    actualLearning: 1, actualLearningLevel2: 15)
+                    actualLearningLevel1: 1, actualLearningLevel2: 16, correctAnswerCounter: 0,
+                    incorrectAnswerCounter: 0)
 
     if user.save
       @success = 'Te registraste correctamente, inicia sesión'

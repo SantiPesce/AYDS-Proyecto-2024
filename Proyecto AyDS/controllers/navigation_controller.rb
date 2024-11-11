@@ -3,15 +3,17 @@
 # controllers/navigation_controller.rb
 require 'sinatra/base'
 require 'sinatra/activerecord'
-# controlador de navegacion
+
 class NavigationController < Sinatra::Base
   set :views, File.expand_path('../views', __dir__)
   enable :sessions
 
   get '/learnpage' do
     @user = User.find(session[:user_id])
-    @current_lesson ||= session[:current_lesson]
+    @current_lesson = session[:current_lesson]
+    @direction = params[:direction]
     @level = session[:level]
+    @current_lesson = get_next_lesson(@user, @level, @direction)
 
     erb :learnpage
   end
@@ -22,19 +24,17 @@ class NavigationController < Sinatra::Base
     @level = params[:level]
     @direction = params[:direction]
     @current_lesson = get_next_lesson(@user, @level, @direction)
+    session[:level] = @level
 
-    if @current_lesson == :redirect_to_questions
-      redirect '/questions'
-    elsif @current_lesson
-      Navigation.update_actualLearning(@user, @level, @current_lesson)
+    if @current_lesson
+      Navigation.update_actual_learning(@user, @level, @current_lesson)
       session[:level] = @level
       session[:current_lesson] = @current_lesson
-      erb :learnpage
     else
       # si no hay leccion cargada, o me pase de rango(cargo la ultima valida)
       @current_lesson = Navigation.find_current_lesson(@user, @level)
-      erb :learnpage
     end
+    erb :learnpage
   end
 
   private
@@ -59,10 +59,10 @@ class NavigationController < Sinatra::Base
       if current_lesson_slice == next_lesson_slice
         next_lesson
       else
-        :redirect_to_questions
+        redirect :'/questions'
       end
     elsif direction == 'next'
-      :redirect_to_questions
+      redirect :'/questions'
     else
       current_lesson
     end

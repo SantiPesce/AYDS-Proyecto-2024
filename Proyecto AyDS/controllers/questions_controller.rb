@@ -3,7 +3,7 @@
 # controllers/questions_controller.rb
 require 'sinatra/base'
 require 'sinatra/activerecord'
-# controlador de preguntas
+
 class QuestionsController < Sinatra::Base
   set :views, File.expand_path('../views', __dir__)
   enable :sessions
@@ -14,7 +14,6 @@ class QuestionsController < Sinatra::Base
     @level = session[:level]
     @current_lesson = Navigation.find_current_lesson(@user, @level)
     @slice_index = @current_lesson.slice_index
-    session[@slice_index] = @slice_index
     @questions = Question.where(slice_index: @slice_index).to_a # Fetch questions by slice index
     session[:questions] = @questions.map(&:id) # Store question IDs in session
     @current_question = @questions[session[:current_question] || 0] # Get the current question
@@ -28,14 +27,14 @@ class QuestionsController < Sinatra::Base
                         end
       session[:current_lesson] = @current_lesson
       Navigation.update_actual_learning(@user, session[:level], @current_lesson)
-      # Redirigir a la página de aprendizaje después de actualizar actualLearning
+      session[:current_question] = 0
+      session[:correct_answers_count] = 0
       redirect '/learnpage'
     else
       erb :questions
     end
   end
 
-  # controllers/questions_controller.rb
   post '/questions' do
     @user = User.find(session[:user_id])
     @slice_index = session[:slice_index]
@@ -43,7 +42,7 @@ class QuestionsController < Sinatra::Base
     @current_question_index = session[:current_question] || 0
     @current_question = @questions[@current_question_index] # Get the current question
 
-    # correct anserws count Initialization
+    # Correct answers count initialization
     session[:correct_answers_count] ||= 0
     session[:incorrect_answers_count] ||= 0
 
@@ -65,7 +64,7 @@ class QuestionsController < Sinatra::Base
     session[:current_question] = @current_question_index + 1
 
     content_type :json
-    if session[:current_question] >= @questions.size - 1
+    if session[:current_question] >= @questions.size
       { correct: correct_option, message: message, finished: true }.to_json
     else
       { correct: correct_option, message: message, finished: false }.to_json
