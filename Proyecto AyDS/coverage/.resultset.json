@@ -1,0 +1,62 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/macros/Desktop/New Folder 4/AYDS-Proyecto-2024/Proyecto AyDS/models/element.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/macros/Desktop/New Folder 4/AYDS-Proyecto-2024/Proyecto AyDS/models/learning.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/macros/Desktop/New Folder 4/AYDS-Proyecto-2024/Proyecto AyDS/models/option.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/macros/Desktop/New Folder 4/AYDS-Proyecto-2024/Proyecto AyDS/models/question.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/macros/Desktop/New Folder 4/AYDS-Proyecto-2024/Proyecto AyDS/models/user.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      }
+    },
+    "timestamp": 1731347305
+  }
+}

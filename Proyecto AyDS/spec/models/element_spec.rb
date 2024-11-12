@@ -37,16 +37,16 @@ RSpec.describe Element, type: :model do
 
   describe 'validations' do
     it 'validates uniqueness of Name' do
-      Element.create(Symbol: 'H', Name: 'Hydrogen', AtomicMass: 1.008, Number: 1, Group_: 1, Period: 1,
+      Element.create(Symbol: 'H', Name: 'Hydrogenoo', AtomicMass: 1.008, Number: 177, Group_: 1, Period: 1,
                      Classification: 'Non-metal')
 
-      element = Element.new(Name: 'Hydrogen')
+      element = Element.new(Name: 'Hydrogenoo')
       expect(element).not_to be_valid
       expect(element.errors[:Name]).to include('has already been taken')
     end
 
     it 'validates uniqueness of Number' do
-      Element.create(Symbol: 'H', Name: 'Hydrogen', AtomicMass: 1.008, Number: 1, Group_: 1, Period: 1,
+      Element.create(Symbol: 'H', Name: 'Hydrogenoo', AtomicMass: 1.008, Number: 177, Group_: 1, Period: 1,
                      Classification: 'Non-metal')
 
       element = Element.new(Number: 1)

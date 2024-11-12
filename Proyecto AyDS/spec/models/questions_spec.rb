@@ -10,12 +10,12 @@ RSpec.describe Question, type: :model do
       expect(Question.columns_hash['number'].type).to eq :integer
     end
 
-    it 'has a level field of type integer' do
-      expect(Question.columns_hash['level'].type).to eq :integer
-    end
-
     it 'has an enunciation field of type string' do
       expect(Question.columns_hash['enunciation'].type).to eq :string
+    end
+
+    it 'has a slice_index field of type integer' do
+      expect(Question.columns_hash['slice_index'].type).to eq :integer
     end
   end
 

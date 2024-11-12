@@ -3,7 +3,7 @@
 # controllers/navigation_controller.rb
 require 'sinatra/base'
 require 'sinatra/activerecord'
-
+# para controlar la navegacion de el aprendizaje
 class NavigationController < Sinatra::Base
   set :views, File.expand_path('../views', __dir__)
   enable :sessions

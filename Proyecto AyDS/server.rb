@@ -77,42 +77,21 @@ class App < Sinatra::Application
 
   post '/register' do
     # Obtengo valores
-    params[:names]
     username = params[:username]
     email = params[:email]
-    params[:password]
-    password = params[:password] # Suponiendo que obtienes la
-    # contraseña desde los parámetros
+    password = params[:password]
 
-    # Verificar si la contraseña cumple con los requisitos de seguridad
-    if password.length < 12 ||
-       password == password.upcase ||
-       password == password.downcase ||
-       password == 'Zendesk' ||
-       password == email ||
-       !password.match(/[0-9]/) ||
-       !password.match(/[^a-zA-Z0-9]/)
+    # Verificación de contraseña
+    unless password_valid?(password, email)
       session[:error] = 'La contraseña no cumple con los requisitos de seguridad'
-      redirect '/register'
+      return redirect '/register'
     end
 
-    if User.exists?(email: email)
-      session[:error] = 'El email ya está registrado'
-      redirect '/register' # Redirigir si el correo electrónico ya existe
-    end
-
-    if User.exists?(username: username)
-      session[:error] = 'El nombre de usuario ya está registrado'
-      redirect '/register' # Redirigir si el nombre de usuario ya existe
-    end
-
-    # Encriptar la contraseña
-    encrypted_password = BCrypt::Password.create(password)
+    # Verificación de usuario y email únicos
+    return redirect '/register' if user_exists?(email, username)
 
     # Crear el nuevo usuario
-    user = User.new(username: username, email: email, password: encrypted_password, progress: 1, progress2: 15,
-                    actualLearningLevel1: 1, actualLearningLevel2: 16, correctAnswerCounter: 0,
-                    incorrectAnswerCounter: 0)
+    user = create_user(username, email, password)
 
     if user.save
       @success = 'Te registraste correctamente, inicia sesión'
@@ -121,6 +100,38 @@ class App < Sinatra::Application
       session[:error] = 'Ocurrió un error al registrarte, inténtalo de nuevo'
       redirect '/register'
     end
+  end
+
+  private
+
+  def password_valid?(password, email)
+    password.length >= 12 &&
+      password != password.upcase &&
+      password != password.downcase &&
+      password != 'Zendesk' &&
+      password != email &&
+      password.match(/[0-9]/) &&
+      password.match(/[^a-zA-Z0-9]/)
+  end
+
+  def user_exists?(email, username)
+    if User.exists?(email: email)
+      session[:error] = 'El email ya está registrado'
+      true
+    elsif User.exists?(username: username)
+      session[:error] = 'El nombre de usuario ya está registrado'
+      true
+    else
+      false
+    end
+  end
+
+  def create_user(username, email, password)
+    encrypted_password = BCrypt::Password.create(password)
+    User.new(username: username, email: email, password: encrypted_password,
+             progress: 1, progress2: 15, actualLearningLevel1: 1,
+             actualLearningLevel2: 16, correctAnswerCounter: 0,
+             incorrectAnswerCounter: 0)
   end
 
   get '/menu' do
@@ -176,33 +187,31 @@ class App < Sinatra::Application
   get '/searchpage' do
     @searchbarfilter = params[:searchbarfilter]
     @searchbar = params[:searchbar]
-    @results = []
-    case @searchbarfilter
-    when 'Symbol'
-      @results = Element.where('Symbol LIKE ?', "%#{@searchbar}%")
-    when 'Name'
-      @results = Element.where('Name LIKE ?', "%#{@searchbar}%")
-    when 'AtomicMass'
-      search_atomic_mass = @searchbar.to_f
-      variacion = 0.3
-      @results = Element.where(
-        'AtomicMass BETWEEN ? AND ?',
-        search_atomic_mass - variacion,
-        search_atomic_mass + variacion
-      )
-    when 'Number'
-      search_number = @searchbar.to_i
-      @results = Element.where('Number = ?', search_number)
-    when 'Group'
-      search_group = @searchbar.to_i
-      @results = Element.where('Group_ = ?', search_group)
-    when 'Period'
-      search_period = @searchbar.to_i
-      @results = Element.where('Period = ?', search_period)
-    when 'Classification'
-      @results = Element.where('Classification LIKE ?', "%#{@searchbar}%")
-    end
+    @results = search_elements(@searchbarfilter, @searchbar)
     erb :searchpage
+  end
+
+  def search_elements(filter, query)
+    case filter
+    when 'Symbol'
+      Element.where('Symbol LIKE ?', "%#{query}%")
+    when 'Name'
+      Element.where('Name LIKE ?', "%#{query}%")
+    when 'AtomicMass'
+      search_atomic_mass = query.to_f
+      variacion = 0.3
+      Element.where('AtomicMass BETWEEN ? AND ?', search_atomic_mass - variacion, search_atomic_mass + variacion)
+    when 'Number'
+      Element.where('Number = ?', query.to_i)
+    when 'Group'
+      Element.where('Group_ = ?', query.to_i)
+    when 'Period'
+      Element.where('Period = ?', query.to_i)
+    when 'Classification'
+      Element.where('Classification LIKE ?', "%#{query}%")
+    else
+      []
+    end
   end
 
   post '/searchpage' do

@@ -6,14 +6,6 @@ require './models/option'
 
 RSpec.describe Option, type: :model do
   describe 'schema' do
-    it 'has a level field of type integer' do
-      expect(Option.columns_hash['level'].type).to eq :integer
-    end
-
-    it 'has a questionNumber field of type integer' do
-      expect(Option.columns_hash['questionNumber'].type).to eq :integer
-    end
-
     it 'has a correct field of type boolean' do
       expect(Option.columns_hash['correct'].type).to eq :boolean
     end

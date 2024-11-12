@@ -3,7 +3,7 @@
 # controllers/questions_controller.rb
 require 'sinatra/base'
 require 'sinatra/activerecord'
-
+# para controlar el flujo de la evaluacion en el aprendizaje
 class QuestionsController < Sinatra::Base
   set :views, File.expand_path('../views', __dir__)
   enable :sessions
