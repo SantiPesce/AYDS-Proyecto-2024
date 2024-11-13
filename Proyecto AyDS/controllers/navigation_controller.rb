@@ -56,9 +56,10 @@ class NavigationController < Sinatra::Base
     if next_lesson && lesson_range.include?(next_lesson) # si hay siguiente leccion y pertenece al nivel
       current_lesson_slice = current_lesson.slice_index
       next_lesson_slice = next_lesson.slice_index
+      current_progress = Navigation.get_level_progress(user, level)
       if current_lesson_slice == next_lesson_slice
         next_lesson
-      else
+      elsif current_progress < next_lesson_slice
         redirect :'/questions'
       end
     elsif direction == 'next'
