@@ -14,7 +14,7 @@ class CreateUsersTable < ActiveRecord::Migration[5.0]
     tbl.string :username
     tbl.string :email
     tbl.string :password
-    tbl.integer :progress
+    tbl.integer :progress1
     tbl.integer :progress2
     tbl.integer :actualLearningLevel1
     tbl.integer :actualLearningLevel2
