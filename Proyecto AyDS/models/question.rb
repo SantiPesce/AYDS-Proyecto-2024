@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# clase de preguntas
 class Question < ActiveRecord::Base
-    has_many :options
+  belongs_to :learning
+  has_many :options
 end

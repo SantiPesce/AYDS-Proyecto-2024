@@ -1,0 +1,27 @@
+*Modelos y vistas duplicados:
+
+Reestructuracion de las lecciones, llevar arreglo de 3 preguntas
+Unificacion de las lecciones y preguntas en una sola estructura de tipo arreglo y en las vistas tomar
+pilas.
+
+*Legibilidad del codigo:
+Orden coherente de los elementos y modulos del codigo, formateo. 
+ 
+*Riesgos en srs:
+Analisis de los riesgos potenciales. 
+
+*Cobertura de sentencias?
+
+*Preguntas autogeneradas
+
+*Barra de progreso
+se replantea luego de reestructurar los modelos de lecciones y preguntas ya que es un metodo observador de la clase usuario y su interaccion con el progreso del aprendizaje. 
+
+*Contador de preguntas respondidas correctas/incorrectas (porcentaje de desempeño)
+
+
+ICEBOX:
+
+*Unificar css en una hoja de estilos. 
+*Crear admin general con password (progreso 100%)
+

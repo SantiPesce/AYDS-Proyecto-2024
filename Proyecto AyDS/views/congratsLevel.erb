@@ -1,71 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/x-icon" href="images/favicon.png" >
-<title>Felicitaciones</title>
-<style>
-  body {
-    background-color: #f0f0f0;
-    font-family: 'Montserrat', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  .container {
-    text-align: center;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="images/favicon.png" >
+  <title>Felicitaciones</title>
+  <style>
+      body {
+          background-color: #f0f0f0;
+          background-image: url('images/fondo.jpg');
+          font-family: 'Montserrat', sans-serif;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+      }
+      .container {
+          text-align: center;
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
 
-  h1 {
-    color: #0056b3;
-  }
+      h1 {
+          color: #0056b3;
+      }
 
-  p {
-    color: #333;
-    font-size: 18px;
-  }
+      p {
+          color: #333;
+          font-size: 18px;
+      }
 
-  .button {
-    padding: 10px 20px;
-    width: 100%;
-    padding: 10px;
-    background-color: rgba(53,164,247,0.75);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .button:hover {
-    background-color: #0056b3;
-  }
-</style>
+      .button {
+          padding: 10px 20px;
+          width: 100%;
+          padding: 10px;
+          background-color: rgba(53,164,247,0.75);
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          margin-top: 10px;
+      }
+      .button:hover {
+          background-color: #0056b3;
+      }
+  </style>
 </head>
 <body>
 
 <div class="container">
   <h1>Felicitaciones</h1>
   <p>¡Has completado el nivel!</p>
-    <% if @user.actualLearning == 15 %>
-      <% nueva_leccion = 1 %>
-      <form action="/actualizar_valor" method="post">
-      <input type="hidden" name="nueva_leccion" value="<%= nueva_leccion %>">
-      <button class="button" onclick="window.location.href='/menu'">Volver al Menú</button>
-      </form>
-    <%end%>
-    <% if @user.actualLearningLevel2 == 19 %>
-      <% nueva_leccion = 15%>
-      <form action="/actualizar_valor2" method="post">
-      <input type="hidden" name="nueva_leccion" value="<%= nueva_leccion %>">
-      <button class="button" onclick="window.location.href='/menu'">Volver al Menú</button>
-      </form>
-    <%end%>
+  <form action="/levelSelect" method="get">
+    <button class="button" type="submit">Seleccionar Nuevo Nivel</button>
+  </form>
+  <form action="/menu" method="get">
+    <button class="button" type="submit">Volver al Menú</button>
+  </form>
 </div>
 </body>
 </html>
