@@ -5,12 +5,12 @@ module Navigation
   MAX_LESSONS_LEVEL_1 = 15
   MAX_LESSONS_LEVEL_2 = 21
 
-  #Getters
-  def self.max_lessons_level_1
+  # Getters
+  def self.maxlessonslevel1
     MAX_LESSONS_LEVEL_1
   end
 
-  def self.max_lessons_level_2
+  def self.maxlessonslevel2
     MAX_LESSONS_LEVEL_2
   end
 
@@ -23,17 +23,17 @@ module Navigation
   # TODO: HAY QUE AGREGAR VARIABLES QUE INDIQUEN EL MAXIMO DE LECCIONES POR NIVEL
   def self.lesson_range_by_level(level)
     if level == '1'
-      Learning.where('id >= 1 AND id <= ?', max_lessons_level_1)
+      Learning.where('id >= 1 AND id <= ?', maxlessonslevel1)
     else
-      Learning.where('id >= 16 AND id <= ?', max_lessons_level_2)
+      Learning.where('id >= 16 AND id <= ?', maxlessonslevel2)
     end
   end
 
   def self.update_actual_learning(user, level, next_lesson)
-    if lesson_in_level_range?(level, next_lesson)
-      field = "actualLearningLevel#{level}"
-      user.update(field => next_lesson.id)
-    end
+    return unless lesson_in_level_range?(level, next_lesson)
+
+    field = "actualLearningLevel#{level}"
+    user.update(field => next_lesson.id)
   end
 
   def self.lesson_in_level_range?(level, lesson)
@@ -50,5 +50,4 @@ module Navigation
     field = "progress#{level}"
     user.send(field)
   end
-
 end

@@ -5,14 +5,14 @@ require './models/question'
 require './models/option'
 require 'bcrypt'
 users = [
-  { username: 'jondoe', email: 'jon@doe.com', password: BCrypt::Password.create('abc'), progress1: 1, progress2: 15,
-    actualLearningLevel1: 1, actualLearningLevel2: 15, correctAnswerCounter: 0, incorrectAnswerCounter: 0 },
-  { username: 'janedoe', email: 'jane@doe.com', password: BCrypt::Password.create('abc'), progress1: 4, progress2: 15,
-    actualLearningLevel1: 1, actualLearningLevel2: 15, correctAnswerCounter: 0, incorrectAnswerCounter: 0 },
-  { username: 'babydoe', email: 'baby@doe.com', password: BCrypt::Password.create('abc'), progress1: 1, progress2: 15,
-    actualLearningLevel1: 1, actualLearningLevel2: 15, correctAnswerCounter: 0, incorrectAnswerCounter: 0 },
-  { username: 'superadmin', email: 'admin@gmail.com', password: BCrypt::Password.create('superadmin'), progress1: 1,
-    progress2: 15, actualLearningLevel1: 10, actualLearningLevel2: 21, correctAnswerCounter: 10,
+  { username: 'jondoe', email: 'jon@doe.com', password: BCrypt::Password.create('abc'), progress1: 1, progress2: 6,
+    actualLearningLevel1: 1, actualLearningLevel2: 16, correctAnswerCounter: 0, incorrectAnswerCounter: 0 },
+  { username: 'janedoe', email: 'jane@doe.com', password: BCrypt::Password.create('abc'), progress1: 4, progress2: 6,
+    actualLearningLevel1: 1, actualLearningLevel2: 16, correctAnswerCounter: 0, incorrectAnswerCounter: 0 },
+  { username: 'babydoe', email: 'baby@doe.com', password: BCrypt::Password.create('abc'), progress1: 1, progress2: 6,
+    actualLearningLevel1: 1, actualLearningLevel2: 16, correctAnswerCounter: 0, incorrectAnswerCounter: 0 },
+  { username: 'superadmin', email: 'admin@gmail.com', password: BCrypt::Password.create('superadmin'), progress1: 5,
+    progress2: 8, actualLearningLevel1: 10, actualLearningLevel2: 21, correctAnswerCounter: 10,
     incorrectAnswerCounter: 10 }
 ]
 
@@ -59,8 +59,11 @@ learnings = [
     descubrimiento.", levelImage: 'elemento' },
   { lesson: "Los elementos son sustancias puras que consisten en átomos con el mismo número atómico y propiedades
     únicas.", levelImage: 'elemento' },
-  { lesson: "La estabilidad isotópica define su uso: los isótopos estables se aplican en química y materiales, y los inestables, en medicina nuclear y datación.",levelImage: 'elemento'}
-  
+  {
+    lesson: 'La estabilidad isotópica define su uso: los isótopos estables se aplican en química y materiales, y los
+    inestables, en medicina nuclear y datación.', levelImage: 'elemento'
+  }
+
 ]
 
 learnings.each_slice(3).with_index do |slice, index|
@@ -93,7 +96,8 @@ questions = [
   { enunciation: '¿Por qué ha sido revocado o cuestionado el descubrimiento de algunos elementos químicos?' },
   { enunciation: '¿En qué se basan los nombres de los elementos químicos?' },
   { enunciation: '¿Qué caracteriza a un elemento químico como una sustancia pura?' },
-  {	enunciation: '¿De qué manera la estabilidad de los isótopos influye en las aplicaciones prácticas de los elementos químicos?'}
+  {	enunciation: '¿De qué manera la estabilidad de los isótopos influye en las aplicaciones prácticas de los elementos
+    químicos?' }
 ]
 
 questions.each_slice(3).with_index do |slice, index|
@@ -259,12 +263,19 @@ options = [
   { question_id: 20, correct: false, enunciation: 'Que tiene propiedades que cambian constantemente.' },
   { question_id: 20, correct: false,
     enunciation: 'Que se puede descomponer en sustancias más simples mediante reacciones químicas.' },
-    
+
   # -- Opciones de la pregunta 21 -- #
-  { question_id: 21, correct: true, enunciation: 'Los isótopos estables se utilizan en aplicaciones de química y materiales, mientras que los inestables se usan en medicina nuclear y datación.' },
-  { question_id: 21, correct: false, enunciation: 'Los isótopos estables solo se usan en medicina nuclear, mientras que los inestables se usan en química industrial.' },
-  { question_id: 21, correct: false, enunciation: 'La estabilidad de los isótopos no afecta su aplicación, ya que todos los isótopos se comportan igual.' },
-  { question_id: 21, correct: false, enunciation: 'Los isótopos inestables solo se usan para crear elementos artificiales en el laboratorio.' }
+  { question_id: 21, correct: true,
+    enunciation: 'Los isótopos estables se utilizan en aplicaciones de química y materiales, mientras que los inestables
+   se usan en medicina nuclear y datación.' },
+  { question_id: 21, correct: false,
+    enunciation: 'Los isótopos estables solo se usan en medicina nuclear, mientras que los inestables se usan en química
+     industrial.' },
+  { question_id: 21, correct: false,
+    enunciation: 'La estabilidad de los isótopos no afecta su aplicación, ya que todos los isótopos se comportan
+    igual.' },
+  { question_id: 21, correct: false,
+    enunciation: 'Los isótopos inestables solo se usan para crear elementos artificiales en el laboratorio.' }
 
 ]
 

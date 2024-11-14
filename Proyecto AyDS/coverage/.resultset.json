@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/macros/Desktop/New Folder 4/AYDS-Proyecto-2024/Proyecto AyDS/models/element.rb": {
+      "/home/macros/Desktop/New Folder 5/AYDS-Proyecto-2024/Proyecto AyDS/models/element.rb": {
         "lines": [
           null,
           null,
@@ -12,7 +12,7 @@
           null
         ]
       },
-      "/home/macros/Desktop/New Folder 4/AYDS-Proyecto-2024/Proyecto AyDS/models/learning.rb": {
+      "/home/macros/Desktop/New Folder 5/AYDS-Proyecto-2024/Proyecto AyDS/models/learning.rb": {
         "lines": [
           null,
           null,
@@ -22,7 +22,7 @@
           null
         ]
       },
-      "/home/macros/Desktop/New Folder 4/AYDS-Proyecto-2024/Proyecto AyDS/models/option.rb": {
+      "/home/macros/Desktop/New Folder 5/AYDS-Proyecto-2024/Proyecto AyDS/models/option.rb": {
         "lines": [
           null,
           null,
@@ -32,7 +32,7 @@
           null
         ]
       },
-      "/home/macros/Desktop/New Folder 4/AYDS-Proyecto-2024/Proyecto AyDS/models/question.rb": {
+      "/home/macros/Desktop/New Folder 5/AYDS-Proyecto-2024/Proyecto AyDS/models/question.rb": {
         "lines": [
           null,
           null,
@@ -43,7 +43,7 @@
           null
         ]
       },
-      "/home/macros/Desktop/New Folder 4/AYDS-Proyecto-2024/Proyecto AyDS/models/user.rb": {
+      "/home/macros/Desktop/New Folder 5/AYDS-Proyecto-2024/Proyecto AyDS/models/user.rb": {
         "lines": [
           null,
           null,
@@ -57,6 +57,6 @@
         ]
       }
     },
-    "timestamp": 1731347305
+    "timestamp": 1731554650
   }
 }

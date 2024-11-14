@@ -106,21 +106,6 @@ select{
     color: #000089;
     font-family: 'Muli', sans-serif;
 }
-
-.button-container button{
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    background-color: rgba(53,164,247,0.75);
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.button-container button:hover {
-    background-color: #0056b3;
-}
 </style>
 </head>
 <body>
@@ -141,11 +126,6 @@ select{
             <input type="text" name="searchbar" placeholder="Hierro / 55.845" value="<%= @searchbar %>" />
             <input class="button" type="submit" value="Buscar" />
         </form>
-        <div class="button-container">
-            <br>
-            <br>
-        <button class="button" onclick="window.location.href='/menu'">Volver al Menú</button>
-        </div>
         <br>
       
     </div>

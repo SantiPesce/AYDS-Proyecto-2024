@@ -29,7 +29,7 @@ class NavigationController < Sinatra::Base
     if @current_lesson
       if Navigation.lesson_in_level_range?(@level, @current_lesson)
         Navigation.update_actual_learning(@user, @level, @current_lesson)
-      else
+        # else
         # Manejar el caso donde la lección no está en el rango
         # Por ejemplo, redirigir a una página de error o establecer una lección predeterminada
       end
@@ -66,12 +66,10 @@ class NavigationController < Sinatra::Base
 
       if current_lesson_slice == next_lesson_slice
         next_lesson
-      else # slice diferente
-        if current_progress >= next_lesson_slice + 1
-          next_lesson
-        elsif current_progress < next_lesson_slice + 1
-          redirect :'/questions'
-        end
+      elsif current_progress >= next_lesson_slice + 1 # slice diferente
+        next_lesson
+      elsif current_progress < next_lesson_slice + 1
+        redirect :'/questions'
       end
       # Si no hay siguiente lección en el rango
     elsif direction == 'next'

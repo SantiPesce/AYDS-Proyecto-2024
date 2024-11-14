@@ -21,6 +21,8 @@ ActiveRecord::Schema[7.1].define(version: 20_240_530_175_530) do
     t.integer 'Group_'
     t.integer 'Period'
     t.string 'Classification'
+    t.index ['Name'], name: 'index_elements_on_Name', unique: true
+    t.index ['Number'], name: 'index_elements_on_Number', unique: true
   end
 
   create_table 'learnings', force: :cascade do |t|
@@ -46,7 +48,7 @@ ActiveRecord::Schema[7.1].define(version: 20_240_530_175_530) do
     t.string 'username'
     t.string 'email'
     t.string 'password'
-    t.integer 'progress'
+    t.integer 'progress1'
     t.integer 'progress2'
     t.integer 'actualLearningLevel1'
     t.integer 'actualLearningLevel2'
