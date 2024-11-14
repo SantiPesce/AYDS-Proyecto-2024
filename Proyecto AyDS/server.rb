@@ -129,7 +129,7 @@ class App < Sinatra::Application
   def create_user(username, email, password)
     encrypted_password = BCrypt::Password.create(password)
     User.new(username: username, email: email, password: encrypted_password,
-             progress: 1, progress2: 15, actualLearningLevel1: 1,
+             progress1: 1, progress2: 15, actualLearningLevel1: 1,
              actualLearningLevel2: 16, correctAnswerCounter: 0,
              incorrectAnswerCounter: 0)
   end
@@ -258,6 +258,8 @@ class App < Sinatra::Application
 
     redirect '/menu' # Ajusta la ruta de redirección según corresponda
   end
+
+
 
   get '/answerCounter' do
     @user = User.find(session[:user_id])

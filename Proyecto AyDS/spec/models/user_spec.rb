@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
         username: 'johndoe',
         email: 'john.doe@example.com',
         password: 'password123',
-        progress: 1,
+        progress1: 1,
         progress2: 1,
         actualLearningLevel1: 1,
         actualLearningLevel2: 15
@@ -88,7 +88,7 @@ RSpec.describe User, type: :model do
         username: 'johndoe',
         email: 'john.doe@example.com',
         password: 'password123',
-        progress: 1,
+        progress1: 1,
         progress2: 1,
         actualLearningLevel1: 1,
         actualLearningLevel2: 15,

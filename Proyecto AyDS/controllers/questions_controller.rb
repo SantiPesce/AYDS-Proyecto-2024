@@ -18,12 +18,22 @@ class QuestionsController < Sinatra::Base
     session[:questions] = @questions.map(&:id) # Store question IDs in session
     @current_question = @questions[session[:current_question] || 0] # Get the current question
 
+
     if @current_question.nil?
       # Contabilizar resultado de las respuestas
-      @current_lesson = if session[:correct_answers_count] < 2
-                          Learning.find_by(id: @current_lesson.id - 2)
-                        else
+      @current_lesson = #si aprobó 2 o más preguntas, avanzar a la siguiente lección
+                        if session[:correct_answers_count] >= 2
+                          Navigation.update_progress(@user, @level)
+                          progress = Navigation.get_level_progress(@user, @level)
+                          if @current_lesson.id == Navigation.max_lessons_level_1 || @current_lesson.id == Navigation.max_lessons_level_2
+                            if progress == 5 || progress == 21
+                              Navigation.update_progress(@user, @level)
+                              redirect :'/congratsLevel' # si ya terminó todas las lecciones, felicitar
+                            end
+                          end
                           Learning.find_by(id: @current_lesson.id + 1)
+                        else
+                          Learning.find_by(id: @current_lesson.id - 2)
                         end
       session[:current_lesson] = @current_lesson
       Navigation.update_actual_learning(@user, session[:level], @current_lesson)

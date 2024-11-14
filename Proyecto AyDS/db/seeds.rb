@@ -7,7 +7,7 @@ require 'bcrypt'
 users = [
   { username: 'jondoe', email: 'jon@doe.com', password: BCrypt::Password.create('abc'), progress1: 1, progress2: 15,
     actualLearningLevel1: 1, actualLearningLevel2: 15, correctAnswerCounter: 0, incorrectAnswerCounter: 0 },
-  { username: 'janedoe', email: 'jane@doe.com', password: BCrypt::Password.create('abc'), progress1: 1, progress2: 15,
+  { username: 'janedoe', email: 'jane@doe.com', password: BCrypt::Password.create('abc'), progress1: 4, progress2: 15,
     actualLearningLevel1: 1, actualLearningLevel2: 15, correctAnswerCounter: 0, incorrectAnswerCounter: 0 },
   { username: 'babydoe', email: 'baby@doe.com', password: BCrypt::Password.create('abc'), progress1: 1, progress2: 15,
     actualLearningLevel1: 1, actualLearningLevel2: 15, correctAnswerCounter: 0, incorrectAnswerCounter: 0 },
@@ -58,7 +58,9 @@ learnings = [
   { lesson: "Los elementos reciben nombres basados en griego, latín, inglés, descubridores o lugares de
     descubrimiento.", levelImage: 'elemento' },
   { lesson: "Los elementos son sustancias puras que consisten en átomos con el mismo número atómico y propiedades
-    únicas.", levelImage: 'elemento' }
+    únicas.", levelImage: 'elemento' },
+  { lesson: "La estabilidad isotópica define su uso: los isótopos estables se aplican en química y materiales, y los inestables, en medicina nuclear y datación.",levelImage: 'elemento'}
+  
 ]
 
 learnings.each_slice(3).with_index do |slice, index|
@@ -90,7 +92,8 @@ questions = [
   { enunciation: '¿Cuál de las siguientes afirmaciones es correcta respecto a los elementos químicos?' },
   { enunciation: '¿Por qué ha sido revocado o cuestionado el descubrimiento de algunos elementos químicos?' },
   { enunciation: '¿En qué se basan los nombres de los elementos químicos?' },
-  { enunciation: '¿Qué caracteriza a un elemento químico como una sustancia pura?' }
+  { enunciation: '¿Qué caracteriza a un elemento químico como una sustancia pura?' },
+  {	enunciation: '¿De qué manera la estabilidad de los isótopos influye en las aplicaciones prácticas de los elementos químicos?'}
 ]
 
 questions.each_slice(3).with_index do |slice, index|
@@ -255,7 +258,13 @@ options = [
   { question_id: 20, correct: false, enunciation: 'Que está compuesto por moléculas con diferentes números atómicos.' },
   { question_id: 20, correct: false, enunciation: 'Que tiene propiedades que cambian constantemente.' },
   { question_id: 20, correct: false,
-    enunciation: 'Que se puede descomponer en sustancias más simples mediante reacciones químicas.' }
+    enunciation: 'Que se puede descomponer en sustancias más simples mediante reacciones químicas.' },
+    
+  # -- Opciones de la pregunta 21 -- #
+  { question_id: 21, correct: true, enunciation: 'Los isótopos estables se utilizan en aplicaciones de química y materiales, mientras que los inestables se usan en medicina nuclear y datación.' },
+  { question_id: 21, correct: false, enunciation: 'Los isótopos estables solo se usan en medicina nuclear, mientras que los inestables se usan en química industrial.' },
+  { question_id: 21, correct: false, enunciation: 'La estabilidad de los isótopos no afecta su aplicación, ya que todos los isótopos se comportan igual.' },
+  { question_id: 21, correct: false, enunciation: 'Los isótopos inestables solo se usan para crear elementos artificiales en el laboratorio.' }
 
 ]
 
